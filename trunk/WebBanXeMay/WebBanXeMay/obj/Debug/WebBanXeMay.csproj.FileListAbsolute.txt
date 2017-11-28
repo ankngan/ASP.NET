@@ -2,3 +2,8 @@ C:\Users\HoangDuy\Desktop\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.dll
 C:\Users\HoangDuy\Desktop\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.pdb
 C:\Users\HoangDuy\Desktop\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.dll
 C:\Users\HoangDuy\Desktop\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.pdb
+F:\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.dll
+F:\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.pdb
+F:\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.dll
+F:\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.pdb
+F:\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.csprojResolveAssemblyReference.cache
