@@ -7,6 +7,12 @@ body {
     padding: 0px;
 }
 
+a.btn.btn-info.btn-xs {
+    float: right;
+    padding: 15px;
+    height: 50px;
+}
+
 .col-md-12 p button.btn.btn-info.btn-xs {
     float: right;
     margin-bottom: 10px;
