@@ -67,11 +67,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 				<a class="toggleMenu" href="#">Menu</a>
 				<ul class="nav">
+
 					<li class="active"><a href="home.aspx" data-hover="Home"><p>Trang chủ</p></a></li>
-					<li><a href="product.aspx" data-hover="Xe Tay Ga"><p>Xe tay ga</p></a></li>
-					<li><a href="product.aspx" data-hover="Xe Số"><p>Xe số</p></a></li>
-					<li><a href="product.aspx" data-hover="Xe Thể Thao"><p>Xe thể thao</p></a></li>
-					<li><a href="contact.aspx" data-hover="Liên Hệ"><p>Liên hệ</p></a></li>
+                    <asp:Repeater ID="RepeaterCategories" runat="server">
+                    <ItemTemplate>
+					<li><a href="product.aspx" data-hover="Xe Tay Ga"><p><%#Eval("categories_name")%></p></a></li>
+                    </ItemTemplate>
+                    </asp:Repeater>
 				 </ul>
 				 <script type="text/javascript" src="js/nav.js"></script>
 	      </div><!-- end h_menu4 -->
