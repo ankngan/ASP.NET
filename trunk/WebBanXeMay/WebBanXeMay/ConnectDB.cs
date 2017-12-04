@@ -87,7 +87,7 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Update Users set name = @Name user_name = @User_name, user_address = @User_address, [user_phone] = @User_phone, user_email = @User_email, user_password = @User_pass, user_permission = @User_per where user_id = @User_id", conn);
+                SqlCommand cmd = new SqlCommand("Update Users set name = @Name, user_name = @User_name, user_address = @User_address, [user_phone] = @User_phone, user_email = @User_email, user_password = @User_pass, user_permission = @User_per where user_id = @User_id", conn);
 
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@User_id", UserId);
@@ -724,11 +724,11 @@ namespace WebBanXeMay
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("Update Main_detail set model = @Model, weight = @weight, size = @size, tank_capacity = @tankCapacity, warranty_period = @warrantyPeriod where main_detail_id = @mainDetailId", conn);
 
-                cmd.Parameters.AddWithValue("@main_detail_id", main_detailId);
-                cmd.Parameters.AddWithValue("@model", model);
+                cmd.Parameters.AddWithValue("@mainDetailId", main_detailId);
+                cmd.Parameters.AddWithValue("@Model", model);
                 cmd.Parameters.AddWithValue("@weight", weight);
-                cmd.Parameters.AddWithValue("@size", size); cmd.Parameters.AddWithValue("@tank_capacity", tankCapacity);
-                cmd.Parameters.AddWithValue("@warranty_period", warrantyPeriod);
+                cmd.Parameters.AddWithValue("@size", size); cmd.Parameters.AddWithValue("@tankCapacity", tankCapacity);
+                cmd.Parameters.AddWithValue("@warrantyPeriod", warrantyPeriod);
                 if (cmd.ExecuteNonQuery() > 0)
                     return true;
                 else

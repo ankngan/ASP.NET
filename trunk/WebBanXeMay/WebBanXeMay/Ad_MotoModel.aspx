@@ -82,12 +82,7 @@
             <asp:View ID="v4" runat="server">
                 <h2 class="modal-title custom_align text-center" id="H1">Add New Detail</h2>
 
-                <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label">Moto_ModelId</label>
-                    <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtMoto_ModelID" runat="server"></asp:TextBox>
-                    </div>
-                </div>
+               
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Moto_ModelName</label>
                     <div class="col-sm-10">

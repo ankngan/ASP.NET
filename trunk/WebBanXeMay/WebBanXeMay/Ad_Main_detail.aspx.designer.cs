@@ -157,15 +157,6 @@ namespace WebBanXeMay {
         protected global::System.Web.UI.WebControls.View v4;
         
         /// <summary>
-        /// txtMain_detailId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMain_detailId;
-        
-        /// <summary>
         /// txtModel control.
         /// </summary>
         /// <remarks>

@@ -81,7 +81,7 @@
                 <div class="form-group row">
                     <label for="inputId" class="col-sm-2 col-form-label">Weight</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtWeightEdit" runat="server" Enabled="false"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtWeightEdit" runat="server" ></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -93,7 +93,7 @@
                 <div class="form-group row">
                     <label for="inputId" class="col-sm-2 col-form-label">TankCapacity</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtTankCapacityEdit" runat="server" Enabled="false"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtTankCapacityEdit" runat="server" ></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -113,12 +113,7 @@
             <asp:View ID="v4" runat="server">
                 <h2 class="modal-title custom_align text-center" id="H1">Add New Detail</h2>
 
-                 <div class="form-group row">
-                    <label for="inputId" class="col-sm-2 col-form-label">Main_detailId</label>
-                    <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtMain_detailId" runat="server" Enabled="false"></asp:TextBox>
-                    </div>
-                </div>
+                 
                 <div class="form-group row">
                     <label for="inputName" class="col-sm-2 col-form-label">Model</label>
                     <div class="col-sm-10">
@@ -128,7 +123,7 @@
                 <div class="form-group row">
                     <label for="inputId" class="col-sm-2 col-form-label">Weight</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtWeight" runat="server" Enabled="false"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtWeight" runat="server" ></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -140,7 +135,7 @@
                 <div class="form-group row">
                     <label for="inputId" class="col-sm-2 col-form-label">TankCapacity</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtTankCapacity" runat="server" Enabled="false"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtTankCapacity" runat="server" ></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">

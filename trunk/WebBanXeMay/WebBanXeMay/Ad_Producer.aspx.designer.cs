@@ -121,15 +121,6 @@ namespace WebBanXeMay {
         protected global::System.Web.UI.WebControls.View v4;
         
         /// <summary>
-        /// txtProducerID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProducerID;
-        
-        /// <summary>
         /// txtProducerName control.
         /// </summary>
         /// <remarks>

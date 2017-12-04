@@ -155,12 +155,7 @@
             <asp:View ID="v4" runat="server">
                 <h2 class="modal-title custom_align text-center" id="H1">Bảng chi tiết thêm</h2>
 
-                 <div class="form-group row">
-                    <label for="inputId" class="col-sm-2 col-form-label">Mã Sản Phẩm</label>
-                    <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtProductID" runat="server"></asp:TextBox>
-                    </div>
-                </div>
+                 
                 <div class="form-group row">
                     <label for="inputCategories_ID" class="col-sm-2 col-form-label">Loại Xe</label>
                     <div class="col-sm-10">

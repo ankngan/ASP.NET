@@ -21,7 +21,7 @@ namespace WebBanXeMay
         }
         protected void msg_Delete(object sender, System.EventArgs e)
         {
-            ((LinkButton)sender).Attributes["onclick"] = "return confirm('Bạn muốn có xóa người dùng này?')";
+            ((LinkButton)sender).Attributes["onclick"] = "return confirm('Bạn muốn có xóa nhân viên này?')";
         }
 
         protected void linkAddNew_Click(object sender, EventArgs e)
@@ -78,7 +78,7 @@ namespace WebBanXeMay
         protected void addNewEmployer_Click(object sender, EventArgs e)
         {
             string file = UploadImage(flUpEmployer);
-            if (!string.IsNullOrEmpty(txtID.Text.Trim()))
+            if (!string.IsNullOrEmpty(txtName.Text.Trim()))
             {
                 if (!file.Equals(""))
                 {

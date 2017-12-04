@@ -108,12 +108,7 @@
             <asp:View ID="v4" runat="server">
                 <h2 class="modal-title custom_align text-center" id="H1">Bảng thêm chi tiết</h2>
 
-                <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label">Mã ID</label>
-                    <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtID" runat="server"></asp:TextBox>
-                    </div>
-                </div>
+               
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Tên</label>
                     <div class="col-sm-10">

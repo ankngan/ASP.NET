@@ -10,6 +10,7 @@ namespace WebBanXeMay
 {
     public partial class Categories : System.Web.UI.Page
     {
+        ConnectDB DB = new ConnectDB();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -20,7 +21,7 @@ namespace WebBanXeMay
         }
         protected void msg_Delete(object sender, System.EventArgs e)
         {
-            ((LinkButton)sender).Attributes["onclick"] = "return confirm('Bạn muốn có xóa người dùng này?')";
+            ((LinkButton)sender).Attributes["onclick"] = "return confirm('Bạn muốn có xóa dòng xe này?')";
         }
 
         protected void linkAddNew_Click(object sender, EventArgs e)
@@ -38,7 +39,7 @@ namespace WebBanXeMay
         //{
         //   mulCategories.ActiveViewIndex = 2;
         //}
-        ConnectDB DB = new ConnectDB();
+        
         void LoadCategories()
         {
             rptCategories.DataSource = DB.getLidtCategories();
@@ -83,11 +84,11 @@ namespace WebBanXeMay
 
         protected void updateCategories_Click(object sender, EventArgs e)
         {
-            DB.updateCategories(int.Parse(txtCategoriesIdEdit.Text.Trim()), txtCategoriesNameEdit.Text.Trim());
-            Response.Redirect(Request.Url.ToString());
-            if (!string.IsNullOrEmpty(txtCategoriesID.Text.Trim()))
+            
+            if (!string.IsNullOrEmpty(txtCategoriesNameEdit.Text.Trim()))
             {
-
+                DB.updateCategories(int.Parse(txtCategoriesIdEdit.Text.Trim()), txtCategoriesNameEdit.Text.Trim());
+                Response.Redirect(Request.Url.ToString());
             }
         }
     }

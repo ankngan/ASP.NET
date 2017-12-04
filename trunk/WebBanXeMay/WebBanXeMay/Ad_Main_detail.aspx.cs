@@ -20,7 +20,7 @@ namespace WebBanXeMay
         }
         protected void msg_Delete(object sender, System.EventArgs e)
         {
-            ((LinkButton)sender).Attributes["onclick"] = "return confirm('Bạn muốn có xóa người dùng này?')";
+            ((LinkButton)sender).Attributes["onclick"] = "return confirm('Bạn muốn có xóa dữ liệu này?')";
         }
 
         protected void linkAddNew_Click(object sender, EventArgs e)
@@ -87,11 +87,11 @@ namespace WebBanXeMay
 
         protected void updateMain_detail_Click(object sender, EventArgs e)
         {
-            DB.updateMain_detail(int.Parse(txtMain_detailId.Text.Trim()), txtModel.Text.Trim(), float.Parse(txtWeight.Text.Trim()), txtSize.Text.Trim(), float.Parse(txtTankCapacity.Text.Trim()), txtWarrantyPeriod.Text.Trim());
-            Response.Redirect(Request.Url.ToString());
-            if (!string.IsNullOrEmpty(txtMain_detailId.Text.Trim()))
+            
+            if (!string.IsNullOrEmpty(txtMain_detailIdEdit.Text.Trim()))
             {
-
+                DB.updateMain_detail(int.Parse(txtMain_detailIdEdit.Text.Trim()), txtModelEdit.Text.Trim(), float.Parse(txtWeightEdit.Text.Trim()), txtSizeEdit.Text.Trim(), float.Parse(txtTankCapacityEdit.Text.Trim()), txtWarrantyPeriodEdit.Text.Trim());
+                Response.Redirect(Request.Url.ToString());
             }
         }
     }

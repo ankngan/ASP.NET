@@ -48,7 +48,7 @@
                         <div class="sidebar content-box" style="display: block;">
                             <ul class="nav">
                                 <!-- Main menu -->
-                                <li class="curent"><a href="Ad_Dashboard.aspx"><i class="glyphicon glyphicon-home"></i>Dashboard</a></li>
+                                <li class="curent"><a href="Home.aspx"><i class="glyphicon glyphicon-home"></i>Dashboard</a></li>
                                 <li><a href="Ad_User.aspx"><i class="glyphicon glyphicon-calendar"></i>Users</a></li>
                                 <li><a href="Ad_Employer.aspx"><i class="glyphicon glyphicon-stats"></i>Employers</a></li>
                                 <li><a href="Ad_Producer.aspx"><i class="glyphicon glyphicon-list"></i>Producer</a></li>

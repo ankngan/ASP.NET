@@ -20,7 +20,7 @@ namespace WebBanXeMay
         }
         protected void msg_Delete(object sender, System.EventArgs e)
         {
-            ((LinkButton)sender).Attributes["onclick"] = "return confirm('Bạn muốn có xóa người dùng này?')";
+            ((LinkButton)sender).Attributes["onclick"] = "return confirm('Bạn muốn có xóa thương hiệu này?')";
         }
 
         protected void linkAddNew_Click(object sender, EventArgs e)
@@ -83,11 +83,11 @@ namespace WebBanXeMay
 
         protected void updateProducer_Click(object sender, EventArgs e)
         {
-            DB.updateProducer(int.Parse(txtProducerIdEdit.Text.Trim()), txtProducerNameEdit.Text.Trim());
-            Response.Redirect(Request.Url.ToString());
-            if (!string.IsNullOrEmpty(txtProducerID.Text.Trim()))
+            
+            if (!string.IsNullOrEmpty(txtProducerIdEdit.Text.Trim()))
             {
-                
+                DB.updateProducer(int.Parse(txtProducerIdEdit.Text.Trim()), txtProducerNameEdit.Text.Trim());
+                Response.Redirect(Request.Url.ToString());
             }
         }
     }
