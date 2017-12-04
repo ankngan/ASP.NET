@@ -62,13 +62,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Ad_Categories.aspx" />
+    <Content Include="Ad_Dashboard.aspx" />
+    <Content Include="Ad_Employer.aspx" />
+    <Content Include="Ad_Main_detail.aspx" />
+    <Content Include="Ad_MotoModel.aspx" />
+    <Content Include="Ad_Producer.aspx" />
+    <Content Include="Ad_Product.aspx" />
+    <Content Include="Ad_User.aspx" />
+    <Content Include="BrandMoto.aspx" />
     <Content Include="Cart.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="css\admin.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\etalage.css" />
     <Content Include="css\style.css" />
-    <Content Include="Dashboard.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="images\arrows.png" />
     <Content Include="images\banner1.png" />
@@ -118,7 +126,7 @@
     <Content Include="Product.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Search.aspx" />
-    <Content Include="User.aspx" />
+    <Content Include="VehicleCurrent.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -142,6 +150,69 @@
     <Compile Include="Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
+    <Compile Include="Ad_Categories.aspx.cs">
+      <DependentUpon>Ad_Categories.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ad_Categories.aspx.designer.cs">
+      <DependentUpon>Ad_Categories.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ad_Dashboard.aspx.cs">
+      <DependentUpon>Ad_Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ad_Dashboard.aspx.designer.cs">
+      <DependentUpon>Ad_Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ad_Employer.aspx.cs">
+      <DependentUpon>Ad_Employer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ad_Employer.aspx.designer.cs">
+      <DependentUpon>Ad_Employer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ad_Main_detail.aspx.cs">
+      <DependentUpon>Ad_Main_detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ad_Main_detail.aspx.designer.cs">
+      <DependentUpon>Ad_Main_detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ad_MotoModel.aspx.cs">
+      <DependentUpon>Ad_MotoModel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ad_MotoModel.aspx.designer.cs">
+      <DependentUpon>Ad_MotoModel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ad_Producer.aspx.cs">
+      <DependentUpon>Ad_Producer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ad_Producer.aspx.designer.cs">
+      <DependentUpon>Ad_Producer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ad_Product.aspx.cs">
+      <DependentUpon>Ad_Product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ad_Product.aspx.designer.cs">
+      <DependentUpon>Ad_Product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ad_User.aspx.cs">
+      <DependentUpon>Ad_User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ad_User.aspx.designer.cs">
+      <DependentUpon>Ad_User.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BrandMoto.aspx.cs">
+      <DependentUpon>BrandMoto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BrandMoto.aspx.designer.cs">
+      <DependentUpon>BrandMoto.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -149,20 +220,13 @@
     <Compile Include="Cart.aspx.designer.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ConectDB.cs" />
+    <Compile Include="ConnectDB.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Dashboard.aspx.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Dashboard.aspx.designer.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
@@ -214,12 +278,12 @@
     <Compile Include="Search.aspx.designer.cs">
       <DependentUpon>Search.aspx</DependentUpon>
     </Compile>
-    <Compile Include="User.aspx.cs">
-      <DependentUpon>User.aspx</DependentUpon>
+    <Compile Include="VehicleCurrent.aspx.cs">
+      <DependentUpon>VehicleCurrent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="User.aspx.designer.cs">
-      <DependentUpon>User.aspx</DependentUpon>
+    <Compile Include="VehicleCurrent.aspx.designer.cs">
+      <DependentUpon>VehicleCurrent.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

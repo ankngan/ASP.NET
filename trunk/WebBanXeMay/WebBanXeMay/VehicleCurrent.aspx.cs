@@ -10,7 +10,7 @@ using System.Web.Configuration;
 
 namespace WebBanXeMay
 {
-    public partial class Product : System.Web.UI.Page
+    public partial class VehicleCurrent : System.Web.UI.Page
     {
         ConnectDB DB = new ConnectDB();
         protected void Page_Load(object sender, EventArgs e)
@@ -18,24 +18,31 @@ namespace WebBanXeMay
             
             LoadProducts();
             
+           
         }
 
         
+
         private void LoadProducts()
         {
             String id_category = Request.QueryString["id"].ToString();
             int converId = Int16.Parse(id_category);
-            if (converId < 4)
-            {
-                
-                RepeaterProducts.DataSource = DB.getProductsByCategories(converId);
-                RepeaterProducts.DataBind();
-                
-            }
-            else
-                Response.Redirect("Contact.aspx");
-        }
 
-        
+
+
+            if (DB.getProductByMotoModel(converId).Rows.Count > 0)
+            {
+                lblTitle.Visible = false;
+                RepeaterProducts.DataSource = DB.getProductByMotoModel(converId);
+                RepeaterProducts.DataBind();
+            }
+            else {
+                
+                
+                lblTitle.Visible = true;
+                lblTitle.Text = "Sản phẩm đã hết hàng.";
+            }
+            
+        }
     }
 }

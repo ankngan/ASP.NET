@@ -12,7 +12,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href="css/login_form.css" rel="stylesheet" type="text/css" />
 <link href="css/cart.css" rel="stylesheet" type="text/css" />
-<link href='http://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+<%--<link href='http://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>--%>
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="css/etalage.css">
 
@@ -68,10 +68,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<a class="toggleMenu" href="#">Menu</a>
 				<ul class="nav">
 
-					<li class="active"><a href="home.aspx" data-hover="Home"><p>Trang chủ</p></a></li>
+					<li class="active"><a href="home.aspx" ><p>Trang chủ</p></a></li>
                     <asp:Repeater ID="RepeaterCategories" runat="server">
                     <ItemTemplate>
-					<li><a href="product.aspx" data-hover="Xe Tay Ga"><p><%#Eval("categories_name")%></p></a></li>
+					<li><a href="Product.aspx?id=<%#Eval("categories_id")%>"><p><%#Eval("categories_name")%></p></a></li>
                     </ItemTemplate>
                     </asp:Repeater>
 				 </ul>
@@ -79,6 +79,114 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	      </div><!-- end h_menu4 -->
      </div>
 </div>
+
+<div class="slider">
+	  <div class="callbacks_container">
+	      <ul class="rslides" id="slider">
+            <li><img src="images/banner1.png" class="img-responsive" alt=""/>
+	         <%--<div class="banner_desc">
+				<h1>Duis autem vel eum iriure dolor in hendrerit.</h1>
+				<h2>Claritas est etiam processus dynamicus, qui sequitur .</h2>
+			 </div>--%>
+	        </li>
+	        <li><img src="images/banner2.png" class="img-responsive" alt=""/>
+	         <%--<div class="banner_desc">
+				<h1>Duis autem vel eum iriure dolor in hendrerit.</h1>
+				<h2>Claritas est etiam processus dynamicus, qui sequitur .</h2>
+			 </div>--%>
+	        </li>
+	        <li><img src="images/banner3.png" class="img-responsive" alt=""/>
+	         <%-- <div class="banner_desc">
+				<h1>Ut wisi enim ad minim veniam, quis nostrud.</h1>
+				<h2>Mirum est notare quam littera gothica, quam nunc putamus.</h2>
+			  </div>--%>
+	        </li>
+	      </ul>
+	  </div>
+</div>
+
+<div class="column_center">
+  <div class="container">
+	<div class="search">
+	  <div class="stay_right">
+		  <input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
+		  <input type="submit" value="">
+	  </div>
+	  <div class="clearfix"> </div>
+	</div>
+    <div class="clearfix"> </div>
+  </div>
+</div>
+<div class="main">
+  <div class="content_top">
+  	<div class="container">
+	   <div class="col-md-3 sidebar_box">
+	   	 <div class="sidebar">
+			<div class="menu_box">
+		    <h3 class="menu_head"><strong>Thương hiệu</strong></h3>
+			  <ul class="menu">
+                
+                <asp:Repeater ID="RepeaterProducer" runat="server">
+                <ItemTemplate>
+                    <li><a href='BrandMoto.aspx?id=<%#Eval("producer_id")%>'><img class="arrow-img" src="images/f_menu.png" alt=""/><%#Eval("producer_name")%></a></li>
+                </ItemTemplate>
+                </asp:Repeater>
+
+			</ul>
+		</div>	
+       </div>
+
+        <div class="sidebar">
+			<div class="menu_box">
+		    <h3 class="menu_head"><strong>Dòng xe</strong></h3>
+			  <ul class="menu">
+           
+				<asp:Repeater ID="RepeaterMoto_model" runat="server">
+
+                <ItemTemplate>
+                    <li class="item1"><a href="VehicleCurrent.aspx?id=<%#Eval("moto_model_id") %>"><img class="arrow-img" src="images/f_menu.png" alt=""/><%#Eval("moto_model_name") %></a></li>
+                </ItemTemplate>
+
+                </asp:Repeater>
+         
+			</ul>
+		</div>	
+       </div>
+        <div class="sidebar">
+			<div class="menu_box">
+		    <h3 class="menu_head"><strong>NHÂN VIÊN HỖ TRỢ</strong></h3>
+			  <ul class="menu">
+
+                <asp:Repeater ID="RepeaterEmployer" runat="server">
+                <ItemTemplate>
+				<li class="item1 support_employer">
+                     <div class="info_left" >
+                        <img src="images/employers/<%#Eval("avatar")%>" class="img-responsive" alt=""/>
+                     </div>
+                     <div class="info_right">
+                         <p><strong><i class="fa fa-user"></i><%#Eval("employer_name")%></strong></p>
+                         <p><i class="fa fa-phone" ></i><%#Eval("employer_phone")%></p>
+                         <p><i class="fa fa-envelope" ></i><%#Eval("employer_email")%></p>
+                     </div>
+                     <div class="clearfix"></div>
+				</li>
+                </ItemTemplate>
+                </asp:Repeater>
+				
+			</ul>
+		</div>	
+       </div>
+
+       <!--<div class="sidebar">
+			<div class="menu_box">
+            <h3 class="menu_head"><strong>Bản đồ trung tâm</strong></h3>
+			 <div class="gmap-content">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1003454.1751206238!2d106.1347058958351!3d10.754289357288188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529292e8d3dd1%3A0xf15f5aad773c112b!2zSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2sin!4v1502429973386" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+			</div>
+		</div>	
+       </div>-->
+		    
+	   </div>
 
 <!-- Content -->
     <asp:ContentPlaceHolder ID="Content" runat="server">
@@ -159,6 +267,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     });
 </script>
 
+<!--
 <script type="text/javascript">
     $(function () {
         var menu_ul = $('.menu > li > ul'),
@@ -179,6 +288,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     });
 </script>
 
+-->
 <!-- END FOOTER SCRIPT -->
 
 </body>

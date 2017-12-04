@@ -76,6 +76,15 @@ namespace WebBanXeMay {
         protected global::System.Web.UI.WebControls.TextBox txtNameEdit;
         
         /// <summary>
+        /// txtUserNameEdit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUserNameEdit;
+        
+        /// <summary>
         /// txtAddressEdit control.
         /// </summary>
         /// <remarks>
@@ -166,15 +175,6 @@ namespace WebBanXeMay {
         protected global::System.Web.UI.WebControls.View v4;
         
         /// <summary>
-        /// txtID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtID;
-        
-        /// <summary>
         /// txtName control.
         /// </summary>
         /// <remarks>
@@ -182,6 +182,15 @@ namespace WebBanXeMay {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtName;
+        
+        /// <summary>
+        /// txtUserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUserName;
         
         /// <summary>
         /// txtAddress control.

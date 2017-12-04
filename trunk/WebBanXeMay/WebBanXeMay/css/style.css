@@ -4,6 +4,12 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 */
+.hethang
+{
+    color:Red;
+    font-size:25px;
+    margin-left:25px;
+    }
 h4, h5, h6,
 h1, h2, h3 {margin-top: 0;}
 ul, ol {margin: 0;}
@@ -826,6 +832,9 @@ ul.user li.user_desc p a{
 	border-bottom: 1px solid #ECECEC;
 	padding-bottom: 10px;
 	margin-bottom: 5px;
+	height: 40px;
+	overflow: hidden;
+	text-align: center;
 }
 a:hover, a:focus {
 	color: #E74C3C;

@@ -1,6 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="User.aspx.cs" Inherits="WebBanXeMay.User" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Ad_User.aspx.cs" Inherits="WebBanXeMay.User" %>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="CtUser" ContentPlaceHolderID="ctplAdmin" runat="server">
+    <!-- bắt đầu nội dung-->
     <div class="col-md-10 ">
         <div class="row">
             <h2 class="text-center">User</h2>
@@ -11,7 +12,7 @@
                 <div class="search">
                     <div class="col-md-12">
                         <!-- <div class="btn btn-info" data-placement="top" data-toggle="tooltip" title="Add New" data-toggle="modal" data-target="#addNew">Add New</div> -->
-                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder=" Search for names..">
+                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder=" Search for names.."/>
                         <p data-placement="top" data-toggle="tooltip" title="Add New">
                             <asp:LinkButton ID="linkAddNew" CssClass="btn btn-info btn-xs" runat="server" OnClick="linkAddNew_Click">Add New <span class="glyphicon glyphicon-plus"></span></asp:LinkButton>
                         </p>
@@ -19,16 +20,17 @@
                 </div>
                 <asp:Repeater ID="rptUser" runat="server" OnItemCommand="rptUser_ItemCommand">
                     <HeaderTemplate>
-                        <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                        <table id="datatable" class="table table-striped table-bordered" >
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Address</th>
-                                    <th>Phone</th>
+                                    <th>Tên</th>
+                                    <th>Tên người dùng</th>
+                                    <th>Địa chỉ</th>
+                                    <th>SĐT</th>
                                     <th>Email</th>
-                                    <th>Password</th>
-                                    <th>Permission</th>
+                                    <th>Mật khẩu</th>
+                                    <th>Trạng thái</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
@@ -38,6 +40,7 @@
                         <tbody>
                             <tr>
                                 <td><%#Eval("user_id")%></td>
+                                <td><%#Eval("name")%></td>
                                 <td><%#Eval("user_name")%></td>
                                 <td><%#Eval("user_address")%></td>
                                 <td><%#Eval("user_phone")%></td>
@@ -74,19 +77,25 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                    <label for="inputName" class="col-sm-2 col-form-label">Tên</label>
                     <div class="col-sm-10">
                         <asp:TextBox CssClass="form-control" ID="txtNameEdit" runat="server"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="inputAddress" class="col-sm-2 col-form-label">Address</label>
+                    <label for="inputName" class="col-sm-2 col-form-label">Tên người dùng</label>
+                    <div class="col-sm-10">
+                        <asp:TextBox CssClass="form-control" ID="txtUserNameEdit" runat="server"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputAddress" class="col-sm-2 col-form-label">Địa chỉ</label>
                     <div class="col-sm-10">
                         <asp:TextBox CssClass="form-control" ID="txtAddressEdit" runat="server"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="inputPhone" class="col-sm-2 col-form-label">Phone</label>
+                    <label for="inputPhone" class="col-sm-2 col-form-label">SĐT</label>
                     <div class="col-sm-10">
                         <asp:TextBox CssClass="form-control" ID="txtPhoneEdit" runat="server"></asp:TextBox>
                     </div>
@@ -98,13 +107,13 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Mật khẩu</label>
                     <div class="col-sm-10">
                         <asp:TextBox CssClass="form-control" ID="txtPassEdit" runat="server"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="inputPer" class="col-sm-2 col-form-label">Permission</label>
+                    <label for="inputPer" class="col-sm-2 col-form-label">Trạng thái</label>
                     <div class="col-sm-10">
                         <asp:TextBox CssClass="form-control" ID="txtPerEdit" runat="server"></asp:TextBox>
                     </div>
@@ -121,25 +130,25 @@
                 <h2 class="modal-title custom_align text-center" id="H1">Add New Detail</h2>
 
                 <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label">ID</label>
-                    <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtID" runat="server"></asp:TextBox>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label">Name</label>
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Tên</label>
                     <div class="col-sm-10">
                         <asp:TextBox CssClass="form-control" ID="txtName" runat="server"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label">Address</label>
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Tên người dùng</label>
+                    <div class="col-sm-10">
+                        <asp:TextBox CssClass="form-control" ID="txtUserName" runat="server"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Địa chỉ</label>
                     <div class="col-sm-10">
                         <asp:TextBox CssClass="form-control" ID="txtAddress" runat="server"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label">Phone</label>
+                    <label for="inputPassword" class="col-sm-2 col-form-label">SĐT</label>
                     <div class="col-sm-10">
                         <asp:TextBox CssClass="form-control" ID="txtPhone" runat="server"></asp:TextBox>
                     </div>
@@ -151,13 +160,13 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Mật khẩu</label>
                     <div class="col-sm-10">
                         <asp:TextBox CssClass="form-control" ID="txtPass" runat="server"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label">Permission</label>
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Trạng thái</label>
                     <div class="col-sm-10">
                         <asp:TextBox CssClass="form-control" ID="txtPer" runat="server"></asp:TextBox>
                     </div>
@@ -168,5 +177,6 @@
         </asp:MultiView>
     </div>
     <!-- het col-sm 10 -->
+    <!-- hết nội dung-->
 </asp:Content>
 

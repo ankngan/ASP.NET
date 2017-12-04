@@ -22,6 +22,33 @@ namespace WebBanXeMay {
         protected global::System.Web.UI.WebControls.Repeater RepeaterCategories;
         
         /// <summary>
+        /// RepeaterProducer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RepeaterProducer;
+        
+        /// <summary>
+        /// RepeaterMoto_model control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RepeaterMoto_model;
+        
+        /// <summary>
+        /// RepeaterEmployer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RepeaterEmployer;
+        
+        /// <summary>
         /// Content control.
         /// </summary>
         /// <remarks>

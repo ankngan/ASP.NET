@@ -1,16 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout_master.Master" AutoEventWireup="true" CodeBehind="Product.aspx.cs" Inherits="WebBanXeMay.Product" %>
-<asp:Content ID="ProductContent" ContentPlaceHolderID="Content" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout_master.Master" AutoEventWireup="true" CodeBehind="VehicleCurrent.aspx.cs" Inherits="WebBanXeMay.VehicleCurrent" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
+<div class="top_grid2">
 
-
-      
-
-  
-
-	   <div class="col-md-9 content_right">
-       
-
-	    <div class="top_grid2">
-
+    <asp:Label ID="lblTitle" CssClass= "hethang" runat="server" Text="" Visible="false"></asp:Label>
         <asp:Repeater ID="RepeaterProducts" runat="server">
              <ItemTemplate>
 	          <div class="col-md-4 top_grid1-box1"><a href="detail.aspx">
@@ -31,9 +23,5 @@
         </asp:Repeater>
 
 	     <div class="clearfix"> </div>
-	    </div> 
-       </div>
-	  </div>  	    
-	</div>
-</div>
+	    </div>  	    
 </asp:Content>

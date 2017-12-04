@@ -13,31 +13,46 @@ namespace WebBanXeMay
 {
     public partial class Layout_master : System.Web.UI.MasterPage
     {
+        ConnectDB DB = new ConnectDB();
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlConnection conn;
-            SqlCommand cmpLenh;
-            connectData(out conn, out cmpLenh);
-
-            LoadCategories(conn, cmpLenh);
+            
+            LoadCategories();
+            LoadProducer();
+            LoadMotoModel();
+            LoadEmployer();
+           
         }
 
-        private static void connectData(out SqlConnection conn, out SqlCommand cmpLenh)
+       
+        private void LoadCategories()
         {
-            conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["connect"].ConnectionString);
-            conn.Open();
-            cmpLenh = new SqlCommand();
-        }
-
-        private void LoadCategories(SqlConnection conn, SqlCommand cmpLenh)
-        {
-            cmpLenh.CommandText = "LoadCategories";
-            cmpLenh.Connection = conn;
-            cmpLenh.CommandType = CommandType.StoredProcedure;
-            SqlDataReader Categories = cmpLenh.ExecuteReader();
-            RepeaterCategories.DataSource = Categories;
+            
+            RepeaterCategories.DataSource = DB.getLidtCategories();
             RepeaterCategories.DataBind();
-            Categories.Dispose();
+            
+        }
+        private void LoadProducer()
+        {
+            
+            RepeaterProducer.DataSource = DB.getLidtProducer();
+            RepeaterProducer.DataBind();
+        }
+
+        private void LoadMotoModel()
+        {
+            
+            RepeaterMoto_model.DataSource = DB.getLidtMoto_model();
+            RepeaterMoto_model.DataBind();
+            
+        }
+
+        private void LoadEmployer()
+        {
+            
+            RepeaterEmployer.DataSource = DB.getLidtEmployer();
+            RepeaterEmployer.DataBind();
+            
         }
     }
 }
