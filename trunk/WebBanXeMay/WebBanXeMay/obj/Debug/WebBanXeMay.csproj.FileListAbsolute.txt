@@ -11,6 +11,7 @@ C:\Users\IT\Desktop\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.pdb
 C:\Users\IT\Desktop\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.csprojResolveAssemblyReference.cache
 C:\Users\IT\Desktop\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.dll
 C:\Users\IT\Desktop\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.pdb
+<<<<<<< HEAD
 C:\Users\ThucNguyen\Desktop\ASP.NET-master\trunk\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.dll
 C:\Users\ThucNguyen\Desktop\ASP.NET-master\trunk\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.pdb
 C:\Users\ThucNguyen\Desktop\ASP.NET-master\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.dll
@@ -19,3 +20,16 @@ C:\Users\nvkho\Desktop\ASP.NET-master(version2)\trunk\WebBanXeMay\WebBanXeMay\bi
 C:\Users\nvkho\Desktop\ASP.NET-master(version2)\trunk\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.pdb
 C:\Users\nvkho\Desktop\ASP.NET-master(version2)\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.dll
 C:\Users\nvkho\Desktop\ASP.NET-master(version2)\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.pdb
+=======
+C:\Users\Win 8.1 VS8 X64\Desktop\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.dll.config
+C:\Users\Win 8.1 VS8 X64\Desktop\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.dll
+C:\Users\Win 8.1 VS8 X64\Desktop\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.pdb
+C:\Users\Win 8.1 VS8 X64\Desktop\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.dll
+C:\Users\Win 8.1 VS8 X64\Desktop\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.pdb
+C:\Users\Win 8.1 VS8 X64\Desktop\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.dll.config
+C:\Users\Win 8.1 VS8 X64\Desktop\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.dll
+C:\Users\Win 8.1 VS8 X64\Desktop\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.pdb
+C:\Users\Win 8.1 VS8 X64\Desktop\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.csprojResolveAssemblyReference.cache
+C:\Users\Win 8.1 VS8 X64\Desktop\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.dll
+C:\Users\Win 8.1 VS8 X64\Desktop\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.pdb
+>>>>>>> 8439a5f87e7706fb1a9a1cf38192d03968dc9b66
