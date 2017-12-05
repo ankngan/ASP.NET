@@ -900,6 +900,54 @@ namespace WebBanXeMay
                 conn.Close();
             }
         }
+        //phan trang
+        public static DataSet ThucThiStore_DataSet(string StoredProcedure, params SqlParameter[] Parameters)
+        { //Khai báo cuỗi kết nối   
+            SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["connect"].ConnectionString);
+               
+                SqlCommand cmd = new SqlCommand(StoredProcedure, conn);
+                DataSet ds = new DataSet();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                cmd.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand = cmd;
+                
+                if
+                 (Parameters != null)
+                {
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddRange(Parameters);
+                }
+                try
+                {
+                    conn.Open();
+                da.Fill(ds);
+            }
+            finally  {
+                // Đóng kết nối   
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+                conn.Dispose();
+            }
+            return ds;
+
+        }
+        // do du liệu
+        public DataSet StoreToDataSet(
+        int currPage,
+        int recodperpage,
+        int Pagesize)
+        {
+            DataSet dts = new DataSet();
+            SqlParameter[] arrParam = {
+                new SqlParameter("@currPage", SqlDbType.Int),
+                new SqlParameter("@recodperpage", SqlDbType.Int),
+                new SqlParameter("@Pagesize", SqlDbType.Int)
+                };
+            arrParam[0].Value = currPage;
+            arrParam[1].Value = recodperpage;
+            arrParam[2].Value = Pagesize;
+            return ThucThiStore_DataSet("PhanTrang", arrParam);
+        }
 
 
         //Product Xe tay ga
@@ -923,10 +971,6 @@ namespace WebBanXeMay
                 conn.Close();
             }
         }
-        //Lấy ra danh sách Employer
-       
 
-        
-       
     }
 }
