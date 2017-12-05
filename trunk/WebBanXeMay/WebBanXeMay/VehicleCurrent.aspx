@@ -5,7 +5,7 @@
     <asp:Label ID="lblTitle" CssClass= "hethang" runat="server" Text="" Visible="false"></asp:Label>
         <asp:Repeater ID="RepeaterProducts" runat="server">
              <ItemTemplate>
-	          <div class="col-md-4 top_grid1-box1"><a href="detail.aspx">
+	          <div class="col-md-4 top_grid1-box1"><a href="detail.aspx?id=<%#Eval("product_id")%>">
 	     	    <div class="grid_1 hover_product">
 	     	      <div class="image_product">
 		            <img src="images/products/<%#Eval("product_image")%>" class="img-responsive" alt=""/> </div>

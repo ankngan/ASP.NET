@@ -109,6 +109,7 @@ namespace WebBanXeMay
                 conn.Close();
             }
         }
+      
 
         //Delete theo id
         public bool deleteUser(int UserId)
@@ -221,7 +222,7 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("select * from Product where product_id =@ProductID ", conn);
+                SqlCommand cmd = new SqlCommand("select Product.*, Main_detail.* from Product inner join Main_detail on Product.main_detail_id = Main_detail.main_detail_id and Product.product_id = @ProductID", conn);
                 cmd.CommandType = CommandType.Text;
                 DataTable dataTable = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -236,6 +237,26 @@ namespace WebBanXeMay
             }
         }
 
+        //Lấy ra Product theo key 
+        public DataTable getProductByKeySearch(string key_search)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("select * from Product where product_name like '%' + @key_search + '%' ", conn);
+                cmd.CommandType = CommandType.Text;
+                DataTable dataTable = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                cmd.Parameters.AddWithValue("@key_search", key_search);
+                adapter.Fill(dataTable);
+                return dataTable;
+            }
+
+            finally
+            {
+                conn.Close();
+            }
+        }
         //Thêm Product vào database
         public bool themProduct(int categoryID, int producerID, int mainDetailID, int motoModelID, string productName, string productImage, int productPrice, int productQuantity, string productDes, string productReView)
         {

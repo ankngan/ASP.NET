@@ -20,6 +20,7 @@ namespace WebBanXeMay
             connectData(out conn, out cmpLenh);
 
             LoadProducts(conn, cmpLenh);
+           
         }
         private static void connectData(out SqlConnection conn, out SqlCommand cmpLenh)
         {
@@ -48,5 +49,6 @@ namespace WebBanXeMay
             
             
         }
+       
     }
 }

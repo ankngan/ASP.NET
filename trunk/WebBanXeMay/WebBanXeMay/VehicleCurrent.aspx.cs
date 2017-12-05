@@ -17,8 +17,7 @@ namespace WebBanXeMay
         {
             
             LoadProducts();
-            
-           
+
         }
 
         
@@ -44,5 +43,6 @@ namespace WebBanXeMay
             }
             
         }
+
     }
 }

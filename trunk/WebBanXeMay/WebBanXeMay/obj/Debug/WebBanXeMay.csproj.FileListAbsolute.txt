@@ -19,3 +19,15 @@ C:\Users\nvkho\Desktop\ASP.NET-master(version2)\trunk\WebBanXeMay\WebBanXeMay\bi
 C:\Users\nvkho\Desktop\ASP.NET-master(version2)\trunk\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.pdb
 C:\Users\nvkho\Desktop\ASP.NET-master(version2)\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.dll
 C:\Users\nvkho\Desktop\ASP.NET-master(version2)\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.pdb
+E:\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.dll.config
+E:\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.dll
+E:\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.pdb
+E:\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.csprojResolveAssemblyReference.cache
+E:\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.dll
+E:\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.pdb
+E:\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.dll.config
+E:\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.dll
+E:\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.pdb
+E:\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.csprojResolveAssemblyReference.cache
+E:\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.dll
+E:\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.pdb
