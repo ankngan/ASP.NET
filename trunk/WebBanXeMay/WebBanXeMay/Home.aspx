@@ -28,7 +28,7 @@
 	     <div class="clearfix"> </div>
             <div class="PhanTrang"><asp:Literal ID="ltlPhanTrang" runat="server"/></div>
 	    </div> 
-       </div
+       </div>
     </div> 
        </div>
 </asp:Content>

@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout_master.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="WebBanXeMay.Register" %>
 <asp:Content ID="RegisterContent" ContentPlaceHolderID="Content" runat="server">
+<div class="col-md-9 content_right">
 <div class="about">
   <div class="container">
       <div class="register">
@@ -41,5 +42,8 @@
 				
 		   </div>
 	</div>
+</div>
+</div>
+</div>
 </div>
 </asp:Content>

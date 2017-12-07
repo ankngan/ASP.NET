@@ -2,9 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
 <div class="col-md-9 content_right">
        
-	    <div class="top_grid2">
-    <asp:Label ID="lblTitle" CssClass= "hethang" runat="server" Text="" Visible="false"></asp:Label>
 
+	    <div class="top_grid2">
+        <asp:Label ID="lblTitle" CssClass= "hethang" runat="server" Text="" Visible="false"></asp:Label>
         <asp:Repeater ID="RepeaterProducts" runat="server">
              <ItemTemplate>
 	          <div class="col-md-4 top_grid1-box1"><a href="detail.aspx?id=<%#Eval("product_id")%>">

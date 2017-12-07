@@ -1575,7 +1575,6 @@ i.mail{
 }
 .register-top-grid div, .register-bottom-grid div {
 	width: 48%;
-	float: left;
 	margin: 10px 0;
 }
 .register-top-grid span, .register-bottom-grid span {
@@ -2098,6 +2097,9 @@ ul.about_box li.box_desc {
     height:90px;
     width:80%;
     float:right;
+}
+.container {
+    width: 100%;
 }
 
 

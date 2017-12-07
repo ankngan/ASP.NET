@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout_master.Master" AutoEventWireup="true" CodeBehind="Cart.aspx.cs" Inherits="WebBanXeMay.Cart" %>
 <asp:Content ID="DetailContent" ContentPlaceHolderID="Content" runat="server">
-
+<div class="col-md-9 content_right">
+    <div class="top_grid2">
 <section id="cart_items" style="margin-top:20px">
 		<div class="container">
 
@@ -100,5 +101,8 @@
 		</div>
 
 	</section>
-
+</div>
+    </div>
+    </div>
+    </div>
 </asp:Content>
