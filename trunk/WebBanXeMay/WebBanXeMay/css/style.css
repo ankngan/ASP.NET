@@ -523,6 +523,7 @@ h3.menu_head {
 .sidebar_box{
 	padding-right:0;
 	border-right: 1px solid #B8B8B8;
+	padding-left: 0px;
 }
 .menu {
 	width: auto;

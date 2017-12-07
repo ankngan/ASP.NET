@@ -110,6 +110,9 @@ go
 create proc LoadMoto_Model
 as
 select * from Moto_model
+
+select * from Product p, Main_detail m where p.main_detail_id=m.main_detail_id and  product_id =1
+
 go
 
 

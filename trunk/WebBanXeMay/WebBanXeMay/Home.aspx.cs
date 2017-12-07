@@ -17,7 +17,7 @@ namespace WebBanXeMay
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            int page = int.Parse("0" + Request.QueryString["page"]);
+            int page = Convert.ToInt32("0" + Request.QueryString["page"]);
             if (page == 0) page = 1;
             if (!IsPostBack)
             {

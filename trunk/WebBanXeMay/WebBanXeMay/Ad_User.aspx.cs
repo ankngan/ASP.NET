@@ -50,7 +50,7 @@ namespace WebBanXeMay
             switch(e.CommandName.ToString())
             {
                 case "Edit":
-                    dt = DB.getUserByID(int.Parse(e.CommandArgument.ToString()));
+                    dt = DB.getUserByID(Convert.ToInt32(e.CommandArgument.ToString()));
                     if (dt.Rows.Count>0)
                     {
                         txtIDEdit.Text = dt.Rows[0]["user_id"].ToString();
@@ -66,7 +66,7 @@ namespace WebBanXeMay
                 case"Delete":
                     //if (e.CommandName.ToString() == "yes")
                     //{
-                        DB.deleteUser(int.Parse(e.CommandArgument.ToString()));
+                        DB.deleteUser(Convert.ToInt32(e.CommandArgument.ToString()));
                         Response.Redirect(Request.Url.ToString());       
                 //}
                     //else if(e.CommandName.ToString() == "no") 
@@ -81,7 +81,7 @@ namespace WebBanXeMay
         {
             if (!string.IsNullOrEmpty(txtName.Text.Trim()))
             {
-                DB.themUser(txtName.Text.Trim(),txtUserName.Text.Trim(), txtAddress.Text.Trim(), Int32.Parse(txtPhone.Text.Trim()), txtEmail.Text.Trim(), txtPass.Text.Trim(), int.Parse(txtPer.Text.Trim()));
+                DB.themUser(txtName.Text.Trim(),txtUserName.Text.Trim(), txtAddress.Text.Trim(), Convert.ToInt32(txtPhone.Text.Trim()), txtEmail.Text.Trim(), txtPass.Text.Trim(), Convert.ToInt32(txtPer.Text.Trim()));
                 Response.Redirect(Request.Url.ToString());
             }
         }
@@ -90,7 +90,7 @@ namespace WebBanXeMay
         {
             if (!string.IsNullOrEmpty(txtIDEdit.Text.Trim()))
             {
-                DB.updateUser(int.Parse(txtIDEdit.Text.Trim()), txtNameEdit.Text.Trim(), txtUserNameEdit.Text.Trim(), txtAddressEdit.Text.Trim(), Int32.Parse(txtPhoneEdit.Text.Trim()), txtEmailEdit.Text.Trim(), txtPassEdit.Text.Trim(), int.Parse(txtPerEdit.Text.Trim()));
+                DB.updateUser(Convert.ToInt32(txtIDEdit.Text.Trim()), txtNameEdit.Text.Trim(), txtUserNameEdit.Text.Trim(), txtAddressEdit.Text.Trim(), Convert.ToInt32(txtPhoneEdit.Text.Trim()), txtEmailEdit.Text.Trim(), txtPassEdit.Text.Trim(), Convert.ToInt32(txtPerEdit.Text.Trim()));
                 Response.Redirect(Request.Url.ToString());
             }
         }

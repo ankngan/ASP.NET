@@ -235,6 +235,26 @@ namespace WebBanXeMay
                 conn.Close();
             }
         }
+        //Get detail
+        public DataTable getDetailProductByID(int productId)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("select * from Product p, Main_detail m where p.main_detail_id=m.main_detail_id and  product_id =@ProductID", conn);
+                cmd.CommandType = CommandType.Text;
+                DataTable dataTable = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                cmd.Parameters.AddWithValue("@ProductID", productId);
+                adapter.Fill(dataTable);
+                return dataTable;
+            }
+
+            finally
+            {
+                conn.Close();
+            }
+        }
 
         //Lấy ra Product theo key 
         public DataTable getProductByKeySearch(string key_search)

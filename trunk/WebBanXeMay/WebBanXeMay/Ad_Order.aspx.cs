@@ -69,7 +69,7 @@ namespace WebBanXeMay
             switch (e.CommandName.ToString())
             {
                 case "Edit":
-                    dt = DB.getOrderByID(int.Parse(e.CommandArgument.ToString()));
+                    dt = DB.getOrderByID(Convert.ToInt32(e.CommandArgument.ToString()));
                     if (dt.Rows.Count > 0)
                     {
                         txtOderIDEdit.Text = dt.Rows[0]["orders_id"].ToString();
@@ -82,7 +82,7 @@ namespace WebBanXeMay
                 case "Delete":
                     //if (e.CommandName.ToString() == "yes")
                     //{
-                    DB.deleteOrder(int.Parse(e.CommandArgument.ToString()));
+                    DB.deleteOrder(Convert.ToInt32(e.CommandArgument.ToString()));
                     Response.Redirect(Request.Url.ToString());
                     //}
                     //else if(e.CommandName.ToString() == "no") 
@@ -97,7 +97,7 @@ namespace WebBanXeMay
         //{
         //    if (!string.IsNullOrEmpty(txtNgayDat.Text.Trim()))
         //    {
-        //                DB.themOrder(int.Parse(drlUserID.Text.Trim()), Int32.Parse(txtTotalMoney.Text.Trim()), int.Parse(txtQuantity.Text.Trim()), txtNgayDat.Text.Trim());
+        //                DB.themOrder(Convert.ToInt32(drlUserID.Text.Trim()), Convert.ToInt32(txtTotalMoney.Text.Trim()), Convert.ToInt32(txtQuantity.Text.Trim()), txtNgayDat.Text.Trim());
         //                Response.Redirect(Request.Url.ToString());
         //        }
 
@@ -108,7 +108,7 @@ namespace WebBanXeMay
             
         //    if (!string.IsNullOrEmpty(txtOderIDEdit.Text.Trim()))
         //    {
-        //        DB.updateOrder(int.Parse(txtOderIDEdit.Text.Trim()), int.Parse(drlUserIDEdit.Text.Trim()), int.Parse(txtTotalMoneyEdit.Text.Trim()), int.Parse(txtQuantityEdit.Text.Trim()), txtNgayDatEdit.Text.Trim());
+        //        DB.updateOrder(Convert.ToInt32(txtOderIDEdit.Text.Trim()), Convert.ToInt32(drlUserIDEdit.Text.Trim()), Convert.ToInt32(txtTotalMoneyEdit.Text.Trim()), Convert.ToInt32(txtQuantityEdit.Text.Trim()), txtNgayDatEdit.Text.Trim());
         //        Response.Redirect(Request.Url.ToString());
         //    }
         //}

@@ -83,14 +83,21 @@
 
 .loginmodal-container a {
   text-decoration: none;
-  color: #666;
+  color: #000;
   font-weight: 400;
   text-align: center;
   display: inline-block;
-  opacity: 0.6;
+  opacity: 1;
   transition: opacity ease 0.5s;
+}
+
+a.forgotPass:hover {color: #df1f26;}
+
+a.dangKy:hover {
+    color: lightgreen;
 } 
 
 .login-help{
-  font-size: 12px;
+  font-size: 14px;
+  margin-top: 30px;
 }

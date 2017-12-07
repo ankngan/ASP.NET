@@ -51,7 +51,7 @@ namespace WebBanXeMay
             switch (e.CommandName.ToString())
             {
                 case "Edit":
-                    dt = DB.getEmployerByID(int.Parse(e.CommandArgument.ToString()));
+                    dt = DB.getEmployerByID(Convert.ToInt32(e.CommandArgument.ToString()));
                     if (dt.Rows.Count > 0)
                     {
                         txtIDEdit.Text = dt.Rows[0]["Employer_id"].ToString();
@@ -64,7 +64,7 @@ namespace WebBanXeMay
                 case "Delete":
                     //if (e.CommandName.ToString() == "yes")
                     //{
-                    DB.deleteEmployer(int.Parse(e.CommandArgument.ToString()));
+                    DB.deleteEmployer(Convert.ToInt32(e.CommandArgument.ToString()));
                     Response.Redirect(Request.Url.ToString());
                     //}
                     //else if(e.CommandName.ToString() == "no") 
@@ -84,7 +84,7 @@ namespace WebBanXeMay
                 {
                     if (!string.IsNullOrEmpty(txtName.Text.Trim()))
                     {
-                        DB.themEmployer(txtName.Text.Trim(), txtEmail.Text.Trim(), Int32.Parse(txtPhone.Text.Trim()), file);
+                        DB.themEmployer(txtName.Text.Trim(), txtEmail.Text.Trim(), Convert.ToInt32(txtPhone.Text.Trim()), file);
                         Response.Redirect(Request.Url.ToString());
                     }
                 }
@@ -110,7 +110,7 @@ namespace WebBanXeMay
             }
             if (!string.IsNullOrEmpty(txtIDEdit.Text.Trim()))
             {
-                DB.updateEmployer(int.Parse(txtIDEdit.Text.Trim()), txtNameEdit.Text.Trim(), txtEmailEdit.Text.Trim(), Int32.Parse(txtPhoneEdit.Text.Trim()),file);
+                DB.updateEmployer(Convert.ToInt32(txtIDEdit.Text.Trim()), txtNameEdit.Text.Trim(), txtEmailEdit.Text.Trim(), Convert.ToInt32(txtPhoneEdit.Text.Trim()),file);
                 Response.Redirect(Request.Url.ToString());
             }
         }

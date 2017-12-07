@@ -50,7 +50,7 @@ namespace WebBanXeMay
             switch (e.CommandName.ToString())
             {
                 case "Edit":
-                    dt = DB.getMoto_modelByID(int.Parse(e.CommandArgument.ToString()));
+                    dt = DB.getMoto_modelByID(Convert.ToInt32(e.CommandArgument.ToString()));
                     if (dt.Rows.Count > 0)
                     {
                         txtMoto_ModelIdEdit.Text = dt.Rows[0]["Moto_Model_id"].ToString();
@@ -61,7 +61,7 @@ namespace WebBanXeMay
                 case "Delete":
                     //if (e.CommandName.ToString() == "yes")
                     //{
-                    DB.deleteMoto_model(int.Parse(e.CommandArgument.ToString()));
+                    DB.deleteMoto_model(Convert.ToInt32(e.CommandArgument.ToString()));
                     Response.Redirect(Request.Url.ToString());
                     //}
                     //else if(e.CommandName.ToString() == "no") 
@@ -86,7 +86,7 @@ namespace WebBanXeMay
             
             if (!string.IsNullOrEmpty(txtMoto_ModelIdEdit.Text.Trim()))
             {
-                DB.updateMoto_model(int.Parse(txtMoto_ModelIdEdit.Text.Trim()), txtMoto_ModelNameEdit.Text.Trim());
+                DB.updateMoto_model(Convert.ToInt32(txtMoto_ModelIdEdit.Text.Trim()), txtMoto_ModelNameEdit.Text.Trim());
                 Response.Redirect(Request.Url.ToString());
             }
         }

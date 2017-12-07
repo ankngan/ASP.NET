@@ -50,7 +50,7 @@ namespace WebBanXeMay
             switch (e.CommandName.ToString())
             {
                 case "Edit":
-                    dt = DB.getMain_detailByID(int.Parse(e.CommandArgument.ToString()));
+                    dt = DB.getMain_detailByID(Convert.ToInt32(e.CommandArgument.ToString()));
                     if (dt.Rows.Count > 0)
                     {
                         txtMain_detailIdEdit.Text = dt.Rows[0]["main_detail_id"].ToString();
@@ -65,7 +65,7 @@ namespace WebBanXeMay
                 case "Delete":
                     //if (e.CommandName.ToString() == "yes")
                     //{
-                    DB.deleteMain_detail(int.Parse(e.CommandArgument.ToString()));
+                    DB.deleteMain_detail(Convert.ToInt32(e.CommandArgument.ToString()));
                     Response.Redirect(Request.Url.ToString());
                     //}
                     //else if(e.CommandName.ToString() == "no") 
@@ -90,7 +90,7 @@ namespace WebBanXeMay
             
             if (!string.IsNullOrEmpty(txtMain_detailIdEdit.Text.Trim()))
             {
-                DB.updateMain_detail(Int32.Parse(txtMain_detailIdEdit.Text.Trim()), txtModelEdit.Text.Trim(), float.Parse(txtWeightEdit.Text.Trim()), txtSizeEdit.Text.Trim(), float.Parse(txtTankCapacityEdit.Text.Trim()), txtWarrantyPeriodEdit.Text.Trim());
+                DB.updateMain_detail(Convert.ToInt32(txtMain_detailIdEdit.Text.Trim()), txtModelEdit.Text.Trim(), float.Parse(txtWeightEdit.Text.Trim()), txtSizeEdit.Text.Trim(), float.Parse(txtTankCapacityEdit.Text.Trim()), txtWarrantyPeriodEdit.Text.Trim());
                 Response.Redirect(Request.Url.ToString());
             }
         }

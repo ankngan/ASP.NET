@@ -124,6 +124,7 @@
     <Content Include="css\login_form.css" />
     <Content Include="Detail.aspx" />
     <Content Include="js\search.js" />
+    <Content Include="Login.aspx" />
     <Content Include="Order.aspx" />
     <Content Include="Product.aspx" />
     <Content Include="Register.aspx" />
@@ -258,6 +259,13 @@
     <Compile Include="Detail.aspx.designer.cs">
       <DependentUpon>Detail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Order.aspx.cs">
       <DependentUpon>Order.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -316,7 +324,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>2969</DevelopmentServerPort>
+          <DevelopmentServerPort>1457</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

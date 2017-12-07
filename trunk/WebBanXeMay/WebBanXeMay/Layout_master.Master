@@ -38,7 +38,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<ul class="shopping_grid">
 			      <a href="register.aspx"><li>Đăng ký</li></a>
-			      <a href="#" data-toggle="modal" data-target="#login-modal"><li>Đăng nhập</li></a>
+			      <a href="login.aspx" <%--data-toggle="modal" data-target="#login-modal"--%>><li>Đăng nhập</li></a>
 			      <a href="cart.aspx"><li><span class="m_1">Đã thêm</span>&nbsp;&nbsp;(0) &nbsp;<img src="images/motorcycle.png" width="25" height="25" alt=""/></li></a>
 			      <div class="clearfix"> </div>
 			</ul>
@@ -46,155 +46,157 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 
-    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    	  <div class="modal-dialog">
-				<div class="loginmodal-container">
-					<h1>Đăng nhập </h1><br>
-				  <form>
-					<input type="text" name="user" placeholder="Nhập email">
-					<input type="password" name="pass" placeholder="Nhập mật khẩu">
-					<input type="submit" name="login" class="login loginmodal-submit" value="Đăng nhập">
-				  </form>
-					
-				  <div class="login-help">
-					<a href="register.aspx">Đăng ký</a> - <a href="#">Quên mật khẩu</a>
-				  </div>
-				</div>
-		  </div>
-	</div>
 
-	<div class="h_menu4"><!-- start h_menu4 -->
-		<div class="container">
-				<a class="toggleMenu" href="#">Menu</a>
-				<ul class="nav">
+    <div class="h_menu4">
+        <!-- start h_menu4 -->
+        <div class="container">
+            <a class="toggleMenu" href="#">Menu</a>
+            <ul class="nav">
 
-					<li class="active"><a href="home.aspx" ><p>Trang chủ</p></a></li>
-                    <asp:Repeater ID="RepeaterCategories" runat="server">
+                <li class="active"><a href="home.aspx">
+                    <p>Trang chủ</p>
+                </a></li>
+                <asp:Repeater ID="RepeaterCategories" runat="server">
                     <ItemTemplate>
-					<li><a href="Product.aspx?id=<%#Eval("categories_id")%>"><p><%#Eval("categories_name")%></p></a></li>
+                        <li><a href="Product.aspx?id=<%#Eval("categories_id")%>">
+                            <p><%#Eval("categories_name")%></p>
+                        </a></li>
                     </ItemTemplate>
-                    </asp:Repeater>
-				 </ul>
-				 <script type="text/javascript" src="js/nav.js"></script>
-	      </div><!-- end h_menu4 -->
-     </div>
-</div>
+                </asp:Repeater>
+            </ul>
+            <script type="text/javascript" src="js/nav.js"></script>
+        </div>
+        <!-- end h_menu4 -->
+    </div>
+    </div>
+    <%--endheader--%>
 
-<div class="slider">
-	  <div class="callbacks_container">
-	      <ul class="rslides" id="slider">
-            <li><img src="images/banner1.png" class="img-responsive" alt=""/>
-	         <%--<div class="banner_desc">
+    <div class="slider">
+        <div class="callbacks_container">
+            <ul class="rslides" id="slider">
+                <li>
+                    <img src="images/banner1.png" class="img-responsive" alt="" />
+                    <%--<div class="banner_desc">
 				<h1>Duis autem vel eum iriure dolor in hendrerit.</h1>
 				<h2>Claritas est etiam processus dynamicus, qui sequitur .</h2>
 			 </div>--%>
-	        </li>
-	        <li><img src="images/banner2.png" class="img-responsive" alt=""/>
-	         <%--<div class="banner_desc">
+                </li>
+                <li>
+                    <img src="images/banner2.png" class="img-responsive" alt="" />
+                    <%--<div class="banner_desc">
 				<h1>Duis autem vel eum iriure dolor in hendrerit.</h1>
 				<h2>Claritas est etiam processus dynamicus, qui sequitur .</h2>
 			 </div>--%>
-	        </li>
-	        <li><img src="images/banner3.png" class="img-responsive" alt=""/>
-	         <%-- <div class="banner_desc">
+                </li>
+                <li>
+                    <img src="images/banner3.png" class="img-responsive" alt="" />
+                    <%-- <div class="banner_desc">
 				<h1>Ut wisi enim ad minim veniam, quis nostrud.</h1>
 				<h2>Mirum est notare quam littera gothica, quam nunc putamus.</h2>
 			  </div>--%>
-	        </li>
-	      </ul>
-	  </div>
-</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <%--endSlide--%>
 
-<div class="column_center">
-  <div class="container">
-	<div class="search">
-	  <div class="stay_right">
-		  <form method="POST" action="Search.aspx">
-		  <input type="text" placeholder="Nhập tên sản phẩm muốn tìm" id="key_search" name="key_search">
-		  <input type="submit" value="">
-          </form>
-	  </div>
-	  <div class="clearfix"> </div>
-	</div>
-    <div class="clearfix"> </div>
-  </div>
-</div>
+    <div class="column_center">
+        <div class="container">
+            <div class="search">
+                <div class="stay_right">
+                    <form method="POST" action="Search.aspx">
+                        <input type="text" placeholder="Nhập tên sản phẩm muốn tìm" id="key_search" name="key_search">
+                        <input type="submit" value="">
+                    </form>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <%--endcolumn--%>
 <div class="main">
   <div class="content_top">
   	<div class="container">
-	   <div class="col-md-3 sidebar_box">
-	   	 <div class="sidebar">
-			<div class="menu_box">
-		    <h3 class="menu_head"><strong>Thương hiệu</strong></h3>
-			  <ul class="menu">
-                
-                <asp:Repeater ID="RepeaterProducer" runat="server">
-                <ItemTemplate>
-                    <li><a href='BrandMoto.aspx?id=<%#Eval("producer_id")%>'><img class="arrow-img" src="images/f_menu.png" alt=""/><%#Eval("producer_name")%></a></li>
-                </ItemTemplate>
-                </asp:Repeater>
+          <div class="col-md-3 sidebar_box">
+              <div class="sidebar">
+                  <div class="menu_box">
+                      <h3 class="menu_head"><strong>Thương hiệu</strong></h3>
+                      <ul class="menu">
 
-			</ul>
-		</div>	
-       </div>
+                          <asp:Repeater ID="RepeaterProducer" runat="server">
+                              <ItemTemplate>
+                                  <li><a href='BrandMoto.aspx?id=<%#Eval("producer_id")%>'>
+                                      <img class="arrow-img" src="images/f_menu.png" alt="" /><%#Eval("producer_name")%></a></li>
+                              </ItemTemplate>
+                          </asp:Repeater>
 
-        <div class="sidebar">
-			<div class="menu_box">
-		    <h3 class="menu_head"><strong>Dòng xe</strong></h3>
-			  <ul class="menu">
-           
-				<asp:Repeater ID="RepeaterMoto_model" runat="server">
+                      </ul>
+                  </div>
+              </div>
 
-                <ItemTemplate>
-                    <li class="item1"><a href="VehicleCurrent.aspx?id=<%#Eval("moto_model_id") %>"><img class="arrow-img" src="images/f_menu.png" alt=""/><%#Eval("moto_model_name") %></a></li>
-                </ItemTemplate>
+              <div class="sidebar">
+                  <div class="menu_box">
+                      <h3 class="menu_head"><strong>Dòng xe</strong></h3>
+                      <ul class="menu">
 
-                </asp:Repeater>
-         
-			</ul>
-		</div>	
-       </div>
-        <div class="sidebar">
-			<div class="menu_box">
-		    <h3 class="menu_head"><strong>NHÂN VIÊN HỖ TRỢ</strong></h3>
-			  <ul class="menu">
+                          <asp:Repeater ID="RepeaterMoto_model" runat="server">
 
-                <asp:Repeater ID="RepeaterEmployer" runat="server">
-                <ItemTemplate>
-				<li class="item1 support_employer">
-                     <div class="info_left" >
-                        <img src="images/employers/<%#Eval("avatar")%>" class="img-responsive" alt=""/>
-                     </div>
-                     <div class="info_right">
-                         <p><strong><i class="fa fa-user"></i><%#Eval("employer_name")%></strong></p>
-                         <p><i class="fa fa-phone" ></i><%#Eval("employer_phone")%></p>
-                         <p><i class="fa fa-envelope" ></i><%#Eval("employer_email")%></p>
-                     </div>
-                     <div class="clearfix"></div>
-				</li>
-                </ItemTemplate>
-                </asp:Repeater>
-				
-			</ul>
-		</div>	
-       </div>
+                              <ItemTemplate>
+                                  <li class="item1"><a href="VehicleCurrent.aspx?id=<%#Eval("moto_model_id") %>">
+                                      <img class="arrow-img" src="images/f_menu.png" alt="" /><%#Eval("moto_model_name") %></a></li>
+                              </ItemTemplate>
 
-       <!--<div class="sidebar">
+                          </asp:Repeater>
+
+                      </ul>
+                  </div>
+              </div>
+              <div class="sidebar">
+                  <div class="menu_box">
+                      <h3 class="menu_head"><strong>NHÂN VIÊN HỖ TRỢ</strong></h3>
+                      <ul class="menu">
+
+                          <asp:Repeater ID="RepeaterEmployer" runat="server">
+                              <ItemTemplate>
+                                  <li class="item1 support_employer">
+                                      <div class="info_left">
+                                          <img src="images/employers/<%#Eval("avatar")%>" class="img-responsive" alt="" />
+                                      </div>
+                                      <div class="info_right">
+                                          <p><strong><i class="fa fa-user"></i><%#Eval("employer_name")%></strong></p>
+                                          <p><i class="fa fa-phone"></i><%#Eval("employer_phone")%></p>
+                                          <p><i class="fa fa-envelope"></i><%#Eval("employer_email")%></p>
+                                      </div>
+                                      <div class="clearfix"></div>
+                                  </li>
+                              </ItemTemplate>
+                          </asp:Repeater>
+
+                      </ul>
+                  </div>
+              </div>
+
+              <div class="sidebar">
 			<div class="menu_box">
             <h3 class="menu_head"><strong>Bản đồ trung tâm</strong></h3>
 			 <div class="gmap-content">
 				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1003454.1751206238!2d106.1347058958351!3d10.754289357288188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529292e8d3dd1%3A0xf15f5aad773c112b!2zSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2sin!4v1502429973386" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 			</div>
 		</div>	
-       </div>-->
-		    
-	   </div>
+       </div>
 
-<!-- Content -->
+          </div>
+
+
+          <!-- Content -->
     <asp:ContentPlaceHolder ID="Content" runat="server">
     </asp:ContentPlaceHolder>
 <!-- End Content -->
-
+        </div>
+     </div>
+        <%--end conten_top--%>
+  </div>
 <div class="footer_bg">
 </div>
 <div class="footer">
@@ -207,10 +209,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="col-md-3 f_grid1 f_grid2">
 			<h3>Follow Us</h3>
 			<ul class="social">
-				<li><a href=""> <i class="fb"> </i><p class="m_3">Facebook</p><div class="clearfix"> </div></a></li>
-			    <li><a href=""><i class="tw"> </i><p class="m_3">Twittter</p><div class="clearfix"> </div></a></li>
-				<li><a href=""><i class="google"> </i><p class="m_3">Google</p><div class="clearfix"> </div></a></li>
-				<li><a href=""><i class="instagram"> </i><p class="m_3">Instagram</p><div class="clearfix"> </div></a></li>
+				<li><a href="#"> <i class="fb"> </i><p class="m_3">Facebook</p><div class="clearfix"> </div></a></li>
+			    <li><a href="#"><i class="tw"> </i><p class="m_3">Twittter</p><div class="clearfix"> </div></a></li>
+				<li><a href="#"><i class="google"> </i><p class="m_3">Google</p><div class="clearfix"> </div></a></li>
+				<li><a href="#"><i class="instagram"> </i><p class="m_3">Instagram</p><div class="clearfix"> </div></a></li>
 			</ul>
 		</div>
 		<div class="col-md-6 f_grid3">
@@ -259,13 +261,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	    
 <script>
     $(function () {
-      $("#slider").responsiveSlides({
-      	auto: true,
-      	nav: true,
-      	speed: 500,
-        namespace: "callbacks",
-        pager: true,
-      });
+        $("#slider").responsiveSlides({
+            auto: true,
+            nav: true,
+            speed: 500,
+            namespace: "callbacks",
+            pager: true,
+        });
     });
 </script>
 

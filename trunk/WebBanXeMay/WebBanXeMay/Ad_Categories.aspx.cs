@@ -51,7 +51,7 @@ namespace WebBanXeMay
             switch (e.CommandName.ToString())
             {
                 case "Edit":
-                    dt = DB.getCategoriesByID(int.Parse(e.CommandArgument.ToString()));
+                    dt = DB.getCategoriesByID(Convert.ToInt32(e.CommandArgument.ToString()));
                     if (dt.Rows.Count > 0)
                     {
                         txtCategoriesIdEdit.Text = dt.Rows[0]["Categories_id"].ToString();
@@ -62,7 +62,7 @@ namespace WebBanXeMay
                 case "Delete":
                     //if (e.CommandName.ToString() == "yes")
                     //{
-                    DB.deleteCategories(int.Parse(e.CommandArgument.ToString()));
+                    DB.deleteCategories(Convert.ToInt32(e.CommandArgument.ToString()));
                     Response.Redirect(Request.Url.ToString());
                     //}
                     //else if(e.CommandName.ToString() == "no") 
@@ -87,7 +87,7 @@ namespace WebBanXeMay
             
             if (!string.IsNullOrEmpty(txtCategoriesNameEdit.Text.Trim()))
             {
-                DB.updateCategories(int.Parse(txtCategoriesIdEdit.Text.Trim()), txtCategoriesNameEdit.Text.Trim());
+                DB.updateCategories(Convert.ToInt32(txtCategoriesIdEdit.Text.Trim()), txtCategoriesNameEdit.Text.Trim());
                 Response.Redirect(Request.Url.ToString());
             }
         }

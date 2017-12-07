@@ -124,7 +124,7 @@ namespace WebBanXeMay
             {
                 case "Edit":
 
-                    dt = DB.getProductByID(int.Parse(e.CommandArgument.ToString()));
+                    dt = DB.getProductByID(Convert.ToInt32(e.CommandArgument.ToString()));
                     if (dt.Rows.Count > 0)
                     {
                         txtProductIDEdit.Text = dt.Rows[0]["product_id"].ToString();
@@ -143,7 +143,7 @@ namespace WebBanXeMay
                 case "Delete":
                     //if (e.CommandName.ToString() == "yes")
                     //{
-                    DB.deleteProduct(int.Parse(e.CommandArgument.ToString()));
+                    DB.deleteProduct(Convert.ToInt32(e.CommandArgument.ToString()));
                     Response.Redirect(Request.Url.ToString());
                     //}
                     //else if(e.CommandName.ToString() == "no") 
@@ -161,7 +161,7 @@ namespace WebBanXeMay
             {
                 if (!string.IsNullOrEmpty(drlCateID.Text.Trim()))
                 {
-                    DB.themProduct(Int32.Parse(drlCateID.Text.Trim()), Int32.Parse(drlIDProducer.Text.Trim()), Int32.Parse(drlMainDetail.Text.Trim()), Int32.Parse(drlMoToMoDel.Text.Trim()), txtProductName.Text.Trim(), file, Int32.Parse(txtPrice.Text.Trim()), Int32.Parse(txtQuantity.Text.Trim()), txtDescription.Text.Trim(), txtReview.Text.Trim());
+                    DB.themProduct(Convert.ToInt32(drlCateID.Text.Trim()), Convert.ToInt32(drlIDProducer.Text.Trim()), Convert.ToInt32(drlMainDetail.Text.Trim()), Convert.ToInt32(drlMoToMoDel.Text.Trim()), txtProductName.Text.Trim(), file, Convert.ToInt32(txtPrice.Text.Trim()), Convert.ToInt32(txtQuantity.Text.Trim()), txtDescription.Text.Trim(), txtReview.Text.Trim());
                     Response.Redirect(Request.Url.ToString());
                 }
             }
@@ -187,7 +187,7 @@ namespace WebBanXeMay
             
             if (!string.IsNullOrEmpty(txtProductIDEdit.Text.Trim()))
             {
-                DB.updateProduct(Int32.Parse(txtProductIDEdit.Text.Trim()), Int32.Parse(drlCateIDEdit.Text.Trim()), Int32.Parse(drlIDProducerEdit.Text.Trim()), Int32.Parse(drlMainDetailEdit.Text.Trim()), Int32.Parse(drlMoToMoDelEdit.Text.Trim()), txtProductNameEdit.Text.Trim(), file, Int32.Parse(txtPriceEdit.Text.Trim()), Int32.Parse(txtQuantityEdit.Text.Trim()), txtDescriptionEdit.Text.Trim(), txtReviewEdit.Text.Trim());
+                DB.updateProduct(Convert.ToInt32(txtProductIDEdit.Text.Trim()), Convert.ToInt32(drlCateIDEdit.Text.Trim()), Convert.ToInt32(drlIDProducerEdit.Text.Trim()), Convert.ToInt32(drlMainDetailEdit.Text.Trim()), Convert.ToInt32(drlMoToMoDelEdit.Text.Trim()), txtProductNameEdit.Text.Trim(), file, Convert.ToInt32(txtPriceEdit.Text.Trim()), Convert.ToInt32(txtQuantityEdit.Text.Trim()), txtDescriptionEdit.Text.Trim(), txtReviewEdit.Text.Trim());
                 Response.Redirect(Request.Url.ToString());
             }
         }

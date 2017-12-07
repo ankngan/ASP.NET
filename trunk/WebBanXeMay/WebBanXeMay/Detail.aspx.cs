@@ -26,13 +26,10 @@ namespace WebBanXeMay
 
             if (DB.getProductByID(converId).Rows.Count > 0)
             {
-                RepeaterProduct.DataSource = DB.getProductByID(converId);
+                RepeaterProduct.DataSource = DB.getDetailProductByID(converId);
                 RepeaterProduct.DataBind();
             }
-            else
-            {
-               
-            }
+            
 
 
         }

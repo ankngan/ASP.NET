@@ -50,7 +50,7 @@ namespace WebBanXeMay
             switch (e.CommandName.ToString())
             {
                 case "Edit":
-                    dt = DB.getProducerByID(int.Parse(e.CommandArgument.ToString()));
+                    dt = DB.getProducerByID(Convert.ToInt32(e.CommandArgument.ToString()));
                     if (dt.Rows.Count > 0)
                     {
                         txtProducerIdEdit.Text = dt.Rows[0]["producer_id"].ToString();
@@ -61,7 +61,7 @@ namespace WebBanXeMay
                 case "Delete":
                     //if (e.CommandName.ToString() == "yes")
                     //{
-                    DB.deleteProducer(int.Parse(e.CommandArgument.ToString()));
+                    DB.deleteProducer(Convert.ToInt32(e.CommandArgument.ToString()));
                     Response.Redirect(Request.Url.ToString());
                     //}
                     //else if(e.CommandName.ToString() == "no") 
@@ -86,7 +86,7 @@ namespace WebBanXeMay
             
             if (!string.IsNullOrEmpty(txtProducerIdEdit.Text.Trim()))
             {
-                DB.updateProducer(int.Parse(txtProducerIdEdit.Text.Trim()), txtProducerNameEdit.Text.Trim());
+                DB.updateProducer(Convert.ToInt32(txtProducerIdEdit.Text.Trim()), txtProducerNameEdit.Text.Trim());
                 Response.Redirect(Request.Url.ToString());
             }
         }

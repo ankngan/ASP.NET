@@ -52,6 +52,7 @@
                 <a href="order.aspx" title="Online Reservation" class="btn bt1 btn-primary btn-normal btn-inline " target="_self">Thanh toán</a>
                
 			</div>
+               
 		    <div class="clearfix"> </div>
 				</div>
           	    <div class="clearfix"></div>
@@ -72,6 +73,7 @@
 									  </ul>           
 							        </div>
 							     </div>	
+
 							      <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
 									<div class="facts">
 									  <ul class="tab_list">
@@ -95,9 +97,5 @@
         </asp:Repeater>
 		
 	     <div class="clearfix"> </div>
-	    </div> 
-        </div>
-      </div> 
-	</div>
-</div>
+
 </asp:Content>
