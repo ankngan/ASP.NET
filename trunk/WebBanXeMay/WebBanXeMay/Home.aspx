@@ -26,7 +26,7 @@
         </asp:Repeater>
 
 	     <div class="clearfix"> </div>
-            <div><asp:Literal ID="ltlPhanTrang" runat="server"/></div>
+            <div class="PhanTrang"><asp:Literal ID="ltlPhanTrang" runat="server"/></div>
 	    </div> 
        </div
     </div> 
