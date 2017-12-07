@@ -90,7 +90,7 @@ namespace WebBanXeMay
             
             if (!string.IsNullOrEmpty(txtMain_detailIdEdit.Text.Trim()))
             {
-                DB.updateMain_detail(int.Parse(txtMain_detailIdEdit.Text.Trim()), txtModelEdit.Text.Trim(), float.Parse(txtWeightEdit.Text.Trim()), txtSizeEdit.Text.Trim(), float.Parse(txtTankCapacityEdit.Text.Trim()), txtWarrantyPeriodEdit.Text.Trim());
+                DB.updateMain_detail(Int32.Parse(txtMain_detailIdEdit.Text.Trim()), txtModelEdit.Text.Trim(), float.Parse(txtWeightEdit.Text.Trim()), txtSizeEdit.Text.Trim(), float.Parse(txtTankCapacityEdit.Text.Trim()), txtWarrantyPeriodEdit.Text.Trim());
                 Response.Redirect(Request.Url.ToString());
             }
         }

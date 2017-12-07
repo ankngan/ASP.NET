@@ -84,7 +84,7 @@ namespace WebBanXeMay
                 {
                     if (!string.IsNullOrEmpty(txtName.Text.Trim()))
                     {
-                        DB.themEmployer(txtName.Text.Trim(), txtEmail.Text.Trim(), int.Parse(txtPhone.Text.Trim()), file);
+                        DB.themEmployer(txtName.Text.Trim(), txtEmail.Text.Trim(), Int32.Parse(txtPhone.Text.Trim()), file);
                         Response.Redirect(Request.Url.ToString());
                     }
                 }
@@ -110,7 +110,7 @@ namespace WebBanXeMay
             }
             if (!string.IsNullOrEmpty(txtIDEdit.Text.Trim()))
             {
-                DB.updateEmployer(int.Parse(txtIDEdit.Text.Trim()), txtNameEdit.Text.Trim(), txtEmailEdit.Text.Trim(), int.Parse(txtPhoneEdit.Text.Trim()),file);
+                DB.updateEmployer(int.Parse(txtIDEdit.Text.Trim()), txtNameEdit.Text.Trim(), txtEmailEdit.Text.Trim(), Int32.Parse(txtPhoneEdit.Text.Trim()),file);
                 Response.Redirect(Request.Url.ToString());
             }
         }

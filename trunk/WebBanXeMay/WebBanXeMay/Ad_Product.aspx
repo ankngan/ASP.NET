@@ -123,13 +123,15 @@
                 <div class="form-group row">
                     <label for="inputPrice" class="col-sm-2 col-form-label">Giá</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtPriceEdit" runat="server"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtPriceEdit" runat="server" TextMode="Number"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server"  ErrorMessage="Chỉ được nhập số." ControlToValidate="txtPriceEdit" ForeColor="Red" ValidationExpression="\d+" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputQuantity" class="col-sm-2 col-form-label">Số lượng</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtQuantityEdit" runat="server"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtQuantityEdit" runat="server" TextMode="Number"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server"  ErrorMessage="Chỉ được nhập số." ControlToValidate="txtQuantityEdit" ForeColor="Red" ValidationExpression="\d+" />
                     </div>
                 </div>
                 <div class="form-group row">
@@ -195,13 +197,15 @@
                 <div class="form-group row">
                     <label for="inputPrice" class="col-sm-2 col-form-label">Giá</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtPrice" runat="server"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtPrice" runat="server" TextMode="Number"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server"  ErrorMessage="Chỉ được nhập số." ControlToValidate="txtPrice" ForeColor="Red" ValidationExpression="\d+" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputQuantity" class="col-sm-2 col-form-label">Số lượng</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtQuantity" runat="server"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtQuantity" runat="server" TextMode="Number"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"  ErrorMessage="Chỉ được nhập số." ControlToValidate="txtQuantity" ForeColor="Red" ValidationExpression="\d+" />
                     </div>
                 </div>
                 <div class="form-group row">

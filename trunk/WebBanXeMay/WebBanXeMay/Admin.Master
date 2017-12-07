@@ -5,11 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <!-- Bootstrap -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- styles -->
-    <link href="css/admin.css" rel="stylesheet">
+    <link href="css/admin.css" rel="stylesheet"/>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -55,6 +55,7 @@
                                 <li><a href="Ad_Product.aspx"><i class="glyphicon glyphicon-cog"></i>Product</a></li>
                                 <li><a href="Ad_MotoModel.aspx"><i class="glyphicon glyphicon-cog"></i>Model</a></li>
                                 <li><a href="Ad_Main_detail.aspx"><i class="glyphicon glyphicon-cog"></i>Detail</a></li>
+                                <li><a href="Ad_Order.aspx"><i class="glyphicon glyphicon-cog"></i>Order</a></li>
                                 <!--<li class="submenu">
                                     <a href="#">
                                         <i class="glyphicon glyphicon-list"></i>Pages

@@ -10,16 +10,16 @@
 namespace WebBanXeMay {
     
     
-    public partial class Ad_Product {
+    public partial class Ad_Order {
         
         /// <summary>
-        /// mulProduct control.
+        /// mulOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.MultiView mulProduct;
+        protected global::System.Web.UI.WebControls.MultiView mulOrder;
         
         /// <summary>
         /// v1 control.
@@ -40,13 +40,13 @@ namespace WebBanXeMay {
         protected global::System.Web.UI.WebControls.LinkButton linkAddNew;
         
         /// <summary>
-        /// rptProduct control.
+        /// rptOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptProduct;
+        protected global::System.Web.UI.WebControls.Repeater rptOrder;
         
         /// <summary>
         /// hdFImages control.
@@ -67,94 +67,31 @@ namespace WebBanXeMay {
         protected global::System.Web.UI.WebControls.View v2;
         
         /// <summary>
-        /// txtProductIDEdit control.
+        /// txtOderIDEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProductIDEdit;
+        protected global::System.Web.UI.WebControls.TextBox txtOderIDEdit;
         
         /// <summary>
-        /// drlCateIDEdit control.
+        /// drlUserIDEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drlCateIDEdit;
+        protected global::System.Web.UI.WebControls.DropDownList drlUserIDEdit;
         
         /// <summary>
-        /// drlIDProducerEdit control.
+        /// txtTotalMoneyEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drlIDProducerEdit;
-        
-        /// <summary>
-        /// drlMainDetailEdit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drlMainDetailEdit;
-        
-        /// <summary>
-        /// drlMoToMoDelEdit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drlMoToMoDelEdit;
-        
-        /// <summary>
-        /// txtProductNameEdit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProductNameEdit;
-        
-        /// <summary>
-        /// flUpImagesEdit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload flUpImagesEdit;
-        
-        /// <summary>
-        /// txtPriceEdit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPriceEdit;
-        
-        /// <summary>
-        /// RegularExpressionValidator4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator4;
-        
-        /// <summary>
-        /// txtQuantityEdit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQuantityEdit;
+        protected global::System.Web.UI.WebControls.TextBox txtTotalMoneyEdit;
         
         /// <summary>
         /// RegularExpressionValidator2 control.
@@ -166,31 +103,49 @@ namespace WebBanXeMay {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
         
         /// <summary>
-        /// txtDescriptionEdit control.
+        /// txtQuantityEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescriptionEdit;
+        protected global::System.Web.UI.WebControls.TextBox txtQuantityEdit;
         
         /// <summary>
-        /// txtReviewEdit control.
+        /// RegularExpressionValidator3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtReviewEdit;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
         
         /// <summary>
-        /// updateProduct control.
+        /// txtNgayDatEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton updateProduct;
+        protected global::System.Web.UI.WebControls.TextBox txtNgayDatEdit;
+        
+        /// <summary>
+        /// cldNgayDatEdit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar cldNgayDatEdit;
+        
+        /// <summary>
+        /// updateOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton updateOrder;
         
         /// <summary>
         /// v3 control.
@@ -229,76 +184,31 @@ namespace WebBanXeMay {
         protected global::System.Web.UI.WebControls.View v4;
         
         /// <summary>
-        /// drlCateID control.
+        /// drlUserID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drlCateID;
+        protected global::System.Web.UI.WebControls.DropDownList drlUserID;
         
         /// <summary>
-        /// drlIDProducer control.
+        /// txtTotalMoney control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drlIDProducer;
+        protected global::System.Web.UI.WebControls.TextBox txtTotalMoney;
         
         /// <summary>
-        /// drlMainDetail control.
+        /// RegularExpressionValidator4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drlMainDetail;
-        
-        /// <summary>
-        /// drlMoToMoDel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drlMoToMoDel;
-        
-        /// <summary>
-        /// txtProductName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProductName;
-        
-        /// <summary>
-        /// flUpImages control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload flUpImages;
-        
-        /// <summary>
-        /// txtPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPrice;
-        
-        /// <summary>
-        /// RegularExpressionValidator3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator4;
         
         /// <summary>
         /// txtQuantity control.
@@ -319,30 +229,30 @@ namespace WebBanXeMay {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
         
         /// <summary>
-        /// txtDescription control.
+        /// txtNgayDat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescription;
+        protected global::System.Web.UI.WebControls.TextBox txtNgayDat;
         
         /// <summary>
-        /// txtReview control.
+        /// cldNgaydat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtReview;
+        protected global::System.Web.UI.WebControls.Calendar cldNgaydat;
         
         /// <summary>
-        /// addNewProduct control.
+        /// addNewOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton addNewProduct;
+        protected global::System.Web.UI.WebControls.LinkButton addNewOrder;
     }
 }

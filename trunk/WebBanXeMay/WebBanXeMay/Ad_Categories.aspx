@@ -12,7 +12,7 @@
                 <div class="search">
                     <div class="col-md-12">
                         <!-- <div class="btn btn-info" data-placement="top" data-toggle="tooltip" title="Add New" data-toggle="modal" data-target="#addNew">Add New</div> -->
-                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder=" Search for names..">
+                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder=" Search for names.."/>
                         <p data-placement="top" data-toggle="tooltip" title="Add New">
                             <asp:LinkButton ID="linkAddNew" CssClass="btn btn-info btn-xs" runat="server" OnClick="linkAddNew_Click">Add New <span class="glyphicon glyphicon-plus"></span></asp:LinkButton>
                         </p>
@@ -20,7 +20,7 @@
                 </div>
                 <asp:Repeater ID="rptCategories" runat="server" OnItemCommand="rptCategories_ItemCommand">
                     <HeaderTemplate>
-                        <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                        <table id="datatable" class="table table-striped table-bordered" >
                             <thead>
                                 <tr>
                                     <th>ID</th>

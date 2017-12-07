@@ -109,7 +109,6 @@ namespace WebBanXeMay
                 conn.Close();
             }
         }
-      
 
         //Delete theo id
         public bool deleteUser(int UserId)
@@ -222,7 +221,7 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("select Product.*, Main_detail.* from Product inner join Main_detail on Product.main_detail_id = Main_detail.main_detail_id and Product.product_id = @ProductID", conn);
+                SqlCommand cmd = new SqlCommand("select * from Product where product_id =@ProductID ", conn);
                 cmd.CommandType = CommandType.Text;
                 DataTable dataTable = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -257,6 +256,7 @@ namespace WebBanXeMay
                 conn.Close();
             }
         }
+
         //Thêm Product vào database
         public bool themProduct(int categoryID, int producerID, int mainDetailID, int motoModelID, string productName, string productImage, int productPrice, int productQuantity, string productDes, string productReView)
         {
@@ -900,29 +900,154 @@ namespace WebBanXeMay
                 conn.Close();
             }
         }
+
+
+        
+
+
+        //Order 
+        //Lấy ra danh sách Oder
+        public DataTable getLidtOrder()
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("LoadOrder", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                DataTable dataTable = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dataTable);
+                return dataTable;
+            }
+
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        //Lấy ra Order theo ID 
+        public DataTable getOrderByID(int OrderID)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("LoadOrderByID", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                DataTable dataTable = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                cmd.Parameters.AddWithValue("@OrderID", OrderID);
+                adapter.Fill(dataTable);
+                return dataTable;
+                
+            }
+
+            finally
+            {
+                
+                conn.Close();
+               
+            }
+        }
+
+        ////Thêm Order vào database
+        //public bool themOrder(int CustomerID, int TotalMoney, int Quantity, string Order_date)
+        //{
+        //    try
+        //    {
+        //        conn.Open();
+        //        SqlCommand cmd = new SqlCommand("Insert into Orders values (@user_id, @total_money, @quantity, @orders_date)", conn);
+
+        //        cmd.CommandType = CommandType.Text;
+        //        cmd.Parameters.AddWithValue("@user_id", CustomerID);
+        //        cmd.Parameters.AddWithValue("@total_money", TotalMoney);
+        //        cmd.Parameters.AddWithValue("@quantity", Quantity);
+        //        cmd.Parameters.AddWithValue("@orders_date", Order_date);
+
+        //        if (cmd.ExecuteNonQuery() > 0)
+        //            return true;
+        //        else
+        //            return
+        //                false;
+        //    }
+        //    finally
+        //    {
+        //        conn.Close();
+        //    }
+        //}
+
+        ////Sua Order vào database
+        //public bool updateOrder(int OrderID, int UserID, int TotalMoney, int Quantity, string Order_date)
+        //{
+        //    try
+        //    {
+        //        conn.Open();
+        //        SqlCommand cmd = new SqlCommand("Update Orders set user_id = @UserID, total_money = @TotalMoney, quantity = @Quantity, orders_date = @orders_date where orders_id = @OrderID", conn);
+
+        //        cmd.CommandType = CommandType.Text;
+        //        cmd.Parameters.AddWithValue("@OrderID", OrderID);
+        //        cmd.Parameters.AddWithValue("@UserID", UserID);
+        //        cmd.Parameters.AddWithValue("@TotalMoney", TotalMoney);
+        //        cmd.Parameters.AddWithValue("@Quantity", Quantity);
+        //        cmd.Parameters.AddWithValue("@orders_date", Order_date);
+        //        if (cmd.ExecuteNonQuery() > 0)
+        //            return true;
+        //        else
+        //            return
+        //                false;
+        //    }
+        //    finally
+        //    {
+        //        conn.Close();
+        //    }
+        //}
+
+        //Delete theo id
+        public bool deleteOrder(int OrderId)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Delete from Orders where orders_id = @OrderId", conn);
+
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@OrderId", OrderId);
+                if (cmd.ExecuteNonQuery() > 0)
+                    return true;
+                else
+                    return
+                        false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         //phan trang
         public static DataSet ThucThiStore_DataSet(string StoredProcedure, params SqlParameter[] Parameters)
         { //Khai báo cuỗi kết nối   
             SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["connect"].ConnectionString);
-               
-                SqlCommand cmd = new SqlCommand(StoredProcedure, conn);
-                DataSet ds = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                cmd.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand = cmd;
-                
-                if
-                 (Parameters != null)
-                {
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.AddRange(Parameters);
-                }
-                try
-                {
-                    conn.Open();
+
+            SqlCommand cmd = new SqlCommand(StoredProcedure, conn);
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cmd.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand = cmd;
+
+            if
+             (Parameters != null)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddRange(Parameters);
+            }
+            try
+            {
+                conn.Open();
                 da.Fill(ds);
             }
-            finally  {
+            finally
+            {
                 // Đóng kết nối   
                 if (conn.State == ConnectionState.Open)
                     conn.Close();
@@ -948,29 +1073,7 @@ namespace WebBanXeMay
             arrParam[2].Value = Pagesize;
             return ThucThiStore_DataSet("PhanTrang", arrParam);
         }
-
-
-        //Product Xe tay ga
-
-        public DataTable getProductByCateID(int CateId)
-        {
-            try
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("select * from  Product p,Categories c where c.categories_id=p.categories_id and p.categories_id = @cateID", conn);
-                cmd.CommandType = CommandType.Text;
-                DataTable dataTable = new DataTable();
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                cmd.Parameters.AddWithValue("@cateID", CateId);
-                adapter.Fill(dataTable);
-                return dataTable;
-            }
-
-            finally
-            {
-                conn.Close();
-            }
-        }
-
+      
+       
     }
 }

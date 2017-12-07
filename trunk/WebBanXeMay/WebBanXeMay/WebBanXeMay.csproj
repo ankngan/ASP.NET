@@ -68,6 +68,7 @@
     <Content Include="Ad_Employer.aspx" />
     <Content Include="Ad_Main_detail.aspx" />
     <Content Include="Ad_MotoModel.aspx" />
+    <Content Include="Ad_Order.aspx" />
     <Content Include="Ad_Producer.aspx" />
     <Content Include="Ad_Product.aspx" />
     <Content Include="Ad_User.aspx" />
@@ -185,6 +186,13 @@
     </Compile>
     <Compile Include="Ad_MotoModel.aspx.designer.cs">
       <DependentUpon>Ad_MotoModel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ad_Order.aspx.cs">
+      <DependentUpon>Ad_Order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ad_Order.aspx.designer.cs">
+      <DependentUpon>Ad_Order.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ad_Producer.aspx.cs">
       <DependentUpon>Ad_Producer.aspx</DependentUpon>

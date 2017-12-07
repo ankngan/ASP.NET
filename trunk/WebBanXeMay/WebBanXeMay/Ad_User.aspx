@@ -96,26 +96,30 @@
                 </div>
                 <div class="form-group row">
                     <label for="inputPhone" class="col-sm-2 col-form-label">SĐT</label>
+
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtPhoneEdit" runat="server"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtPhoneEdit" runat="server" TextMode="Phone"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server"  ErrorMessage="Nhập đúng số điện thoại." ControlToValidate="txtPhoneEdit" ForeColor="Red" ValidationExpression="^[0-9]{6,11}$" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtEmailEdit" runat="server"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtEmailEdit" runat="server" TextMode="Email"></asp:TextBox>
+                        <asp:RegularExpressionValidator id="RegularExpressionValidator2" ControlToValidate="txtEmailEdit" Text='"Nhập đúng định dạng email"' ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Runat="server" /> 
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Mật khẩu</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtPassEdit" runat="server"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtPassEdit" runat="server" ></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPer" class="col-sm-2 col-form-label">Trạng thái</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtPerEdit" runat="server"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtPerEdit" runat="server" MaxLength="1" TextMode="Number"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server"  ErrorMessage="Trạng thái chỉ có 1 và 0." ControlToValidate="txtPerEdit" ForeColor="Red" ValidationExpression="^[0-1]{1}$"/>
                     </div>
                 </div>
                 <asp:LinkButton ID="updateUser" CssClass="btn btn-warning btn-lg" runat="server" OnClick="updateUser_Click"><span class="glyphicon glyphicon-ok-sign"></span>Update</asp:LinkButton>
@@ -134,6 +138,7 @@
                     <div class="col-sm-10">
                         <asp:TextBox CssClass="form-control" ID="txtName" runat="server"></asp:TextBox>
                     </div>
+                    
                 </div>
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Tên người dùng</label>
@@ -151,24 +156,27 @@
                     <label for="inputPassword" class="col-sm-2 col-form-label">SĐT</label>
                     <div class="col-sm-10">
                         <asp:TextBox CssClass="form-control" ID="txtPhone" runat="server"></asp:TextBox>
+	                    <asp:RegularExpressionValidator ID="rdvPhone" runat="server"  ErrorMessage="Nhập đúng số điện thoại." ControlToValidate="txtPhone" ForeColor="Red" ValidationExpression="^[0-9]{6,11}$" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-10">
                         <asp:TextBox CssClass="form-control" ID="txtEmail" runat="server"></asp:TextBox>
+                        <asp:RegularExpressionValidator id="regEmail" ControlToValidate="txtEmail" Text='"Nhập đúng định dạng email"' ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Runat="server" /> 
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Mật khẩu</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtPass" runat="server"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtPass" runat="server" TextMode="Password"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Trạng thái</label>
                     <div class="col-sm-10">
                         <asp:TextBox CssClass="form-control" ID="txtPer" runat="server"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"  ErrorMessage="Trạng thái chỉ có 1 và 0." ControlToValidate="txtPer" ForeColor="Red" ValidationExpression="^[0-1]{1}$"/>
                     </div>
                 </div>
                 <asp:LinkButton ID="addNewUser" CssClass="btn btn-warning btn-lg" runat="server" OnClick="addNewUser_Click"><span class="glyphicon glyphicon-ok-sign"></span>Add</asp:LinkButton>

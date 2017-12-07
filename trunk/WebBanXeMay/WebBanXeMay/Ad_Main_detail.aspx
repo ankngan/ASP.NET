@@ -81,7 +81,8 @@
                 <div class="form-group row">
                     <label for="inputId" class="col-sm-2 col-form-label">Weight</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtWeightEdit" runat="server" ></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtWeightEdit" runat="server" TextMode="Number" ></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server"  ErrorMessage="Chỉ được nhập số." ControlToValidate="txtWeightEdit" ForeColor="Red" ValidationExpression="\d+" />
                     </div>
                 </div>
                 <div class="form-group row">
@@ -93,7 +94,8 @@
                 <div class="form-group row">
                     <label for="inputId" class="col-sm-2 col-form-label">TankCapacity</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtTankCapacityEdit" runat="server" ></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtTankCapacityEdit" runat="server" TextMode="Number" ></asp:TextBox>
+                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"  ErrorMessage="Chỉ được nhập số." ControlToValidate="txtTankCapacityEdit" ForeColor="Red" ValidationExpression="\d+" />
                     </div>
                 </div>
                 <div class="form-group row">
@@ -123,7 +125,8 @@
                 <div class="form-group row">
                     <label for="inputId" class="col-sm-2 col-form-label">Weight</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtWeight" runat="server" ></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtWeight" runat="server" TextMode="Number" ></asp:TextBox>
+                         <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server"  ErrorMessage="Chỉ được nhập số." ControlToValidate="txtWeight" ForeColor="Red" ValidationExpression="\d+" />
                     </div>
                 </div>
                 <div class="form-group row">
@@ -135,7 +138,8 @@
                 <div class="form-group row">
                     <label for="inputId" class="col-sm-2 col-form-label">TankCapacity</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtTankCapacity" runat="server" ></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtTankCapacity" runat="server" TextMode="Number" ></asp:TextBox>
+                         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server"  ErrorMessage="Chỉ được nhập số." ControlToValidate="txtTankCapacity" ForeColor="Red" ValidationExpression="\d+" />
                     </div>
                 </div>
                 <div class="form-group row">
