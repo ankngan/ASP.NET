@@ -31,7 +31,7 @@ namespace WebBanXeMay
              {
 
                  ResultNull.Visible = true;
-                 ResultNull.Text = "Sản phẩm đã hết hàng.";
+                 ResultNull.Text = "Không tìm thấy sản phẩm.";
 
              }
 
