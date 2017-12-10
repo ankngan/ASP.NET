@@ -19,7 +19,7 @@ namespace WebBanXeMay
                 {
                     
                     txtUser.Text =Session["user"].ToString();
-                    txtPass.Text = Session["pass"].ToString();
+                    //txtPass.Text = Session["pass"].ToString();
                     string message = "<script language=javascript>alert('Đăng ký thành công');</script>";
                     Response.Write(message);
                 }

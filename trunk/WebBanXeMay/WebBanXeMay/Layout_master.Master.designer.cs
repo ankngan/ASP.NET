@@ -40,31 +40,13 @@ namespace WebBanXeMay {
         protected global::System.Web.UI.WebControls.View v2;
         
         /// <summary>
-        /// form1 control.
+        /// btnLogOut control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
-        /// lblHienThi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHienThi;
-        
-        /// <summary>
-        /// lbtnLogOut control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnLogOut;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnLogOut;
         
         /// <summary>
         /// RepeaterCategories control.

@@ -29,6 +29,10 @@
                                      <th>Tổng tiền</th>
                                     <th>Số lượng</th>
                                     <th>Ngày đặt</th>
+                                    <th>Tên khách hàng</th>
+                                     <th>SĐT</th>
+                                     <th>Email</th>
+                                     <th>Địa chỉ</th>
                                     <th>Sửa</th>
                                     <th>Xóa</th>
                                 </tr>
@@ -39,10 +43,14 @@
                             <tr>
                                 <td><%#Eval("orders_id")%></td>
                                 <td><%#Eval("user_id")%></td>
-                                <td><%#Eval("product_name")%></td>
+                                <td><%#Eval("product_id")%></td>
                                  <td><%#Eval("total_money")%></td>
                                 <td><%#Eval("quantity")%></td>
                                 <td><%#Eval("orders_date")%></td>
+                                <td><%#Eval("customer_name")%></td>
+                                <td><%#Eval("customer_phone")%></td>
+                                <td><%#Eval("customer_email")%></td>
+                                <td><%#Eval("customer_address")%></td>
                                 
                                 <td class="text-center">
                                     <p data-placement="top" data-toggle="tooltip" title="Edit">
@@ -74,10 +82,17 @@
                         <asp:TextBox CssClass="form-control" ID="txtOderIDEdit" runat="server" Enabled="false"></asp:TextBox>
                     </div>
                 </div>
+
                 <div class="form-group row">
                     <label for="inputName" class="col-sm-2 col-form-label">Mã người dùng</label>
                     <div class="col-sm-10">
                         <asp:DropDownList CssClass="form-control" ID="drlUserIDEdit" runat="server"></asp:DropDownList>
+                    </div>
+                </div>
+                 <div class="form-group row">
+                    <label for="inputName" class="col-sm-2 col-form-label">Mã sản phẩm</label>
+                    <div class="col-sm-10">
+                        <asp:DropDownList CssClass="form-control" ID="drdlProductEdit" runat="server"></asp:DropDownList>
                     </div>
                 </div>
                <div class="form-group row">
@@ -101,8 +116,36 @@
                         <asp:Calendar ID="cldNgayDatEdit" runat="server" OnSelectionChanged="cldNgayDatEdit_SelectionChanged"></asp:Calendar>
                     </div>
                 </div>
-               
-                <asp:LinkButton ID="updateOrder" CssClass="btn btn-warning btn-lg" runat="server" ><span class="glyphicon glyphicon-ok-sign"></span>Update</asp:LinkButton>
+               <div class="form-group row">
+                    <label for="inputEmail" class="col-sm-2 col-form-label">Tên khách hàng</label>
+                    <div class="col-sm-10">
+                        <asp:TextBox CssClass="form-control" ID="txtNameEdit" runat="server"></asp:TextBox>
+                        
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail" class="col-sm-2 col-form-label">Số điện thoại</label>
+                    <div class="col-sm-10">
+                        <asp:TextBox CssClass="form-control" ID="txtSDTEdit" runat="server"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server"  ErrorMessage="Nhập đúng số điện thoại." ControlToValidate="txtSDTEdit" ForeColor="Red" ValidationExpression="^[0-9]{6,11}$" />
+                        
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <asp:TextBox CssClass="form-control" ID="txtEmailEdit" runat="server"></asp:TextBox>
+                        <asp:RegularExpressionValidator id="RegularExpressionValidator8" ControlToValidate="txtEmailEdit" Text='"Nhập đúng định dạng email"' ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Runat="server" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail" class="col-sm-2 col-form-label">Địa chỉ</label>
+                    <div class="col-sm-10">
+                        <asp:TextBox CssClass="form-control" ID="txtAddressEdit" runat="server"></asp:TextBox>
+                        
+                    </div>
+                </div>
+                <asp:LinkButton ID="updateOrder" CssClass="btn btn-warning btn-lg" runat="server" OnClick="updateOrder_Click1" ><span class="glyphicon glyphicon-ok-sign"></span>Update</asp:LinkButton>
             </asp:View>
             <!--<asp:View ID="v3" runat="server">
                 <h4 class="modal-title custom_align" id="H4">Delete this entry</h4>
@@ -118,6 +161,12 @@
                     <label for="inputName" class="col-sm-2 col-form-label">Mã người dùng</label>
                     <div class="col-sm-10">
                         <asp:DropDownList CssClass="form-control" ID="drlUserID" runat="server"></asp:DropDownList>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputName" class="col-sm-2 col-form-label">Mã sản phẩm</label>
+                    <div class="col-sm-10">
+                        <asp:DropDownList CssClass="form-control" ID="drdlProduct" runat="server"></asp:DropDownList>
                     </div>
                 </div>
                <div class="form-group row">
@@ -141,8 +190,34 @@
                         <asp:Calendar ID="cldNgaydat" runat="server" OnSelectionChanged="cldNgaydat_SelectionChanged"></asp:Calendar>
                     </div>
                 </div>
-               
-                <asp:LinkButton ID="addNewOrder" CssClass="btn btn-warning btn-lg" runat="server" ><span class="glyphicon glyphicon-ok-sign"></span>Add</asp:LinkButton>
+               <div class="form-group row">
+                    <label for="inputEmail" class="col-sm-2 col-form-label">Tên khách hàng</label>
+                    <div class="col-sm-10">
+                        <asp:TextBox CssClass="form-control" ID="txtName" runat="server"></asp:TextBox>
+                        
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail" class="col-sm-2 col-form-label">Số điện thoại</label>
+                    <div class="col-sm-10">
+                        <asp:TextBox CssClass="form-control" ID="txtSDT" runat="server"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server"  ErrorMessage="Nhập đúng số điện thoại." ControlToValidate="txtSDT" ForeColor="Red" ValidationExpression="^[0-9]{6,11}$" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <asp:TextBox CssClass="form-control" ID="txtEmail" runat="server"></asp:TextBox>
+                        <asp:RegularExpressionValidator id="RegularExpressionValidator6" ControlToValidate="txtEmail" Text='"Nhập đúng định dạng email"' ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Runat="server" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail" class="col-sm-2 col-form-label">Địa chỉ</label>
+                    <div class="col-sm-10">
+                        <asp:TextBox CssClass="form-control" ID="txtAddress" runat="server"></asp:TextBox>
+                        
+                    </div>
+                <asp:LinkButton ID="addNewOrder" CssClass="btn btn-warning btn-lg" runat="server" OnClick="addNewOrder_Click1" ><span class="glyphicon glyphicon-ok-sign"></span>Add</asp:LinkButton>
             </asp:View>
 
         </asp:MultiView>

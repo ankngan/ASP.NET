@@ -956,7 +956,7 @@ namespace WebBanXeMay
                 cmd.CommandType = CommandType.StoredProcedure;
                 DataTable dataTable = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                cmd.Parameters.AddWithValue("@OrderID", OrderID);
+                cmd.Parameters.AddWithValue("@ID", OrderID);
                 adapter.Fill(dataTable);
                 return dataTable;
                 
@@ -970,57 +970,66 @@ namespace WebBanXeMay
             }
         }
 
-        ////Thêm Order vào database
-        //public bool themOrder(int CustomerID, int TotalMoney, int Quantity, string Order_date)
-        //{
-        //    try
-        //    {
-        //        conn.Open();
-        //        SqlCommand cmd = new SqlCommand("Insert into Orders values (@user_id, @total_money, @quantity, @orders_date)", conn);
+        //thêm order vào database
+        public bool themorder(int userid, int productID , int totalmoney, int quantity, string order_date, string ctmName, int ctmPhone,string ctmEmail, string ctmAddress)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("insert into orders values (@user_id,@product_id, @total_money, @quantity, @orders_date, @customer_name, @customer_phone, @customer_email, @customer_address)", conn);
 
-        //        cmd.CommandType = CommandType.Text;
-        //        cmd.Parameters.AddWithValue("@user_id", CustomerID);
-        //        cmd.Parameters.AddWithValue("@total_money", TotalMoney);
-        //        cmd.Parameters.AddWithValue("@quantity", Quantity);
-        //        cmd.Parameters.AddWithValue("@orders_date", Order_date);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@user_id",userid);
+                cmd.Parameters.AddWithValue("@product_id", productID);
+                cmd.Parameters.AddWithValue("@total_money", totalmoney);
+                cmd.Parameters.AddWithValue("@quantity", quantity);
+                cmd.Parameters.AddWithValue("@orders_date", order_date);
+                cmd.Parameters.AddWithValue("@customer_name", ctmName);
+                cmd.Parameters.AddWithValue("@customer_phone", ctmPhone);
+                cmd.Parameters.AddWithValue("@customer_email", ctmEmail);
+                cmd.Parameters.AddWithValue("@customer_address", ctmAddress);
+                if (cmd.ExecuteNonQuery() > 0)
+                    return true;
+                else
+                    return
+                        false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
 
-        //        if (cmd.ExecuteNonQuery() > 0)
-        //            return true;
-        //        else
-        //            return
-        //                false;
-        //    }
-        //    finally
-        //    {
-        //        conn.Close();
-        //    }
-        //}
+        //Sua Order vào database
+        public bool updateOrder(int OrderID, int userid, int productID, int totalmoney, int quantity, string order_date, string ctmName, int ctmPhone, string ctmEmail, string ctmAddress)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Update Orders set user_id = @user_id,product_id = @product_id, total_money = @total_money, quantity = @quantity, orders_date = @orders_date, customer_name = @customer_name, customer_phone = @customer_phone, customer_email = @customer_email, customer_address = @customer_address where orders_id = @orders_id", conn);
 
-        ////Sua Order vào database
-        //public bool updateOrder(int OrderID, int UserID, int TotalMoney, int Quantity, string Order_date)
-        //{
-        //    try
-        //    {
-        //        conn.Open();
-        //        SqlCommand cmd = new SqlCommand("Update Orders set user_id = @UserID, total_money = @TotalMoney, quantity = @Quantity, orders_date = @orders_date where orders_id = @OrderID", conn);
-
-        //        cmd.CommandType = CommandType.Text;
-        //        cmd.Parameters.AddWithValue("@OrderID", OrderID);
-        //        cmd.Parameters.AddWithValue("@UserID", UserID);
-        //        cmd.Parameters.AddWithValue("@TotalMoney", TotalMoney);
-        //        cmd.Parameters.AddWithValue("@Quantity", Quantity);
-        //        cmd.Parameters.AddWithValue("@orders_date", Order_date);
-        //        if (cmd.ExecuteNonQuery() > 0)
-        //            return true;
-        //        else
-        //            return
-        //                false;
-        //    }
-        //    finally
-        //    {
-        //        conn.Close();
-        //    }
-        //}
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@orders_id", OrderID);
+                cmd.Parameters.AddWithValue("@user_id", userid);
+                cmd.Parameters.AddWithValue("@product_id", productID);
+                cmd.Parameters.AddWithValue("@total_money", totalmoney);
+                cmd.Parameters.AddWithValue("@quantity", quantity);
+                cmd.Parameters.AddWithValue("@orders_date", order_date);
+                cmd.Parameters.AddWithValue("@customer_name", ctmName);
+                cmd.Parameters.AddWithValue("@customer_phone", ctmPhone);
+                cmd.Parameters.AddWithValue("@customer_email", ctmEmail);
+                cmd.Parameters.AddWithValue("@customer_address", ctmAddress);
+                if (cmd.ExecuteNonQuery() > 0)
+                    return true;
+                else
+                    return
+                        false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
 
         //Delete theo id
         public bool deleteOrder(int OrderId)

@@ -21,7 +21,7 @@ namespace WebBanXeMay
                 if (Session["hienThiTen"] != null)
                 {
                     mtvFormLogin.ActiveViewIndex = 1;
-                    lblHienThi.Text ="Xin chào! " + Session["hienThiTen"].ToString();
+                    //lblHienThi.Text ="Xin chào! " + Session["hienThiTen"].ToString();
                     //string message = "<script language=javascript>alert('Đăng nhập thành công');</script>";
                     //Response.Write(message);
                 }
@@ -70,7 +70,7 @@ namespace WebBanXeMay
             
         }
 
-        protected void lbtnLogOut_Click(object sender, EventArgs e)
+        protected void btnLogOut_Click(object sender, EventArgs e)
         {
             Session.Clear();
             Session.Abandon();

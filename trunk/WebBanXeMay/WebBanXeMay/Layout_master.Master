@@ -30,12 +30,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </head>
 <body>
+    <%--<form id="form1" runat="server">--%>
 <div class="header">
 	<div class="header_top">
 		<div class="container">
 			<div class="logo">
 				<a href="home.aspx"><img src="images/logo.png" alt=""/></a>
 			</div>
+            
             <asp:MultiView ID="mtvFormLogin" runat="server" ActiveViewIndex="0">
                 <asp:View ID="v1" runat="server">
                     <ul class="shopping_grid">
@@ -45,15 +47,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			        </ul>
                 </asp:View>
                 <asp:View ID="v2" runat="server">
-                    <form id="form1" runat="server">
+                    
                         <ul class="shopping_grid">
 			              <li>
-                              <asp:Label ID="lblHienThi" runat="server" Text="Label"></asp:Label></li>
+                              <label  runat="server"></label>
+                              <%--<asp:Label ID="lblHienThi" runat="server" Text="Label"></asp:Label></li>--%>
 			              <li>
-                              <asp:LinkButton ID="lbtnLogOut" style="background:red; padding:10px 20px; font-weight:bold; border:none; color:White" runat="server" OnClick="lbtnLogOut_Click">Log Out</asp:LinkButton></li>
+                              <%--<asp:LinkButton ID="lbtnLogOut" style="background:red; padding:10px 20px; font-weight:bold; border:none; color:White" runat="server" OnClick="lbtnLogOut_Click">Log Out</asp:LinkButton></li>--%>
+                              <button id="btnLogOut" style="background:red; padding:10px 20px; font-weight:bold; border:none; color:White" runat="server" onclick="btnLogOut_Click">Log Out</button></li>
 			              <li><a href="cart.aspx"><span class="m_1">Đã thêm</span>&nbsp;&nbsp;(0) &nbsp;<img src="images/motorcycle.png" width="25" height="25" alt=""/></a></li> 
 			            </ul>
-                    </form>
+                    
                 </asp:View>   
             </asp:MultiView>
 			
@@ -212,6 +216,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
      </div>
         <%--end conten_top--%>
   </div>
+<%--</form>--%>
 <div class="footer_bg">
 </div>
 <div class="footer">

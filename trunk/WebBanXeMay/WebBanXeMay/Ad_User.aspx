@@ -105,7 +105,7 @@
                 <div class="form-group row">
                     <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtEmailEdit" runat="server" TextMode="Email"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtEmailEdit" runat="server"></asp:TextBox>
                         <asp:RegularExpressionValidator id="RegularExpressionValidator2" ControlToValidate="txtEmailEdit" Text='"Nhập đúng định dạng email"' ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Runat="server" /> 
                     </div>
                 </div>

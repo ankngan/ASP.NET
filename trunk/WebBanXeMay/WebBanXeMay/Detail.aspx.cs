@@ -16,7 +16,14 @@ namespace WebBanXeMay
         ConnectDB DB = new ConnectDB();
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadProductByID();
+            if (Request.QueryString["id"] != null)
+            {
+                LoadProductByID();
+            }
+            else
+                Response.Redirect("Home.aspx");
+            
+            
         }
 
         private void LoadProductByID()
@@ -32,6 +39,14 @@ namespace WebBanXeMay
             
 
 
+        }
+        protected void lbtnAddToCart_Click(object sender, EventArgs e)
+        {
+            string product_id = Request.QueryString["id"].ToString();
+            int converId = Int32.Parse(product_id);
+            AddProductCart cartProduct = new AddProductCart();
+            cartProduct.Shoppping_AddCart(converId,2);
+            Response.Redirect("Cart.aspx");
         }
     }
 }

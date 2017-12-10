@@ -18,6 +18,8 @@ namespace WebBanXeMay
                 LoadOrder();
                 getUser();
                 getUserEdit();
+                getProduct();
+                getProductEdit();
             }
 
         }
@@ -35,6 +37,20 @@ namespace WebBanXeMay
             drlUserIDEdit.DataValueField = "user_id";
             drlUserIDEdit.DataTextField = "name";
             drlUserIDEdit.DataBind();
+        }
+        void getProduct()
+        {
+            drdlProduct.DataSource = DB.getLidtProduct();
+            drdlProduct.DataValueField = "product_id";
+            drdlProduct.DataTextField = "product_name";
+            drdlProduct.DataBind();
+        }
+        void getProductEdit()
+        {
+            drdlProductEdit.DataSource = DB.getLidtProduct();
+            drdlProductEdit.DataValueField = "product_id";
+            drdlProductEdit.DataTextField = "product_name";
+            drdlProductEdit.DataBind();
         }
         protected void msg_Delete(object sender, System.EventArgs e)
         {
@@ -74,9 +90,14 @@ namespace WebBanXeMay
                     {
                         txtOderIDEdit.Text = dt.Rows[0]["orders_id"].ToString();
                         drlUserIDEdit.Text = dt.Rows[0]["user_id"].ToString();
+                        drdlProductEdit.Text = dt.Rows[0]["product_id"].ToString();
                         txtTotalMoneyEdit.Text = dt.Rows[0]["total_money"].ToString();
                         txtQuantityEdit.Text = dt.Rows[0]["quantity"].ToString();
                         txtNgayDatEdit.Text = dt.Rows[0]["orders_date"].ToString();
+                        txtNameEdit.Text = dt.Rows[0]["customer_name"].ToString();
+                        txtSDTEdit.Text = dt.Rows[0]["customer_phone"].ToString();
+                        txtEmailEdit.Text = dt.Rows[0]["customer_email"].ToString();
+                        txtAddressEdit.Text = dt.Rows[0]["customer_address"].ToString();
                     }
                     break;
                 case "Delete":
@@ -93,36 +114,38 @@ namespace WebBanXeMay
             }
         }
 
-        //protected void addNewOrder_Click(object sender, EventArgs e)
-        //{
-        //    if (!string.IsNullOrEmpty(txtNgayDat.Text.Trim()))
-        //    {
-        //                DB.themOrder(Convert.ToInt32(drlUserID.Text.Trim()), Convert.ToInt32(txtTotalMoney.Text.Trim()), Convert.ToInt32(txtQuantity.Text.Trim()), txtNgayDat.Text.Trim());
-        //                Response.Redirect(Request.Url.ToString());
-        //        }
 
-        //    }
-
-        //protected void updateOrder_Click(object sender, EventArgs e)
-        //{
-            
-        //    if (!string.IsNullOrEmpty(txtOderIDEdit.Text.Trim()))
-        //    {
-        //        DB.updateOrder(Convert.ToInt32(txtOderIDEdit.Text.Trim()), Convert.ToInt32(drlUserIDEdit.Text.Trim()), Convert.ToInt32(txtTotalMoneyEdit.Text.Trim()), Convert.ToInt32(txtQuantityEdit.Text.Trim()), txtNgayDatEdit.Text.Trim());
-        //        Response.Redirect(Request.Url.ToString());
-        //    }
-        //}
+ 
 
 
 
         protected void cldNgaydat_SelectionChanged(object sender, EventArgs e)
         {
-            txtNgayDat.Text = cldNgaydat.SelectedDate.ToString("mm-dd-yyyy") + " " + DateTime.Now.ToString("hh:mm:ss");
+            txtNgayDat.Text = cldNgaydat.SelectedDate.ToString("MM-dd-yyyy") + " " + DateTime.Now.ToString("hh:mm:ss");
         }
 
         protected void cldNgayDatEdit_SelectionChanged(object sender, EventArgs e)
         {
-            txtNgayDatEdit.Text = cldNgayDatEdit.SelectedDate.ToString("mm-dd-yyyy") + " " + DateTime.Now.ToString("hh:mm:ss");
+            txtNgayDatEdit.Text = cldNgayDatEdit.SelectedDate.ToString("MM-dd-yyyy") ;
+        }
+
+        protected void updateOrder_Click1(object sender, EventArgs e)
+        {
+
+            if (!string.IsNullOrEmpty(txtOderIDEdit.Text.Trim()))
+            {
+                DB.updateOrder(Convert.ToInt32(txtOderIDEdit.Text.Trim()), Convert.ToInt32(drlUserIDEdit.SelectedValue), Convert.ToInt32(drdlProductEdit.SelectedValue), Convert.ToInt32(txtTotalMoneyEdit.Text.Trim()), Convert.ToInt32(txtQuantityEdit.Text.Trim()), txtNgayDatEdit.Text.Trim(), txtNameEdit.Text.Trim(), Convert.ToInt32(txtSDTEdit.Text.Trim()), txtEmailEdit.Text.Trim(), txtAddressEdit.Text.Trim());
+                Response.Redirect(Request.Url.ToString());
+            }
+        }
+
+        protected void addNewOrder_Click1(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtNgayDat.Text.Trim()))
+            {
+                DB.themorder(Convert.ToInt32(drlUserID.SelectedValue), Convert.ToInt32(drdlProduct.SelectedValue), Convert.ToInt32(txtTotalMoney.Text.Trim()), Convert.ToInt32(txtQuantity.Text.Trim()), txtNgayDat.Text.Trim(), txtName.Text.Trim(), Convert.ToInt32(txtSDT.Text.Trim()), txtEmail.Text.Trim(), txtAddress.Text.Trim());
+                Response.Redirect(Request.Url.ToString());
+            }
         }
 
        

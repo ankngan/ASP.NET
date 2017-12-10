@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout_master.Master" AutoEventWireup="true" CodeBehind="Detail.aspx.cs" Inherits="WebBanXeMay.Order" %>
 <asp:Content ID="DetailContent" ContentPlaceHolderID="Content" runat="server">
-
+    <form  runat="server">
 
     
        <asp:Repeater ID="RepeaterProduct" runat="server">
@@ -12,8 +12,8 @@
 						<ul id="etalage">
 							<li>
 								<a href="#">
-									<img class="etalage_thumb_image" src="images/products/<%#Eval("product_image")%>" class="img-responsive" />
-									<img class="etalage_source_image" src="images/products/<%#Eval("product_image")%>" class="img-responsive" title="" />
+									<%--<img class="etalage_thumb_image" src="images/products/<%#Eval("product_image")%>" class="img-responsive" />--%>
+									<img class="etalage_source_image img-responsive" style="width:100%;" src="images/products/<%#Eval("product_image")%>"  />
 								</a>
 							</li>
 						</ul>
@@ -31,14 +31,12 @@
 
 				<div class="quantity_box">
 					<ul class="product-qty">
-					   <span>Số lượng:
-					   <select>
-						 <option>1</option>
-						 <option>2</option>
-						 <option>3</option>
-						 <option>4</option>
-						 <option>5</option>
-					   </select></span>
+					   <div>
+						<span>Số Lượng<label>*</label></span>
+                         <asp:TextBox ID="txtSoLuong" runat="server"></asp:TextBox>
+                         <asp:Label ID="lblSoLuong" runat="server" Text="" ForeColor="Red" Visible="false"></asp:Label>
+					 </div>
+					   
 				    </ul>
 				    <ul class="single_social">
 						<li><a href="#"><i class="fb1"> </i> </a></li>
@@ -48,11 +46,11 @@
 		   		    </ul>
 		   		    <div class="clearfix"></div>
 	   		    </div>
-			    <a href="order.aspx" title="Online Reservation" class="btn bt1 btn-primary btn-normal btn-inline " target="_self">Thêm vào giỏ</a>
-                <a href="order.aspx" title="Online Reservation" class="btn bt1 btn-primary btn-normal btn-inline " target="_self">Thanh toán</a>
-               
-			</div>
-               
+                     
+                      <asp:LinkButton CssClass="btn bt1 btn-primary btn-normal btn-inline "  ID="lbtnAddToCart" runat="server" OnClick="lbtnAddToCart_Click">Thêm vào giỏ</asp:LinkButton>
+                      <asp:LinkButton ID="lbtnThanhToan" CssClass="btn bt1 btn-primary btn-normal btn-inline" runat="server">Thanh toán</asp:LinkButton>               
+			    </div>
+         
 		    <div class="clearfix"> </div>
 				</div>
           	    <div class="clearfix"></div>
@@ -95,7 +93,7 @@
 			  </div>
         </ItemTemplate>
         </asp:Repeater>
-		
-	     <div class="clearfix"> </div>
 
+	     <div class="clearfix"> </div>
+    		</form>
 </asp:Content>
