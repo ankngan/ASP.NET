@@ -13,7 +13,7 @@ namespace WebBanXeMay
         {
             if (!IsPostBack)
             {
-                if (Session["hienThiTen"] != null)
+                if (Session["hienThiTen"] != null && Session["hienThiTen"].Equals("admin"))
                 {
 
                     lblHienThi.Text = Session["hienThiTen"].ToString();
@@ -22,7 +22,7 @@ namespace WebBanXeMay
                 }
                 else
                 {
-                    Response.Redirect("Login.aspx");
+                    Response.Redirect("Home.aspx");
                 }
             }
         }

@@ -44,7 +44,7 @@ namespace WebBanXeMay
                         {
                             if ((dataTable.Rows[i]["user_name"].ToString().Equals(txtUser.Text.Trim()) || dataTable.Rows[i]["user_email"].ToString().Equals(txtUser.Text.Trim())) && dataTable.Rows[i]["user_password"].ToString().Equals(txtPass.Text.Trim()))
                             {
-                                if (txtUser.Text.Trim().Equals("admin") && txtPass.Text.Trim().Equals("123456"))
+                                if (dataTable.Rows[i]["user_name"].Equals("admin"))
                                 {
                                     txtPass.Visible = false;
                                     Session["hienThiTen"] = dataTable.Rows[i]["name"].ToString();
