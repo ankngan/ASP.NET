@@ -13,7 +13,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/login_form.css" rel="stylesheet" type="text/css" />
 <link href="css/cart.css" rel="stylesheet" type="text/css" />
 <%--<link href='http://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>--%>
-<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="http://localhost:1457/netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="css/etalage.css">
 
 <!-- SCRIPT IMPORT-->
@@ -36,12 +36,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="logo">
 				<a href="home.aspx"><img src="images/logo.png" alt=""/></a>
 			</div>
-			<ul class="shopping_grid">
-			      <a href="register.aspx"><li>Đăng ký</li></a>
-			      <a href="login.aspx" <%--data-toggle="modal" data-target="#login-modal"--%>><li>Đăng nhập</li></a>
-			      <a href="cart.aspx"><li><span class="m_1">Đã thêm</span>&nbsp;&nbsp;(0) &nbsp;<img src="images/motorcycle.png" width="25" height="25" alt=""/></li></a>
-			      <div class="clearfix"> </div>
-			</ul>
+            <asp:MultiView ID="mtvFormLogin" runat="server" ActiveViewIndex="0">
+                <asp:View ID="v1" runat="server">
+                    <ul class="shopping_grid">
+			          <li><a href="register.aspx">Đăng ký</a></li>
+			          <li><a href="login.aspx"> Đăng nhập</a></li>
+			          <li><a href="cart.aspx"><span class="m_1">Đã thêm</span>&nbsp;&nbsp;(0) &nbsp;<img src="images/motorcycle.png" width="25" height="25" alt=""/></a></li> 
+			        </ul>
+                </asp:View>
+                <asp:View ID="v2" runat="server">
+                    <form id="form1" runat="server">
+                        <ul class="shopping_grid">
+			              <li>
+                              <asp:Label ID="lblHienThi" runat="server" Text="Label"></asp:Label></li>
+			              <li>
+                              <asp:LinkButton ID="lbtnLogOut" style="background:red; padding:10px 20px; font-weight:bold; border:none; color:White" runat="server" OnClick="lbtnLogOut_Click">Log Out</asp:LinkButton></li>
+			              <li><a href="cart.aspx"><span class="m_1">Đã thêm</span>&nbsp;&nbsp;(0) &nbsp;<img src="images/motorcycle.png" width="25" height="25" alt=""/></a></li> 
+			            </ul>
+                    </form>
+                </asp:View>   
+            </asp:MultiView>
+			
 		    <div class="clearfix"> </div>
 		</div>
 	</div>

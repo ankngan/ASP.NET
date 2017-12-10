@@ -15,21 +15,18 @@ namespace WebBanXeMay
         ConnectDB DB = new ConnectDB();
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlConnection conn;
-            SqlCommand cmpLenh;
-            connectData(out conn, out cmpLenh);
-
-            LoadProducts(conn, cmpLenh);
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["id"] == null)
+                    Response.Redirect("Home.aspx");
+                LoadProducts();    
+            }
+            
            
         }
-        private static void connectData(out SqlConnection conn, out SqlCommand cmpLenh)
-        {
-            conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["connect"].ConnectionString);
-            conn.Open();
-            cmpLenh = new SqlCommand();
-        }
+        
 
-        private void LoadProducts(SqlConnection conn, SqlCommand cmpLenh)
+        private void LoadProducts()
         {
             String id_category = Request.QueryString["id"].ToString();
             int converId = Int16.Parse(id_category);

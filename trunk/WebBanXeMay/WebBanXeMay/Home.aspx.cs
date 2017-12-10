@@ -21,7 +21,7 @@ namespace WebBanXeMay
             if (page == 0) page = 1;
             if (!IsPostBack)
             {
-                NapDuLieu(page, 21, 3);
+                NapDuLieu(page, 24, 3);
             }
 
         }

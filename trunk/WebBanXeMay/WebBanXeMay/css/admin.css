@@ -7,6 +7,33 @@ body {
     padding: 0px;
 }
 
+/*css ul li*/
+/*ul.shopping_grid{
+	padding:0;
+	margin:0;
+	list-style:none;
+	float:right;
+}
+ul.shopping_grid li{
+	float: left;
+	background: #eee;
+	padding: 25px 20px 0;
+	border-right: 1px solid #f7f7f7;
+	font: 600 15px/15px 'Lato', sans-serif;
+	min-height: 70px;
+	color:#000;
+}
+ul.shopping_grid li img{
+	margin-top: -4px;
+}
+ul.shopping_grid a li:hover {
+	color:#df1f26;
+}
+ul.shopping_grid li:hover span.m_1{
+	color:#000;
+}*/
+
+/*hetul*/
 a.btn.btn-info.btn-xs {
     float: right;
     padding: 15px;
@@ -99,6 +126,8 @@ footer .copy {
     box-shadow: none !important;
 }
 
+li {}
+
 .header .navbar .label {
     font-size: 12px;
     padding: 4px 8px;
@@ -162,12 +191,24 @@ footer .copy {
 .header .dropdown-menu li {
     font-size: 13px;
     padding: 6px 15px;
-    border-bottom: 1px dashed #f3f3f3;
+    border-bottom: 1px solid #f3f3f3;
 }
 
 .header .dropdown-menu li a {
     color: #888;
     padding-left: 0px !important;
+}
+
+a#lbtnLogOut {
+    background: #fff !important;
+    display: flex;
+    color: #2d3742 !important;
+    justify-content: center;
+}
+
+a#lbtnLogOut:hover {
+    background: #2d3742 !important;
+    color: #fff !important;
 }
 
 .header .dropdown-menu li:last-child {

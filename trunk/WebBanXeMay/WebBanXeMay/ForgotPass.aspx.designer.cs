@@ -10,16 +10,16 @@
 namespace WebBanXeMay {
     
     
-    public partial class Layout_master {
+    public partial class ForgotPass {
         
         /// <summary>
-        /// mtvFormLogin control.
+        /// mtvForGotPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.MultiView mtvFormLogin;
+        protected global::System.Web.UI.WebControls.MultiView mtvForGotPass;
         
         /// <summary>
         /// v1 control.
@@ -31,6 +31,33 @@ namespace WebBanXeMay {
         protected global::System.Web.UI.WebControls.View v1;
         
         /// <summary>
+        /// txtEmailForGot control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEmailForGot;
+        
+        /// <summary>
+        /// lblEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEmail;
+        
+        /// <summary>
+        /// lbtnSend control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnSend;
+        
+        /// <summary>
         /// v2 control.
         /// </summary>
         /// <remarks>
@@ -40,75 +67,21 @@ namespace WebBanXeMay {
         protected global::System.Web.UI.WebControls.View v2;
         
         /// <summary>
-        /// form1 control.
+        /// lblCheckMail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Label lblCheckMail;
         
         /// <summary>
-        /// lblHienThi control.
+        /// LbtnCheckMail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHienThi;
-        
-        /// <summary>
-        /// lbtnLogOut control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnLogOut;
-        
-        /// <summary>
-        /// RepeaterCategories control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterCategories;
-        
-        /// <summary>
-        /// RepeaterProducer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterProducer;
-        
-        /// <summary>
-        /// RepeaterMoto_model control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterMoto_model;
-        
-        /// <summary>
-        /// RepeaterEmployer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterEmployer;
-        
-        /// <summary>
-        /// Content control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder Content;
+        protected global::System.Web.UI.WebControls.LinkButton LbtnCheckMail;
     }
 }

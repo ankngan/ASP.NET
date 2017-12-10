@@ -32,39 +32,60 @@ namespace WebBanXeMay
                         if (!string.IsNullOrEmpty(txtRePass.Text.Trim()))
                         {
                             lblRePass.Visible = false;
-                            for (int i = 0; i < dataTable.Rows.Count; i++)
+                            if (dataTable.Rows.Count > 0)
                             {
-                                if (dataTable.Rows[i]["user_name"].ToString() != txtUserName.Text.Trim())
+                                for (int i = 0; i < dataTable.Rows.Count; i++)
                                 {
-                                    lblUser.Visible = false;
-                                    if (dataTable.Rows[i]["user_email"].ToString() != txtEmail.Text.Trim())
+                                    if (dataTable.Rows[i]["user_name"].ToString() != txtUserName.Text.Trim())
                                     {
-                                        lblEmail.Visible = false;
-                                        if (txtPass.Text.Equals(txtRePass.Text))
+                                        lblUser.Visible = false;
+                                        if (dataTable.Rows[i]["user_email"].ToString() != txtEmail.Text.Trim())
                                         {
-                                            lblRePass.Visible = false;
-                                            DB.themUser(txtName.Text.Trim(), txtUserName.Text.Trim(), txtAddress.Text.Trim(), Convert.ToInt32(txtPhone.Text.Trim()), txtEmail.Text.Trim(), txtPass.Text.Trim(), 0);
-                                            Response.Redirect("Home.aspx");
-                                            break;
+                                            lblEmail.Visible = false;
+                                            if (txtPass.Text.Equals(txtRePass.Text.Trim()))
+                                            {
+                                                Session["user"] = txtUserName.Text;
+                                                lblRePass.Visible = false;
+                                                DB.themUser(txtName.Text.Trim(), txtUserName.Text.Trim(), txtAddress.Text.Trim(), Convert.ToInt32(txtPhone.Text.Trim()), txtEmail.Text.Trim(), txtPass.Text.Trim(), 0);
+                                                Response.Redirect("Login.aspx");
+                                                break;
+                                            }
+                                            else
+                                            {
+                                                lblRePass.Text = "Vui lòng nhập lại đúng mật khẩu đã nhập.";
+                                                lblRePass.Visible = true;
+                                            }
                                         }
                                         else
                                         {
-                                            lblRePass.Text = "Vui lòng nhập lại đúng mật khẩu.";
-                                            lblRePass.Visible = true;
+                                            lblEmail.Text = "Email đã được đăng ký.";
+                                            lblEmail.Visible = true;
                                         }
                                     }
                                     else
                                     {
-                                        lblEmail.Text = "Email đã được đăng ký.";
-                                        lblEmail.Visible = true;
+                                        lblUser.Text = "Người dùng đã được đăng ký";
+                                        lblUser.Visible = true;
                                     }
+
+                                }
+                            }
+                            else 
+                            {
+                                if (txtPass.Text.Equals(txtRePass.Text))
+                                {
+                                    lblRePass.Visible = false;
+                                    Session["user"] = txtUserName.Text;
+                                    lblRePass.Visible = false;
+                                    DB.themUser(txtName.Text.Trim(), txtUserName.Text.Trim(), txtAddress.Text.Trim(), Convert.ToInt32(txtPhone.Text.Trim()), txtEmail.Text.Trim(), txtPass.Text.Trim(), 0);
+                                    Response.Redirect("Login.aspx");
+                                    
                                 }
                                 else
                                 {
-                                    lblUser.Text = "Người dùng đã được đăng ký";
-                                    lblUser.Visible = true;
+                                    lblRePass.Text = "Vui lòng nhập lại đúng mật khẩu đã nhập.";
+                                    lblRePass.Visible = true;
                                 }
-
                             }
                         }
                         else 
@@ -96,7 +117,11 @@ namespace WebBanXeMay
 
         protected void ckbNewLetter_CheckedChanged(object sender, EventArgs e)
         {
-            lbtnDangKy.Enabled = true;
+            if (ckbNewLetter.Checked)
+                lbtnDangKy.Enabled = true;
+            else
+                lbtnDangKy.Enabled = false;
+            
         }
     }
 }

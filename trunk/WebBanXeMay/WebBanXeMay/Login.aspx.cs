@@ -13,7 +13,18 @@ namespace WebBanXeMay
         ConnectDB DB = new ConnectDB();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (!IsPostBack)
+            {
+                if (Session["user"] != null)
+                {
+                    
+                    txtUser.Text =Session["user"].ToString();
+                    txtPass.Text = Session["pass"].ToString();
+                    string message = "<script language=javascript>alert('Đăng ký thành công');</script>";
+                    Response.Write(message);
+                }
+                
+            }
         }
 
         protected void lbtnDangNhap_Click(object sender, EventArgs e)
@@ -21,26 +32,46 @@ namespace WebBanXeMay
 
             DataTable dataTable = new DataTable();
             dataTable = DB.getLidtUser();
-            if (!string.IsNullOrEmpty(txtUser.Text.Trim()))
+            if (!string.IsNullOrEmpty(txtUser.Text.Trim().Trim()))
             {
                 lblUser.Visible = false;
-                if (!string.IsNullOrEmpty(txtPass.Text.Trim()))
+                if (!string.IsNullOrEmpty(txtPass.Text.Trim().Trim()))
                 {
                     lblPass.Visible = false;
-                    for (int i = 0; i < dataTable.Rows.Count; i++)
+                    if (dataTable.Rows.Count > 0)
                     {
-                        if ((dataTable.Rows[i]["user_name"].ToString().Equals(txtUser.Text)||dataTable.Rows[i]["user_email"].ToString().Equals(txtUser.Text)) && dataTable.Rows[i]["user_password"].ToString().Equals(txtPass.Text))
+                        for (int i = 0; i < dataTable.Rows.Count; i++)
                         {
-                            txtPass.Visible = false;
-                            string message = "<script language=javascript>alert('Đăng nhập thành công');</script>";
-                            Response.Write(message);
-                            Response.Redirect("Home.aspx");
+                            if ((dataTable.Rows[i]["user_name"].ToString().Equals(txtUser.Text.Trim()) || dataTable.Rows[i]["user_email"].ToString().Equals(txtUser.Text.Trim())) && dataTable.Rows[i]["user_password"].ToString().Equals(txtPass.Text.Trim()))
+                            {
+                                if (txtUser.Text.Trim().Equals("admin") && txtPass.Text.Trim().Equals("123456"))
+                                {
+                                    txtPass.Visible = false;
+                                    Session["hienThiTen"] = dataTable.Rows[i]["name"].ToString();
+                                    Response.Redirect("Ad_User.aspx");
+                                    break;
+                                    
+                                }
+                                else 
+                                {
+                                    txtPass.Visible = false;
+                                    Session["hienThiTen"] = dataTable.Rows[i]["name"].ToString();
+                                    Response.Redirect("Home.aspx");
+                                    break;
+                                }
 
+                            }
+                            else
+                            {
+                                lblPass.Text = "Mật khẩu hoặc tên đăng nhập không đúng!";
+                                lblPass.Visible = true;
+                            }
                         }
-                        else {
-                            lblPass.Text = "Mật khẩu hoặc tên đăng nhập không đúng!";
-                            lblPass.Visible = true;
-                        }
+                    }
+                    else 
+                    {
+                        lblPass.Text = "Mật khẩu hoặc tên đăng nhập không đúng!";
+                        lblPass.Visible = true;                
                     }
                 }
                 else

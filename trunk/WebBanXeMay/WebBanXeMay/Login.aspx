@@ -24,7 +24,7 @@
                         </form>
 
                         <div class="login-help">
-                            <a href="register.aspx" class ="dangKy">Đăng ký</a> - <a href="#" class="forgotPass">Quên mật khẩu</a>
+                            <a href="register.aspx" class ="dangKy">Đăng ký</a> - <a href="ForGotPass.aspx" class="forgotPass">Quên mật khẩu ? </a>
                         </div>
                     </div>
                     <div class="clearfix"></div>
