@@ -19,6 +19,7 @@ namespace WebBanXeMay
             if (Request.QueryString["id"] != null)
             {
                 LoadProductByID();
+                LoadProductByID1();
             }
             else
                 Response.Redirect("Home.aspx");
@@ -40,13 +41,41 @@ namespace WebBanXeMay
 
 
         }
+        private void LoadProductByID1()
+        {
+            String product_id = Request.QueryString["id"].ToString();
+            int converId = Int16.Parse(product_id);
+
+            if (DB.getProductByID(converId).Rows.Count > 0)
+            {
+                RepeaterProduct1.DataSource = DB.getDetailProductByID(converId);
+                RepeaterProduct1.DataBind();
+            }
+
+
+
+        }
         protected void lbtnAddToCart_Click(object sender, EventArgs e)
         {
-            string product_id = Request.QueryString["id"].ToString();
-            int converId = Int32.Parse(product_id);
-            AddProductCart cartProduct = new AddProductCart();
-            cartProduct.Shoppping_AddCart(converId,2);
-            Response.Redirect("Cart.aspx");
+            
+            if (txtSoLuong.Text.Equals(""))
+            {
+                lblSoLuong.Visible = true;
+                lblSoLuong.Text = "Bạn chưa nhập số lượng muốn mua.";
+            }
+            else 
+            {
+                lblSoLuong.Visible = false;
+                int soLuong = int.Parse(txtSoLuong.Text);
+                string product_id = Request.QueryString["id"].ToString();
+                int converId = Int32.Parse(product_id);
+                AddProductCart cartProduct = new AddProductCart();
+                cartProduct.Shoppping_AddCart(converId, soLuong);
+                Response.Redirect("Cart.aspx");
+                
+            }
+            
+            
         }
     }
 }

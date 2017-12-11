@@ -3,11 +3,12 @@
     <form  runat="server">
 
     
-       <asp:Repeater ID="RepeaterProduct" runat="server">
-       <ItemTemplate>
+       
 	   <div class="col-md-9 single_right">
 	   	<div class="single_top">
 	       <div class="single_grid">
+               <asp:Repeater ID="RepeaterProduct" runat="server">
+                    <ItemTemplate>
 				<div class="grid images_3_of_2">
 						<ul id="etalage">
 							<li>
@@ -28,16 +29,13 @@
 
 				<h2 class="quick">Mô tả:</h2>
 				<p class="quick_desc"><%#Eval("product_description")%></p>
-
+                </ItemTemplate>
+        </asp:Repeater>
 				<div class="quantity_box">
-					<ul class="product-qty">
-					   <div>
 						<span>Số Lượng<label>*</label></span>
                          <asp:TextBox ID="txtSoLuong" runat="server"></asp:TextBox>
                          <asp:Label ID="lblSoLuong" runat="server" Text="" ForeColor="Red" Visible="false"></asp:Label>
-					 </div>
-					   
-				    </ul>
+					
 				    <ul class="single_social">
 						<li><a href="#"><i class="fb1"> </i> </a></li>
 						<li><a href="#"><i class="tw1"> </i> </a></li>
@@ -61,8 +59,9 @@
 						  	  <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>Mô tả sản phẩm</span></li>
 							  <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>Đặt điểm chính</span></li>
 							  <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>Đánh giá sản phẩm</span></li>
-							  <div class="clear"></div>
-						  </ul>				  	 
+						  </ul>	
+                         <asp:Repeater ID="RepeaterProduct1" runat="server">
+                    <ItemTemplate>			  	 
 							<div class="resp-tabs-container">
 							    <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
 									<div class="facts">
@@ -89,10 +88,11 @@
 									  </ul>      
 							     </div>	
 							 </div>
+                        </ItemTemplate>
+                             </asp:Repeater>
 					      </div>
 			  </div>
-        </ItemTemplate>
-        </asp:Repeater>
+        
 
 	     <div class="clearfix"> </div>
     		</form>

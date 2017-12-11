@@ -47,7 +47,11 @@ namespace WebBanXeMay
                                 if (dataTable.Rows[i]["user_name"].Equals("admin"))
                                 {
                                     txtPass.Visible = false;
+                                    Session["idNguoiDung"] = dataTable.Rows[i]["user_id"].ToString();
                                     Session["hienThiTen"] = dataTable.Rows[i]["name"].ToString();
+                                    Session["EmailND"] = dataTable.Rows[i]["user_email"].ToString();
+                                    Session["PhoneND"] = dataTable.Rows[i]["user_phone"].ToString();
+                                    Session["AddressND"] = dataTable.Rows[i]["user_address"].ToString();
                                     Response.Redirect("Ad_User.aspx");
                                     break;
                                     

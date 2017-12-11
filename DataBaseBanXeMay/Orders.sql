@@ -8,4 +8,15 @@ create proc LoadOrderByID
 @ID int
 as
 select * from Orders where orders_id = @ID
-select * from Product p, Main_detail m where p.main_detail_id=m.main_detail_id and  product_id =2
+
+go
+create proc LoadOrder_Detail
+as
+select * from Orders_detail
+
+go
+create proc LoadOrder_DetailByID
+@ID int
+as
+select * from Orders_detail where orders_detail_id = @ID
+

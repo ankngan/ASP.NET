@@ -1053,7 +1053,128 @@ namespace WebBanXeMay
             }
         }
 
-        //phan trang
+
+        //Order 
+        //Lấy ra danh sách Oder
+        public DataTable getLidtOrder_Detail()
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("LoadOrder_Detail", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                DataTable dataTable = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dataTable);
+                return dataTable;
+            }
+
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        //Lấy ra Order_detail theo ID 
+        public DataTable getOrder_DetailByID(int Order_DetailID)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("LoadOrder_DetailByID", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                DataTable dataTable = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                cmd.Parameters.AddWithValue("@ID", Order_DetailID);
+                adapter.Fill(dataTable);
+                return dataTable;
+
+            }
+
+            finally
+            {
+
+                conn.Close();
+
+            }
+        }
+
+        //thêm order vào database
+        public bool themOrder_Dettail(int orderID, int productID)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("insert into orders values (@orders_id,@product_id)", conn);
+
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@orders_id", orderID);
+                cmd.Parameters.AddWithValue("@product_id", productID);
+                
+                if (cmd.ExecuteNonQuery() > 0)
+                    return true;
+                else
+                    return
+                        false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        //Sua Order vào database
+        public bool updateOrder_Detail(int order_DetailID, int orderId, int productID)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Update Orders set orders_id = @orders_id,product_id = @product_id where orders_detail_id = @orders_detail_id", conn);
+
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@orders_detail_id", order_DetailID);
+                cmd.Parameters.AddWithValue("@orders_id", orderId);
+                cmd.Parameters.AddWithValue("@product_id", productID);
+                
+                if (cmd.ExecuteNonQuery() > 0)
+                    return true;
+                else
+                    return
+                        false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        //Delete theo id
+        public bool deleteOrder_Detail(int OrderId)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Delete from Orders_detail where orders_id = @OrderId", conn);
+
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@OrderId", OrderId);
+                if (cmd.ExecuteNonQuery() > 0)
+                    return true;
+                else
+                    return
+                        false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+
+
+
+        //phan trang....................................................................................................................................................................
+
         public static DataSet ThucThiStore_DataSet(string StoredProcedure, params SqlParameter[] Parameters)
         { //Khai báo cuỗi kết nối   
             SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["connect"].ConnectionString);

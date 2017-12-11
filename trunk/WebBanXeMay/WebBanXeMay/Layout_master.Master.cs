@@ -18,6 +18,20 @@ namespace WebBanXeMay
         {
             if (!IsPostBack)
             {
+                lblSoLuong.Text = "0";
+                lblSL.Text = "0";
+                if (Session["cart"] !=null)
+                {
+                    int slSanPham = 0;
+                    DataTable dt = (DataTable)Session["cart"];
+                    for (int i = 0; i < dt.Rows.Count; i++)
+			        {
+                        slSanPham += int.Parse(dt.Rows[i]["Quantity"].ToString());
+			        }
+                    lblSL.Text = slSanPham.ToString();
+                    lblSoLuong.Text = slSanPham.ToString();
+                }
+                
                 if (Session["hienThiTen"] != null)
                 {
                     mtvFormLogin.ActiveViewIndex = 1;
@@ -70,11 +84,16 @@ namespace WebBanXeMay
             
         }
 
-        protected void btnLogOut_Click(object sender, EventArgs e)
+        protected void lbtnLogOut_Click(object sender, EventArgs e)
         {
             Session.Clear();
             Session.Abandon();
             Response.Redirect("Home.aspx");
+        }
+
+        protected void btnTest_Click(object sender, EventArgs e)
+        {
+            Response.Write("OKOKO");
         }
     }
 }

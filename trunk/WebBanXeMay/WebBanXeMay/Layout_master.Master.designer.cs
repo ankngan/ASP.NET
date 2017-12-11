@@ -13,6 +13,15 @@ namespace WebBanXeMay {
     public partial class Layout_master {
         
         /// <summary>
+        /// form1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        
+        /// <summary>
         /// mtvFormLogin control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace WebBanXeMay {
         protected global::System.Web.UI.WebControls.View v1;
         
         /// <summary>
+        /// lblSL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSL;
+        
+        /// <summary>
         /// v2 control.
         /// </summary>
         /// <remarks>
@@ -40,13 +58,31 @@ namespace WebBanXeMay {
         protected global::System.Web.UI.WebControls.View v2;
         
         /// <summary>
-        /// btnLogOut control.
+        /// lblHienThi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnLogOut;
+        protected global::System.Web.UI.WebControls.Label lblHienThi;
+        
+        /// <summary>
+        /// lbtnLogOut control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnLogOut;
+        
+        /// <summary>
+        /// lblSoLuong control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSoLuong;
         
         /// <summary>
         /// RepeaterCategories control.

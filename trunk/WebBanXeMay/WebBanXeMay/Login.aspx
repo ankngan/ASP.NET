@@ -9,7 +9,7 @@
                     <div class="loginmodal-container">
                         <h1>Đăng nhập </h1>
                         <br>
-                        <form runat="server">
+                        <%--<form runat="server">--%>
                             <div>
                                 <span>Tên đăng nhập or Email<label>*</label></span>
                                 <asp:TextBox ID="txtUser" runat="server" ></asp:TextBox>
@@ -21,7 +21,7 @@
                                 <asp:Label ID="lblPass" runat="server" Text="" ForeColor="Red" Visible="false"></asp:Label>
                             </div>
                             <asp:LinkButton ID="lbtnDangNhap" Style="background: #df1f26; padding: 10px 20px; font-weight: bold; border: none; color: White" runat="server" OnClick="lbtnDangNhap_Click">Đăng Nhập</asp:LinkButton>
-                        </form>
+                        <%--</form>--%>
 
                         <div class="login-help">
                             <a href="register.aspx" class ="dangKy">Đăng ký</a> - <a href="ForGotPass.aspx" class="forgotPass">Quên mật khẩu ? </a>

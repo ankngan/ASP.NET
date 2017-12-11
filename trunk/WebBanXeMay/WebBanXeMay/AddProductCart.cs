@@ -13,6 +13,7 @@ namespace WebBanXeMay
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("PId", typeof(int));
+            dt.Columns.Add("Image", typeof(string));
             dt.Columns.Add("Name", typeof(string));
             dt.Columns.Add("Price", typeof(int));
             dt.Columns.Add("Quantity", typeof(int));
@@ -32,6 +33,7 @@ namespace WebBanXeMay
                 dt = DB.getDetailProductByID(PId);
                 if (dt.Rows.Count > 0)
                 {
+                    string image = dt.Rows[0]["product_image"].ToString();
                     string name = dt.Rows[0]["product_name"].ToString();
                     int price = Int32.Parse(dt.Rows[0]["product_price"].ToString());
                     float money = price * Quantity;
@@ -60,11 +62,11 @@ namespace WebBanXeMay
                         {
                             DataRow dr = dtCart.NewRow();
                             dr["PId"] = PId;
+                            dr["Image"] = image;
                             dr["Name"] = name;
                             dr["Quantity"] = Quantity;
                             dr["Price"] = price;
                             dr["TotalMoney"] = money;
-                            
                             dtCart.Rows.Add(dr);
                             System.Web.HttpContext.Current.Session["cart"] = dtCart;
                         }
