@@ -40,19 +40,36 @@ namespace WebBanXeMay
 
         protected void lbtnThanhToan_Click(object sender, EventArgs e)
         {
-            string date_order = DateTime.Now.ToString("MM-dd-yyyy") + " " + DateTime.Now.ToString("hh:mm:ss");
+            Response.Write(DateTime.Now);
+            //string date_order = DateTime.Now.ToString("MM-dd-yyyy");
             DataTable dt = (DataTable)Session["cart"];
-            if (dt.Rows.Count > 0)
+            if (Session["idNguoiDung"] != null)
             {
-                for (int i = 0; i < dt.Rows.Count; i++)
+                bool kiemTra = false;
+                if (dt.Rows.Count > 0)
                 {
-                    DB.themorder(Convert.ToInt32(Session["idNguoiDung"].ToString()), Convert.ToInt32(dt.Rows[i]["PId"].ToString()), Convert.ToInt32(dt.Rows[i]["ToTalMoney"].ToString()), Convert.ToInt32(dt.Rows[i]["Quantity"].ToString()), date_order, Session["hienThiTen"].ToString(), Convert.ToInt32(Session["PhoneND"].ToString()), Session["EmailND"].ToString(), Session["AddressND"].ToString());
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+
+                        if (DB.themorder(Convert.ToInt32(Session["idNguoiDung"].ToString()), Convert.ToInt32(dt.Rows[i]["PId"].ToString()), Convert.ToInt32(dt.Rows[i]["TotalMoney"].ToString()), Convert.ToInt32(dt.Rows[i]["Quantity"]), DateTime.Now, Session["hienThiTen"].ToString(), Convert.ToInt32(Session["PhoneND"].ToString()), Session["EmailND"].ToString(), Session["AddressND"].ToString()))
+                            kiemTra = true;
+                        else
+                        kiemTra = false;
+                    }
+                    Response.Write((kiemTra == true) ? "<script language=javascript>alert('Bạn vừa đặt hàng thành công!');</script>" : "<script language=javascript>alert('Quá trình đặt hàng thất bại !');</script>");
+
+                }
+                else
+                {
+                    string message = "<script language=javascript>alert('Bạn chưa có sản phẩm nào để thanh toán!');</script>";
+                    Response.Write(message);
                 }
             }
-            //else
-            //{
- 
-            //}
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
+            
             
             
         }

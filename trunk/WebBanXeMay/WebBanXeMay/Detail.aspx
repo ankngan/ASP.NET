@@ -1,9 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout_master.Master" AutoEventWireup="true" CodeBehind="Detail.aspx.cs" Inherits="WebBanXeMay.Order" %>
-<asp:Content ID="DetailContent" ContentPlaceHolderID="Content" runat="server">
-    <form  runat="server">
-
-    
-       
+<asp:Content ID="DetailContent" ContentPlaceHolderID="Content" runat="server">      
 	   <div class="col-md-9 single_right">
 	   	<div class="single_top">
 	       <div class="single_grid">
@@ -13,7 +9,6 @@
 						<ul id="etalage">
 							<li>
 								<a href="#">
-									<%--<img class="etalage_thumb_image" src="images/products/<%#Eval("product_image")%>" class="img-responsive" />--%>
 									<img class="etalage_source_image img-responsive" style="width:100%;" src="images/products/<%#Eval("product_image")%>"  />
 								</a>
 							</li>
@@ -46,7 +41,7 @@
 	   		    </div>
                      
                       <asp:LinkButton CssClass="btn bt1 btn-primary btn-normal btn-inline "  ID="lbtnAddToCart" runat="server" OnClick="lbtnAddToCart_Click">Thêm vào giỏ</asp:LinkButton>
-                      <asp:LinkButton ID="lbtnThanhToan" CssClass="btn bt1 btn-primary btn-normal btn-inline" runat="server">Thanh toán</asp:LinkButton>               
+                      <asp:LinkButton ID="lbtnThanhToan" CssClass="btn bt1 btn-primary btn-normal btn-inline" runat="server" OnClick="lbtnThanhToan_Click">Thanh toán</asp:LinkButton>               
 			    </div>
          
 		    <div class="clearfix"> </div>
@@ -92,8 +87,5 @@
                              </asp:Repeater>
 					      </div>
 			  </div>
-        
-
 	     <div class="clearfix"> </div>
-    		</form>
 </asp:Content>

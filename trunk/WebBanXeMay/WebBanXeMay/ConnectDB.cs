@@ -472,7 +472,7 @@ namespace WebBanXeMay
         }
 
 
-        //Categories ...............................................................................
+        //Categories ...................................................................................................................................
         //Lấy ra danh sách Categories
         public DataTable getLidtCategories()
         {
@@ -581,7 +581,7 @@ namespace WebBanXeMay
             }
         }
 
-        //Moto_model .......................................................
+        //Moto_model .............................................................................................................................................
         //Lấy ra danh sách Moto_model
         public DataTable getLidtMoto_model()
         {
@@ -690,7 +690,7 @@ namespace WebBanXeMay
             }
         }
 
-        //Main_deitail ...................................
+        //Main_deitail .............................................................................................................................
         //Lấy ra danh sách Main_detail
         public DataTable getLidtMain_detail()
         {
@@ -805,7 +805,8 @@ namespace WebBanXeMay
         }
 
 
-        //Employer 
+        //Employer ................................................................................................................................
+
         //Lấy ra danh sách Employer
         public DataTable getLidtEmployer()
         {
@@ -925,7 +926,9 @@ namespace WebBanXeMay
         
 
 
-        //Order 
+        //Order ................................................................................................................................................
+
+
         //Lấy ra danh sách Oder
         public DataTable getLidtOrder()
         {
@@ -971,7 +974,7 @@ namespace WebBanXeMay
         }
 
         //thêm order vào database
-        public bool themorder(int userid, int productID , int totalmoney, int quantity, string order_date, string ctmName, int ctmPhone,string ctmEmail, string ctmAddress)
+        public bool themorder(int userid, int productID , int totalmoney, int quantity, DateTime order_date, string ctmName, int ctmPhone,string ctmEmail, string ctmAddress)
         {
             try
             {
@@ -1054,8 +1057,8 @@ namespace WebBanXeMay
         }
 
 
-        //Order 
-        //Lấy ra danh sách Oder
+        //Order_Detail 
+        //Lấy ra danh sách Oder_Detail
         public DataTable getLidtOrder_Detail()
         {
             try
@@ -1149,12 +1152,33 @@ namespace WebBanXeMay
         }
 
         //Delete theo id
-        public bool deleteOrder_Detail(int OrderId)
+        public bool deleteOrder_Detail(int Order_DetailId)
         {
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Delete from Orders_detail where orders_id = @OrderId", conn);
+                SqlCommand cmd = new SqlCommand("Delete from Orders_detail where orders_id = @Order_detailId", conn);
+
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@Order_detailId", Order_DetailId);
+                if (cmd.ExecuteNonQuery() > 0)
+                    return true;
+                else
+                    return
+                        false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        //Delete Order detail bay OrderID
+        public bool deleteOrder_DetailByOrderID(int OrderId)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Delete from Orders_detail OD, Orders O where O.orders_id = OD.orders_id and orders_id = @OrderId", conn);
 
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@OrderId", OrderId);

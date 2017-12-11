@@ -187,7 +187,7 @@
                     <label for="inputPhone" class="col-sm-2 col-form-label">Ngày đặt hàng</label>
                     <div class="col-sm-10">
                         <asp:TextBox CssClass="form-control" ID="txtNgayDat" runat="server" Enabled="true" ></asp:TextBox>
-                        <asp:Calendar ID="cldNgaydat" runat="server" OnSelectionChanged="cldNgaydat_SelectionChanged"></asp:Calendar>
+                        <%--<asp:Calendar ID="cldNgaydat" runat="server" OnSelectionChanged="cldNgaydat_SelectionChanged"></asp:Calendar>--%>
                     </div>
                 </div>
                <div class="form-group row">

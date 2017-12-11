@@ -4,7 +4,6 @@
 <div class="about">
   <div class="container">
       <div class="register">
-		  	  <%--<form runat="server">--%> 
 				 <div class="register-top-grid">
 					<h3>THÔNG TIN ĐĂNG KÝ</h3>
 					 <div>
@@ -52,7 +51,6 @@
 					 </div>
                       <div class="clearfix"> </div>
                     <asp:LinkButton ID="lbtnDangKy" style="background:red; padding:10px 20px; font-weight:bold; border:none; color:White" runat="server" OnClick="lbtnDangKy_Click" Enabled="False">Đăng Ký</asp:LinkButton>
-				<%--</form>--%>
 				
 		   </div>
 	</div>

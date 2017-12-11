@@ -30,6 +30,12 @@
   vertical-align: inherit;
 }
 
+td.cart_delete {
+    margin-top: 40px;
+}
+
+td.cart_delete {}
+
 
 #cart_items .cart_info .image {
   padding-left: 30px;
@@ -105,10 +111,11 @@
 
 
 .cart_delete a {
-  background:#F0F0E9;
-  color: #FFFFFF;
-  padding: 5px 7px;
-  font-size: 16px
+  background: #f50d15;
+  color: #FFFFFF !important;
+  padding: 10px 15px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .cart_delete a:hover {

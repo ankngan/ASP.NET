@@ -104,6 +104,7 @@ namespace WebBanXeMay
                     //if (e.CommandName.ToString() == "yes")
                     //{
                     DB.deleteOrder(Convert.ToInt32(e.CommandArgument.ToString()));
+                    DB.deleteOrder_Detail(Convert.ToInt32(e.CommandArgument.ToString()));
                     Response.Redirect(Request.Url.ToString());
                     //}
                     //else if(e.CommandName.ToString() == "no") 
@@ -119,10 +120,10 @@ namespace WebBanXeMay
 
 
 
-        protected void cldNgaydat_SelectionChanged(object sender, EventArgs e)
-        {
-            txtNgayDat.Text = cldNgaydat.SelectedDate.ToString("MM-dd-yyyy") + " " + DateTime.Now.ToString("hh:mm:ss");
-        }
+        //protected void cldNgaydat_SelectionChanged(object sender, EventArgs e)
+        //{
+        //    txtNgayDat.Text = cldNgaydat.SelectedDate.ToString("MM-dd-yyyy") + " " + DateTime.Now.ToString("hh:mm:ss");
+        //}
 
         protected void cldNgayDatEdit_SelectionChanged(object sender, EventArgs e)
         {
@@ -143,7 +144,7 @@ namespace WebBanXeMay
         {
             if (!string.IsNullOrEmpty(txtNgayDat.Text.Trim()))
             {
-                DB.themorder(Convert.ToInt32(drlUserID.SelectedValue), Convert.ToInt32(drdlProduct.SelectedValue), Convert.ToInt32(txtTotalMoney.Text.Trim()), Convert.ToInt32(txtQuantity.Text.Trim()), txtNgayDat.Text.Trim(), txtName.Text.Trim(), Convert.ToInt32(txtSDT.Text.Trim()), txtEmail.Text.Trim(), txtAddress.Text.Trim());
+                DB.themorder(Convert.ToInt32(drlUserID.SelectedValue), Convert.ToInt32(drdlProduct.SelectedValue), Convert.ToInt32(txtTotalMoney.Text.Trim()), Convert.ToInt32(txtQuantity.Text.Trim()), DateTime.Now, txtName.Text.Trim(), Convert.ToInt32(txtSDT.Text.Trim()), txtEmail.Text.Trim(), txtAddress.Text.Trim());
                 Response.Redirect(Request.Url.ToString());
             }
         }

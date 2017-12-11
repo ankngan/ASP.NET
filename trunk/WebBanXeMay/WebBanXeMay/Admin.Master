@@ -21,7 +21,7 @@
                         <div class="col-md-5">
                             <!-- Logo -->
                             <div class="logo">
-                                <h1><a href="Dashboard.aspx">QUẢN LÝ XE MÁY</a></h1>
+                                <h1><a href="Ad_Dashboard.aspx">QUẢN LÝ XE MÁY</a></h1>
                             </div>
                         </div>
                         <div class="col-md-7">

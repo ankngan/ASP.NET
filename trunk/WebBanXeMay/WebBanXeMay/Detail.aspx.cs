@@ -77,5 +77,38 @@ namespace WebBanXeMay
             
             
         }
+
+        protected void lbtnThanhToan_Click(object sender, EventArgs e)
+        {
+
+            if (Session["hienThiTen"] != null)
+            {
+                if (txtSoLuong.Text.Equals(""))
+                {
+                    lblSoLuong.Visible = true;
+                    lblSoLuong.Text = "Bạn chưa nhập số lượng muốn mua.";
+                }
+                else
+                {
+                    string product_id = Request.QueryString["id"].ToString();
+                    int converId = Convert.ToInt32(product_id);
+                    DataTable dt = new DataTable();
+                    dt = DB.getDetailProductByID(converId);
+                    //string date_order = DateTime.Now.ToString("MM-dd-yyyy") + " " + DateTime.Now.ToString("hh:mm:ss");
+                    if (DB.themorder(Convert.ToInt32(Session["idNguoiDung"].ToString()), converId, Convert.ToInt32(dt.Rows[0]["product_price"].ToString()), Convert.ToInt32(txtSoLuong.Text.Trim()), DateTime.Now, Session["hienThiTen"].ToString(), Convert.ToInt32(Session["PhoneND"].ToString()), Session["EmailND"].ToString(), Session["AddressND"].ToString()))
+                    {
+                        Response.Write("<script language=javascript>alert('Bạn vừa đặt hàng thành công!');</script>");
+                        txtSoLuong.Text = "";
+                    }
+                    else
+                        Response.Write("<script language=javascript>alert('Quá trình đặt hàng thất bại !');</script>");
+                }
+                
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
+        }
     }
 }

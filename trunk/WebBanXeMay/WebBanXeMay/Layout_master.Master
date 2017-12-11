@@ -31,6 +31,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
     <form id="form1" runat="server">
+        <div>
 <div class="header">
 	<div class="header_top">
 		<div class="container">
@@ -47,17 +48,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			        </ul>
                 </asp:View>
                 <asp:View ID="v2" runat="server">
-                    <%--<form id="form1" runat="server">--%>
                         <ul class="shopping_grid">
 			              <li>
-                              <%--<label  runat="server"></label>--%>
                               <asp:Label ID="lblHienThi" runat="server" Text=""></asp:Label></li>
 			              <li>
-                              <asp:LinkButton ID="lbtnLogOut" style="background:red; padding:10px 20px; font-weight:bold; border:none; color:White" runat="server" OnClick="lbtnLogOut_Click">Log Out</asp:LinkButton></li>
-                              <%--<button id="btnLogOut" style="background:red; padding:10px 20px; font-weight:bold; border:none; color:White" runat="server" onclick="btnLogOut_Click">Log Out</button>--%>
+                              <asp:LinkButton ID="lbtnLogOut" style="background:red; padding:10px 20px; font-weight:bold; border:none; color:White" runat="server" OnLoad="msg_Delete" OnClick="lbtnLogOut_Click">Log Out</asp:LinkButton></li>
+                              
 			              <li><a href="cart.aspx"><span class="m_1">Đã thêm</span>&nbsp;&nbsp;(<asp:Label ID="lblSoLuong" runat="server" Text="0"></asp:Label>) &nbsp;<img src="images/motorcycle.png" width="25" height="25" alt=""/></a></li> 
 			            </ul>
-                    <%--</form>--%>
                 </asp:View>   
             </asp:MultiView>
 			
@@ -216,6 +214,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
      </div>
         <%--end conten_top--%>
   </div>
+ </div>
 </form>
 <div class="footer_bg">
 </div>

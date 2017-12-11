@@ -35,7 +35,7 @@ namespace WebBanXeMay
                 if (Session["hienThiTen"] != null)
                 {
                     mtvFormLogin.ActiveViewIndex = 1;
-                    //lblHienThi.Text ="Xin chào! " + Session["hienThiTen"].ToString();
+                    lblHienThi.Text = "Kính Chào! " + Session["hienthiten"].ToString();
                     //string message = "<script language=javascript>alert('Đăng nhập thành công');</script>";
                     //Response.Write(message);
                 }
@@ -53,7 +53,10 @@ namespace WebBanXeMay
            
         }
 
-       
+        protected void msg_Delete(object sender, System.EventArgs e)
+        {
+            ((LinkButton)sender).Attributes["onclick"] = "return confirm('Bạn thật sự muốn đăng xuất?')";
+        }
         private void LoadCategories()
         {
             
@@ -91,9 +94,6 @@ namespace WebBanXeMay
             Response.Redirect("Home.aspx");
         }
 
-        protected void btnTest_Click(object sender, EventArgs e)
-        {
-            Response.Write("OKOKO");
-        }
+        
     }
 }
