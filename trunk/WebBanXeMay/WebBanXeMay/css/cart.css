@@ -5,7 +5,7 @@
 
 
 #cart_items .cart_info .cart_menu {
-  background: #FE980F;
+  background: #df1f26;
   color: #fff;
   font-size: 16px;
   font-family: 'Roboto', sans-serif;
@@ -39,6 +39,7 @@ td.cart_delete {}
 
 #cart_items .cart_info .image {
   padding-left: 30px;
+  text-align:center;
 }
 
 .cart_product img
@@ -127,7 +128,7 @@ td.cart_delete {}
     color:White;
     padding:10px  20px;
     float:right;
-    background:#FE980F;
+    background:#df1f26;
     margin-top:-20px;
     margin-bottom:20px;
 }

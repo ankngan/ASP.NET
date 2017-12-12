@@ -14,13 +14,13 @@
                                 <table class="table table-condensed">
                                     <thead>
                                         <tr class="cart_menu">
-                                            <th class="image">Sản phẩm</th>
+                                            <th class="image" style="padding-bottom: 12px;">Sản phẩm</th>
                                             <%--<th>Mã sản phẩm</th>--%>
-                                            <th class="description">Tên sản phẩm</th>
-                                            <th class="quantity">Số lượng</th>
-                                            <th class="price">Giá</th>
-                                            <th class="total">Tổng tiền</th>
-                                            <th class="total">Xóa</th>
+                                            <th class="description" style="padding-bottom: 12px;">Tên sản phẩm</th>
+                                            <th class="quantity" style="padding-bottom: 12px;">Số lượng</th>
+                                            <th class="price" style="padding-bottom: 12px;">Giá</th>
+                                            <th class="total" style="padding-bottom: 12px;">Tổng tiền</th>
+                                            <th class="total" style="padding-bottom: 12px;">Xóa</th>
                                             
                                         </tr>
                                     </thead>

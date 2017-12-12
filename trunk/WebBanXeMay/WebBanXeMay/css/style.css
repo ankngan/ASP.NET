@@ -25,10 +25,7 @@ html, body{
    background:#fff; 
 }
 
-.image_product img.img-responsive {
-    width: 100%;
-    height: 300px;
-}
+
 body a{
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
@@ -495,22 +492,24 @@ ul.callbacks_tabs.callbacks1_tabs {
 	width:50%;
 }
 .search input[type="text"] {
-	padding:6.9px 10px;
-	outline: none;
-	color: #fff;
-	background:#c9c9c9;
-	border: none;
-	width:88%;
-	line-height: 1.5em;
-	font: 500 13px/13px 'Lato', sans-serif;
+    margin-left:20px;
+    padding:6.9px 10px;
+    outline: none;
+    color: #fff;
+    background:#c9c9c9;
+    border: none;
+    width:88%;
+    line-height: 1.5em;
+    font: 500 13px/13px 'Lato', sans-serif;
 }
 .search input[type="submit"] {
 	background: url('../images/search.png') no-repeat 6px 5px #df1f26;
-	padding: 4px 17px;
+	padding: 3.5px 17px;
 	border: none;
 	cursor: pointer;
 	position: absolute;
 	outline: none;
+	width: 30px;
 }
 /*--index_content--*/
 .main{
