@@ -1108,7 +1108,7 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("insert into orders values (@orders_id,@product_id)", conn);
+                SqlCommand cmd = new SqlCommand("insert into Orders_detail values (@orders_id,@product_id)", conn);
 
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@orders_id", orderID);
@@ -1132,7 +1132,7 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Update Orders set orders_id = @orders_id,product_id = @product_id where orders_detail_id = @orders_detail_id", conn);
+                SqlCommand cmd = new SqlCommand("Update Orders_detail set orders_id = @orders_id,product_id = @product_id where orders_detail_id = @orders_detail_id", conn);
 
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@orders_detail_id", order_DetailID);

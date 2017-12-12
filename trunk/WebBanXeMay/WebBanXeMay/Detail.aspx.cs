@@ -97,8 +97,14 @@ namespace WebBanXeMay
                     //string date_order = DateTime.Now.ToString("MM-dd-yyyy") + " " + DateTime.Now.ToString("hh:mm:ss");
                     if (DB.themorder(Convert.ToInt32(Session["idNguoiDung"].ToString()), converId, Convert.ToInt32(dt.Rows[0]["product_price"].ToString()), Convert.ToInt32(txtSoLuong.Text.Trim()), DateTime.Now, Session["hienThiTen"].ToString(), Convert.ToInt32(Session["PhoneND"].ToString()), Session["EmailND"].ToString(), Session["AddressND"].ToString()))
                     {
-                        Response.Write("<script language=javascript>alert('Bạn vừa đặt hàng thành công!');</script>");
-                        txtSoLuong.Text = "";
+                        DataTable dtOrder = (DataTable)DB.getLidtOrder();
+                        if (DB.themOrder_Dettail(Convert.ToInt32(dtOrder.Rows[(dtOrder.Rows.Count)-1]["orders_id"].ToString()), converId))
+                        {
+                            Response.Write("<script language=javascript>alert('Bạn vừa đặt hàng thành công!');</script>");
+                            txtSoLuong.Text = "";    
+                        }
+                        
+                        
                     }
                     else
                         Response.Write("<script language=javascript>alert('Quá trình đặt hàng thất bại !');</script>");

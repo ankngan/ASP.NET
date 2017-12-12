@@ -15,6 +15,11 @@ namespace WebBanXeMay
         {
             ((LinkButton)sender).Attributes["onclick"] = "return confirm('Bạn muốn có xóa sản phẩm này?')";
         }
+
+        protected void msg_Order(object sender, System.EventArgs e)
+        {
+            ((LinkButton)sender).Attributes["onclick"] = "return confirm('Bạn muốn có đặt hàng sản phẩm này?')";
+        }
         AddProductCart cart = new AddProductCart();
         protected void Page_Load(object sender, EventArgs e)
         {
