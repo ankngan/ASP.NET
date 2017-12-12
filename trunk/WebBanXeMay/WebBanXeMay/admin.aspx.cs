@@ -5,31 +5,18 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
 namespace WebBanXeMay
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class Ad_Login : System.Web.UI.Page
     {
         ConnectDB DB = new ConnectDB();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                if (Session["user"] != null)
-                {
-                    
-                    txtUser.Text =Session["user"].ToString();
-                    //txtPass.Text = Session["pass"].ToString();
-                    string message = "<script language=javascript>alert('Đăng ký thành công');</script>";
-                    Response.Write(message);
-                }
-                
-            }
+
         }
 
-        protected void lbtnDangNhap_Click(object sender, EventArgs e)
+        protected void btnDangNhap_Click(object sender, EventArgs e)
         {
-
             DataTable dataTable = new DataTable();
             dataTable = DB.getLidtUser();
             if (!string.IsNullOrEmpty(txtUser.Text.Trim().Trim()))
@@ -54,9 +41,9 @@ namespace WebBanXeMay
                                     Session["AddressND"] = dataTable.Rows[i]["user_address"].ToString();
                                     Response.Redirect("Ad_User.aspx");
                                     break;
-                                    
+
                                 }
-                                else 
+                                else
                                 {
                                     txtPass.Visible = false;
                                     Session["idNguoiDung"] = dataTable.Rows[i]["user_id"].ToString();
@@ -64,7 +51,7 @@ namespace WebBanXeMay
                                     Session["EmailND"] = dataTable.Rows[i]["user_email"].ToString();
                                     Session["PhoneND"] = dataTable.Rows[i]["user_phone"].ToString();
                                     Session["AddressND"] = dataTable.Rows[i]["user_address"].ToString();
-                                    if(Session["cart"] != null)
+                                    if (Session["cart"] != null)
                                     {
                                         Response.Redirect("Cart.aspx");
                                     }
@@ -81,10 +68,10 @@ namespace WebBanXeMay
                             }
                         }
                     }
-                    else 
+                    else
                     {
                         lblPass.Text = "Mật khẩu hoặc tên đăng nhập không đúng!";
-                        lblPass.Visible = true;                
+                        lblPass.Visible = true;
                     }
                 }
                 else
