@@ -82,10 +82,14 @@ namespace WebBanXeMay
             {
                 if (!file.Equals(""))
                 {
-                    if (!string.IsNullOrEmpty(txtName.Text.Trim()))
+                    if (!string.IsNullOrEmpty(txtName.Text.Trim()) && !string.IsNullOrEmpty(txtPhone.Text.Trim()) && !string.IsNullOrEmpty(txtEmail.Text.Trim()))
                     {
                         DB.themEmployer(txtName.Text.Trim(), txtEmail.Text.Trim(),txtPhone.Text.Trim(), file);
                         Response.Redirect(Request.Url.ToString());
+                    }
+                    else
+                    {
+                        Response.Write("<script language=javascript>alert('Bạn phải nhập đầy đủ các trường !');</script>");
                     }
                 }
                 else
@@ -108,10 +112,14 @@ namespace WebBanXeMay
                     file = hdFImages.Value;
                 }
             }
-            if (!string.IsNullOrEmpty(txtIDEdit.Text.Trim()))
+            if (!string.IsNullOrEmpty(txtNameEdit.Text.Trim()) && !string.IsNullOrEmpty(txtPhoneEdit.Text.Trim()) && !string.IsNullOrEmpty(txtEmailEdit.Text.Trim()))
             {
                 DB.updateEmployer(Convert.ToInt32(txtIDEdit.Text.Trim()), txtNameEdit.Text.Trim(), txtEmailEdit.Text.Trim(),txtPhoneEdit.Text.Trim(),file);
                 Response.Redirect(Request.Url.ToString());
+            }
+            else
+            {
+                Response.Write("<script language=javascript>alert('Bạn phải nhập đầy đủ các trường !');</script>");
             }
         }
         public string UploadImage(FileUpload value)

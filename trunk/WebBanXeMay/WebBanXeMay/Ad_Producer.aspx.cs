@@ -79,15 +79,23 @@ namespace WebBanXeMay
                 DB.themProducer(txtProducerName.Text.Trim());
                 Response.Redirect(Request.Url.ToString());
             }
+            else
+            {
+                Response.Write("<script language=javascript>alert('Bạn phải nhập đầy đủ các trường !');</script>");
+            }
         }
 
         protected void updateProducer_Click(object sender, EventArgs e)
         {
             
-            if (!string.IsNullOrEmpty(txtProducerIdEdit.Text.Trim()))
+            if (!string.IsNullOrEmpty(txtProducerNameEdit.Text.Trim()))
             {
                 DB.updateProducer(Convert.ToInt32(txtProducerIdEdit.Text.Trim()), txtProducerNameEdit.Text.Trim());
                 Response.Redirect(Request.Url.ToString());
+            }
+            else
+            {
+                Response.Write("<script language=javascript>alert('Bạn phải nhập đầy đủ các trường !');</script>");
             }
         }
     }

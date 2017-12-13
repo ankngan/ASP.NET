@@ -78,20 +78,28 @@ namespace WebBanXeMay
 
         protected void addNewMain_detail_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtModel.Text.Trim()))
+            if (!string.IsNullOrEmpty(txtModel.Text.Trim()) && !string.IsNullOrEmpty(txtSize.Text.Trim()) && !string.IsNullOrEmpty(txtTankCapacity.Text.Trim()) && !string.IsNullOrEmpty(txtWeight.Text.Trim()) && !string.IsNullOrEmpty(txtWarrantyPeriod.Text.Trim()))
             {
                 DB.themMain_detail(txtModel.Text.Trim(),float.Parse(txtWeight.Text.Trim()),txtSize.Text.Trim(),float.Parse(txtTankCapacity.Text.Trim()),txtWarrantyPeriod.Text.Trim());
                 Response.Redirect(Request.Url.ToString());
+            }
+            else
+            {
+                Response.Write("<script language=javascript>alert('Bạn phải nhập đầy đủ các trường !');</script>");
             }
         }
 
         protected void updateMain_detail_Click(object sender, EventArgs e)
         {
-            
-            if (!string.IsNullOrEmpty(txtMain_detailIdEdit.Text.Trim()))
+
+            if (!string.IsNullOrEmpty(txtMain_detailIdEdit.Text.Trim()) && !string.IsNullOrEmpty(txtModelEdit.Text.Trim()) && !string.IsNullOrEmpty(txtSizeEdit.Text.Trim()) && !string.IsNullOrEmpty(txtTankCapacityEdit.Text.Trim()) && !string.IsNullOrEmpty(txtWeightEdit.Text.Trim()) && !string.IsNullOrEmpty(txtWarrantyPeriodEdit.Text.Trim()))
             {
                 DB.updateMain_detail(Convert.ToInt32(txtMain_detailIdEdit.Text.Trim()), txtModelEdit.Text.Trim(), float.Parse(txtWeightEdit.Text.Trim()), txtSizeEdit.Text.Trim(), float.Parse(txtTankCapacityEdit.Text.Trim()), txtWarrantyPeriodEdit.Text.Trim());
                 Response.Redirect(Request.Url.ToString());
+            }
+            else
+            {
+                Response.Write("<script language=javascript>alert('Bạn phải nhập đầy đủ các trường !');</script>");
             }
         }
     }

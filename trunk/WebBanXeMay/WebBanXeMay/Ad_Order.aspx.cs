@@ -134,27 +134,37 @@ namespace WebBanXeMay
         protected void updateOrder_Click1(object sender, EventArgs e)
         {
 
-            if (!string.IsNullOrEmpty(txtOderIDEdit.Text.Trim()))
+            if (!string.IsNullOrEmpty(txtOderIDEdit.Text.Trim()) && !string.IsNullOrEmpty(txtNgayDatEdit.Text.Trim()) && !string.IsNullOrEmpty(txtNameEdit.Text.Trim()) && !string.IsNullOrEmpty(txtEmailEdit.Text.Trim()) && !string.IsNullOrEmpty(txtAddressEdit.Text.Trim()) && !string.IsNullOrEmpty(txtQuantityEdit.Text.Trim()) && !string.IsNullOrEmpty(txtSDTEdit.Text.Trim()) && !string.IsNullOrEmpty(txtTotalMoneyEdit.Text.Trim()))
             {
                 if (DB.updateOrder(Convert.ToInt32(txtOderIDEdit.Text.Trim()), Convert.ToInt32(drlUserIDEdit.SelectedValue), Convert.ToInt32(drdlProductEdit.SelectedValue), float.Parse(txtTotalMoneyEdit.Text.Trim()), Convert.ToInt32(txtQuantityEdit.Text.Trim()), txtNgayDatEdit.Text.Trim(), txtNameEdit.Text.Trim(),txtSDTEdit.Text.Trim(), txtEmailEdit.Text.Trim(), txtAddressEdit.Text.Trim()))
                 {
                     DataTable dtIDOrder_detail = (DataTable) DB.getIDOrder_DetailByOrderID(Convert.ToInt32(txtOderIDEdit.Text.Trim()));
                     DB.updateOrder_Detail(Convert.ToInt32(dtIDOrder_detail.Rows.Count - 1), Convert.ToInt32(drlUserIDEdit.SelectedValue), Convert.ToInt32(drdlProductEdit.SelectedValue));
+                    Response.Redirect(Request.Url.ToString());
                 }
-                Response.Redirect(Request.Url.ToString());
+                else
+                {
+                    Response.Write("<script language=javascript>alert('Bạn phải nhập đầy đủ các trường !');</script>");
+                }
+                
             }
         }
 
         protected void addNewOrder_Click1(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtNgayDat.Text.Trim()))
+            if (!string.IsNullOrEmpty(txtNgayDat.Text.Trim()) && !string.IsNullOrEmpty(txtName.Text.Trim()) && !string.IsNullOrEmpty(txtEmail.Text.Trim()) && !string.IsNullOrEmpty(txtAddress.Text.Trim()) && !string.IsNullOrEmpty(txtQuantity.Text.Trim()) && !string.IsNullOrEmpty(txtSDT.Text.Trim()) && !string.IsNullOrEmpty(txtTotalMoney.Text.Trim()))
             {
                 if (DB.themorder(Convert.ToInt32(drlUserID.SelectedValue), Convert.ToInt32(drdlProduct.SelectedValue), float.Parse(txtTotalMoneyEdit.Text.Trim()), Convert.ToInt32(txtQuantity.Text.Trim()), DateTime.Now.ToString(), txtName.Text.Trim(), txtSDT.Text.Trim(), txtEmail.Text.Trim(), txtAddress.Text.Trim()))
                 {
                     DataTable dt = (DataTable) DB.getLidtOrder();
                     DB.themOrder_Dettail(Convert.ToInt32(dt.Rows.Count - 1), Convert.ToInt32(drdlProduct.SelectedValue));
+                    Response.Redirect(Request.Url.ToString());
                 }
-                Response.Redirect(Request.Url.ToString());
+                else
+                {
+                    Response.Write("<script language=javascript>alert('Bạn phải nhập đầy đủ các trường !');</script>");
+                }
+                
             }
         }
 

@@ -111,7 +111,7 @@
                 <div class="form-group row">
                     <label for="inputPhone" class="col-sm-2 col-form-label">Tên</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtProductNameEdit" runat="server"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtProductNameEdit" runat="server" MaxLength="500"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -137,13 +137,13 @@
                 <div class="form-group row">
                     <label for="inputDescription" class="col-sm-2 col-form-label">Miêu tả</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtDescriptionEdit" runat="server"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtDescriptionEdit" runat="server" MaxLength="1000"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputReview" class="col-sm-2 col-form-label">Giới thiệu</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtReviewEdit" runat="server"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtReviewEdit" runat="server" MaxLength="1000"></asp:TextBox>
                     </div>
                 </div>
                 <asp:LinkButton ID="updateProduct" CssClass="btn btn-warning btn-lg" runat="server" OnClick="updateProduct_Click"><span class="glyphicon glyphicon-ok-sign"></span>Update</asp:LinkButton>
@@ -185,7 +185,7 @@
                 <div class="form-group row">
                     <label for="inputPhone" class="col-sm-2 col-form-label">Tên</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtProductName" runat="server"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtProductName" runat="server" MaxLength="500"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -211,13 +211,13 @@
                 <div class="form-group row">
                     <label for="inputDescription" class="col-sm-2 col-form-label">Miêu tả</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtDescription" runat="server"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtDescription" runat="server" MaxLength="1000"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputReview" class="col-sm-2 col-form-label">Giới thiệu</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtReview" runat="server"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtReview" runat="server" MaxLength="1000"></asp:TextBox>
                     </div>
                 </div>
                 <asp:LinkButton ID="addNewProduct" CssClass="btn btn-warning btn-lg" runat="server" OnClick="addNewProduct_Click"><span class="glyphicon glyphicon-ok-sign"></span>Add New</asp:LinkButton>

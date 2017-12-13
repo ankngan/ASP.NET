@@ -67,7 +67,7 @@
                 <div class="form-group row">
                     <label for="inputName" class="col-sm-2 col-form-label">ProducerName</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtProducerNameEdit" runat="server"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtProducerNameEdit" runat="server" MaxLength="500"></asp:TextBox>
                     </div>
                 </div>
                 
@@ -86,7 +86,7 @@
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">ProducerName</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtProducerName" runat="server"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtProducerName" runat="server" MaxLength="500"></asp:TextBox>
                     </div>
                 </div>
                 

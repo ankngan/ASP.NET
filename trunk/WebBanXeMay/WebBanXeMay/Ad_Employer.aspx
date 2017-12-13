@@ -88,7 +88,7 @@
                 <div class="form-group row">
                     <label for="inputPhone" class="col-sm-2 col-form-label">SĐT</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtPhoneEdit" runat="server" MaxLength="15" TextMode="Phone"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtPhoneEdit" runat="server" MaxLength="11" TextMode="Phone"></asp:TextBox>
                          <asp:RegularExpressionValidator id="RegularExpressionValidator1" ControlToValidate="txtPhoneEdit" Text='"Nhập đúng định dạng số điện thoại"' ForeColor="Red" ValidationExpression="^[0-9]{6,11}$" Runat="server" />
                     </div>
                 </div>
@@ -128,7 +128,7 @@
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">SĐT</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtPhone" runat="server" MaxLength="15" TextMode="Phone"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtPhone" runat="server" MaxLength="11" TextMode="Phone"></asp:TextBox>
                          <asp:RegularExpressionValidator id="RegularExpressionValidator4" ControlToValidate="txtPhone" Text='"Nhập đúng định dạng số điện thoại"' ForeColor="Red" ValidationExpression="^[0-9]{6,11}$" Runat="server" />
                     </div>
                 </div>

@@ -75,7 +75,7 @@
                 <div class="form-group row">
                     <label for="inputName" class="col-sm-2 col-form-label">Model</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtModelEdit" runat="server"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtModelEdit" runat="server" MaxLength="500"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -88,7 +88,7 @@
                 <div class="form-group row">
                     <label for="inputName" class="col-sm-2 col-form-label">Size</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtSizeEdit" runat="server"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtSizeEdit" runat="server" MaxLength="200"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -101,7 +101,7 @@
                 <div class="form-group row">
                     <label for="inputName" class="col-sm-2 col-form-label">WarrantyPeriod</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtWarrantyPeriodEdit" runat="server"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtWarrantyPeriodEdit" runat="server" MaxLength="50"></asp:TextBox>
                     </div>
                 </div>
                 <asp:LinkButton ID="updateMain_detail" CssClass="btn btn-warning btn-lg" runat="server" OnClick="updateMain_detail_Click"><span class="glyphicon glyphicon-ok-sign"></span>Update</asp:LinkButton>
@@ -119,7 +119,7 @@
                 <div class="form-group row">
                     <label for="inputName" class="col-sm-2 col-form-label">Model</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtModel" runat="server"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtModel" runat="server" MaxLength="500"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -132,7 +132,7 @@
                 <div class="form-group row">
                     <label for="inputName" class="col-sm-2 col-form-label">Size</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtSize" runat="server"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtSize" runat="server" MaxLength="200"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -145,7 +145,7 @@
                 <div class="form-group row">
                     <label for="inputName" class="col-sm-2 col-form-label">WarrantyPeriod</label>
                     <div class="col-sm-10">
-                        <asp:TextBox CssClass="form-control" ID="txtWarrantyPeriod" runat="server"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtWarrantyPeriod" runat="server" MaxLength="50"></asp:TextBox>
                     </div>
                 </div>
                 

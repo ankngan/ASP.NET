@@ -79,6 +79,10 @@ namespace WebBanXeMay
                 DB.themMoto_model(txtMoto_ModelName.Text.Trim());
                 Response.Redirect(Request.Url.ToString());
             }
+            else
+            {
+                Response.Write("<script language=javascript>alert('Bạn phải nhập đầy đủ các trường !');</script>");
+            }
         }
 
         protected void updateMoto_Model_Click(object sender, EventArgs e)
@@ -88,6 +92,10 @@ namespace WebBanXeMay
             {
                 DB.updateMoto_model(Convert.ToInt32(txtMoto_ModelIdEdit.Text.Trim()), txtMoto_ModelNameEdit.Text.Trim());
                 Response.Redirect(Request.Url.ToString());
+            }
+            else
+            {
+                Response.Write("<script language=javascript>alert('Bạn phải nhập đầy đủ các trường !');</script>");
             }
         }
     }

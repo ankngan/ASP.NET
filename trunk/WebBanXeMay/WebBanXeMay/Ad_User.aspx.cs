@@ -79,19 +79,67 @@ namespace WebBanXeMay
 
         protected void addNewUser_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtName.Text.Trim()))
+            DataTable dataTable = new DataTable();
+            dataTable = DB.getLidtUser();
+            if (dataTable.Rows.Count > 0)
             {
-                DB.themUser(txtName.Text.Trim(),txtUserName.Text.Trim(), txtAddress.Text.Trim(), txtPhone.Text.Trim(), txtEmail.Text.Trim(), txtPass.Text.Trim(), Convert.ToInt32(txtPer.Text.Trim()));
-                Response.Redirect(Request.Url.ToString());
+                bool userExits = false;
+                foreach (DataRow dr in dataTable.Rows)
+                {
+                    if (dr["user_name"].Equals(txtUserName.Text))
+                    {
+                        lblUser.Text = "Người dùng đã được đăng ký";
+                        lblUser.Visible = true;
+                        userExits = true;
+                        break;
+                    }
+                    else if (dr["user_email"].Equals(txtEmail.Text))
+                    {
+                        userExits = true;
+                        lblEmail.Text = "Email đã được đăng ký";
+                        lblEmail.Visible = true;
+                        break;
+                    }
+
+
+                }
+                if (userExits == false)
+                {
+                    if (!string.IsNullOrEmpty(txtName.Text.Trim()) && !string.IsNullOrEmpty(txtPass.Text.Trim()) && !string.IsNullOrEmpty(txtUserName.Text.Trim()) && !string.IsNullOrEmpty(txtPer.Text.Trim()) && !string.IsNullOrEmpty(txtEmail.Text.Trim()) && !string.IsNullOrEmpty(txtAddress.Text.Trim()))
+                    {
+                        DB.themUser(txtName.Text.Trim(), txtUserName.Text.Trim(), txtAddress.Text.Trim(), txtPhone.Text.Trim(), txtEmail.Text.Trim(), txtPass.Text.Trim(), Convert.ToInt32(txtPer.Text.Trim()));
+                        Response.Redirect(Request.Url.ToString());
+                    }
+                    else
+                    {
+                        Response.Write("<script language=javascript>alert('Bạn phải nhập đầy đủ các trường !');</script>");
+                    }    
+                }
+            }
+            else
+            {
+                if (!string.IsNullOrEmpty(txtName.Text.Trim()) && !string.IsNullOrEmpty(txtPass.Text.Trim()) && !string.IsNullOrEmpty(txtUserName.Text.Trim()) && !string.IsNullOrEmpty(txtPer.Text.Trim()) && !string.IsNullOrEmpty(txtEmail.Text.Trim()) && !string.IsNullOrEmpty(txtAddress.Text.Trim()))
+                {
+                    DB.themUser(txtName.Text.Trim(), txtUserName.Text.Trim(), txtAddress.Text.Trim(), txtPhone.Text.Trim(), txtEmail.Text.Trim(), txtPass.Text.Trim(), Convert.ToInt32(txtPer.Text.Trim()));
+                    Response.Redirect(Request.Url.ToString());
+                }
+                else
+                {
+                    Response.Write("<script language=javascript>alert('Bạn phải nhập đầy đủ các trường !');</script>");
+                }
             }
         }
 
         protected void updateUser_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtIDEdit.Text.Trim()))
+            if (!string.IsNullOrEmpty(txtIDEdit.Text.Trim()) && !string.IsNullOrEmpty(txtNameEdit.Text.Trim()) && !string.IsNullOrEmpty(txtPassEdit.Text.Trim()) && !string.IsNullOrEmpty(txtUserNameEdit.Text.Trim()) && !string.IsNullOrEmpty(txtPerEdit.Text.Trim()) && !string.IsNullOrEmpty(txtAddressEdit.Text.Trim())  && !string.IsNullOrEmpty(txtEmailEdit.Text.Trim()))
             {
                 DB.updateUser(Convert.ToInt32(txtIDEdit.Text.Trim()), txtNameEdit.Text.Trim(), txtUserNameEdit.Text.Trim(), txtAddressEdit.Text.Trim(), txtPhoneEdit.Text.Trim(), txtEmailEdit.Text.Trim(), txtPassEdit.Text.Trim(), Convert.ToInt32(txtPerEdit.Text.Trim()));
                 Response.Redirect(Request.Url.ToString());
+            }
+            else
+            {
+                Response.Write("<script language=javascript>alert('Bạn phải nhập đầy đủ các trường !');</script>");
             }
         }
 

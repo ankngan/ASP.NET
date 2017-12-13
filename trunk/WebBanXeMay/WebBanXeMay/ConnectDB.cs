@@ -1112,7 +1112,7 @@ namespace WebBanXeMay
                 cmd.CommandType = CommandType.StoredProcedure;
                 DataTable dataTable = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                cmd.Parameters.AddWithValue("@orderID", OrderID);
+                cmd.Parameters.AddWithValue("@ID", OrderID);
                 adapter.Fill(dataTable);
                 return dataTable;
 

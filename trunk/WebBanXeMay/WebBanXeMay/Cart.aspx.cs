@@ -18,7 +18,7 @@ namespace WebBanXeMay
 
         protected void msg_Order(object sender, System.EventArgs e)
         {
-            ((LinkButton)sender).Attributes["onclick"] = "return confirm('Bạn muốn có đặt hàng sản phẩm này?')";
+            ((LinkButton)sender).Attributes["onclick"] = "return confirm('Bạn muốn có đặt hàng các sản phẩm này?')";
         }
         AddProductCart cart = new AddProductCart();
         protected void Page_Load(object sender, EventArgs e)
@@ -61,7 +61,7 @@ namespace WebBanXeMay
                             DataTable dtOrder = (DataTable)DB.getLidtOrder();
                             if (DB.themOrder_Dettail(Convert.ToInt32(dtOrder.Rows[(dtOrder.Rows.Count) - 1]["orders_id"].ToString()), Convert.ToInt32(dt.Rows[i]["PId"].ToString())))
                             {
-                                //cart.ShoppingCart_Remove(Convert.ToInt32(dt.Rows[i]["PId"].ToString()));
+                                
                                 kiemTra = true;
                             }
                         }
@@ -73,12 +73,13 @@ namespace WebBanXeMay
                     }
                     if (kiemTra == true)
                     {
-                        
+                        dt.Clear();
+                        System.Web.HttpContext.Current.Session["cart"] = dt;
                         //Response.Write("<script language=javascript>alert('Bạn vừa đặt hàng thành công!');</script>");
                         Response.Redirect("Home.aspx");
                     }
                     else
-                        Response.Redirect("<script language=javascript>alert('Quá trình đặt hàng thất bại !');</script>");
+                        Response.Write("<script language=javascript>alert('Quá trình đặt hàng thất bại !');</script>");
 
                 }
                 else

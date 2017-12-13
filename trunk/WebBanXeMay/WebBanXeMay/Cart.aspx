@@ -47,7 +47,7 @@
                     </div>
                     <div style="color:red; font-weight:bold; text-align:left ">
                         <span>Tổng tiền: </span><asp:Literal ID="ltTotal" Text="" runat="server" /></div>
-                    <asp:LinkButton ID="lbtnThanhToan" CssClass="button_thanhtoan" runat="server" OnClick="lbtnThanhToan_Click">Thanh toán</asp:LinkButton>
+                    <asp:LinkButton ID="lbtnThanhToan" CssClass="button_thanhtoan" runat="server" OnLoad="msg_Order" OnClick="lbtnThanhToan_Click">Thanh toán</asp:LinkButton>
                 </div>
 
             </section>

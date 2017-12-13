@@ -60,15 +60,9 @@ namespace WebBanXeMay
                     }
                     break;
                 case "Delete":
-                    //if (e.CommandName.ToString() == "yes")
-                    //{
                     DB.deleteCategories(Convert.ToInt32(e.CommandArgument.ToString()));
                     Response.Redirect(Request.Url.ToString());
-                    //}
-                    //else if(e.CommandName.ToString() == "no") 
-                    //{
-                    //   Response.Redirect("Categories.aspx");
-                    //}
+
                     break;
             }
         }
@@ -80,15 +74,23 @@ namespace WebBanXeMay
                 DB.themCategories(txtCategoriesName.Text.Trim());
                 Response.Redirect(Request.Url.ToString());
             }
+            else
+            {
+                Response.Write("<script language=javascript>alert('Bạn phải nhập đầy đủ các trường !');</script>");
+            }
         }
 
         protected void updateCategories_Click(object sender, EventArgs e)
         {
-            
+
             if (!string.IsNullOrEmpty(txtCategoriesNameEdit.Text.Trim()))
             {
                 DB.updateCategories(Convert.ToInt32(txtCategoriesIdEdit.Text.Trim()), txtCategoriesNameEdit.Text.Trim());
                 Response.Redirect(Request.Url.ToString());
+            }
+            else 
+            {
+                Response.Write("<script language=javascript>alert('Bạn phải nhập đầy đủ các trường !');</script>");
             }
         }
     }

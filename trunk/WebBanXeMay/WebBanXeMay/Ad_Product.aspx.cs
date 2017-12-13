@@ -159,10 +159,14 @@ namespace WebBanXeMay
             string file = UploadImage(flUpImages);
             if (!file.Equals(""))
             {
-                if (!string.IsNullOrEmpty(drlCateID.Text.Trim()))
+                if (!string.IsNullOrEmpty(drlCateID.Text.Trim()) && !string.IsNullOrEmpty(txtProductName.Text.Trim()) && !string.IsNullOrEmpty(txtPrice.Text.Trim()) && !string.IsNullOrEmpty(txtDescription.Text.Trim()) && !string.IsNullOrEmpty(txtQuantity.Text.Trim()) && !string.IsNullOrEmpty(txtReview.Text.Trim()))
                 {
                     DB.themProduct(Convert.ToInt32(drlCateID.Text.Trim()), Convert.ToInt32(drlIDProducer.Text.Trim()), Convert.ToInt32(drlMainDetail.Text.Trim()), Convert.ToInt32(drlMoToMoDel.Text.Trim()), txtProductName.Text.Trim(), file, float.Parse(txtPrice.Text.Trim()), Convert.ToInt32(txtQuantity.Text.Trim()), txtDescription.Text.Trim(), txtReview.Text.Trim());
                     Response.Redirect(Request.Url.ToString());
+                }
+                else
+                {
+                    Response.Write("<script language=javascript>alert('Bạn phải nhập đầy đủ các trường !');</script>");
                 }
             }
             else {
@@ -183,12 +187,16 @@ namespace WebBanXeMay
                         file = hdFImages.Value;
                     }
                 }
-            
-            
-            if (!string.IsNullOrEmpty(txtProductIDEdit.Text.Trim()))
+
+
+            if (!string.IsNullOrEmpty(txtProductIDEdit.Text.Trim()) && !string.IsNullOrEmpty(txtProductNameEdit.Text.Trim()) && !string.IsNullOrEmpty(txtPriceEdit.Text.Trim()) && !string.IsNullOrEmpty(txtDescriptionEdit.Text.Trim()) && !string.IsNullOrEmpty(txtQuantityEdit.Text.Trim()) && !string.IsNullOrEmpty(txtReviewEdit.Text.Trim()))
             {
                 DB.updateProduct(Convert.ToInt32(txtProductIDEdit.Text.Trim()), Convert.ToInt32(drlCateIDEdit.Text.Trim()), Convert.ToInt32(drlIDProducerEdit.Text.Trim()), Convert.ToInt32(drlMainDetailEdit.Text.Trim()), Convert.ToInt32(drlMoToMoDelEdit.Text.Trim()), txtProductNameEdit.Text.Trim(), file, float.Parse(txtPriceEdit.Text.Trim()), Convert.ToInt32(txtQuantityEdit.Text.Trim()), txtDescriptionEdit.Text.Trim(), txtReviewEdit.Text.Trim());
                 Response.Redirect(Request.Url.ToString());
+            }
+            else
+            {
+                Response.Write("<script language=javascript>alert('Bạn phải nhập đầy đủ các trường !');</script>");
             }
         }
 
