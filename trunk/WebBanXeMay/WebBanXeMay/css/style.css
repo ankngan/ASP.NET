@@ -25,6 +25,12 @@ html, body{
    background:#fff; 
 }
 
+.image_product img.img-responsive {
+    width: -webkit-fill-available;
+    margin: 0px 50px;
+    height: 222px;
+}
+
 
 body a{
 	transition: 0.5s all;

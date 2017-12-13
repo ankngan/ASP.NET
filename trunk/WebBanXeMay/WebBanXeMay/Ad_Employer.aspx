@@ -12,7 +12,8 @@
                 <div class="search">
                     <div class="col-md-12">
                         <!-- <div class="btn btn-info" data-placement="top" data-toggle="tooltip" title="Add New" data-toggle="modal" data-target="#addNew">Add New</div> -->
-                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder=" Search for names.."/>
+                        <input type="search" class="light-table-filter" data-table="order-table" id="myInput" onkeyup="myFunction()" placeholder=" Search for names.."/>
+                        
                         <p data-placement="top" data-toggle="tooltip" title="Add New">
                             <asp:LinkButton ID="linkAddNew" CssClass="btn btn-info btn-xs" runat="server" OnClick="linkAddNew_Click">Add New <span class="glyphicon glyphicon-plus"></span></asp:LinkButton>
                         </p>
@@ -20,7 +21,7 @@
                 </div>
                 <asp:Repeater ID="rptEmployer" runat="server" OnItemCommand="rptEmployer_ItemCommand">
                     <HeaderTemplate>
-                        <table id="datatable" class="table table-striped table-bordered" >
+                        <table id="datatable" class="order-table table table-striped table-bordered" >
                             <thead>
                                 <tr>
                                     <th>Mã ID</th>

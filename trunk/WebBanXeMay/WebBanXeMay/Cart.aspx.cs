@@ -75,8 +75,9 @@ namespace WebBanXeMay
                     {
                         dt.Clear();
                         System.Web.HttpContext.Current.Session["cart"] = dt;
-                        //Response.Write("<script language=javascript>alert('Bạn vừa đặt hàng thành công!');</script>");
-                        Response.Redirect("Home.aspx");
+                        Response.Write("<script language=javascript>alert('Bạn vừa đặt hàng thành công!');</script>");
+                        //Response.Redirect(Request.Url.ToString());
+
                     }
                     else
                         Response.Write("<script language=javascript>alert('Quá trình đặt hàng thất bại !');</script>");

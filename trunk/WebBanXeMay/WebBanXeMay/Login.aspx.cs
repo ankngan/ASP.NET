@@ -40,6 +40,7 @@ namespace WebBanXeMay
                     lblPass.Visible = false;
                     if (dataTable.Rows.Count > 0)
                     {
+                        bool kiemTra = false;
                         for (int i = 0; i < dataTable.Rows.Count; i++)
                         {
                             if ((dataTable.Rows[i]["user_name"].ToString().Equals(txtUser.Text.Trim()) || dataTable.Rows[i]["user_email"].ToString().Equals(txtUser.Text.Trim())) && dataTable.Rows[i]["user_password"].ToString().Equals(txtPass.Text.Trim()))
@@ -51,7 +52,7 @@ namespace WebBanXeMay
                                 Session["EmailND"] = dataTable.Rows[i]["user_email"].ToString();
                                 Session["PhoneND"] = dataTable.Rows[i]["user_phone"].ToString();
                                 Session["AddressND"] = dataTable.Rows[i]["user_address"].ToString();
-                                
+                                kiemTra = true;
 
                             }
                             else
@@ -64,7 +65,7 @@ namespace WebBanXeMay
                         {
                             Response.Redirect("Ad_User.aspx");
                         }
-                        else
+                        else if(kiemTra == true)
                         {
                              Response.Redirect("Home.aspx");                                
                         }
