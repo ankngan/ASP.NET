@@ -66,14 +66,12 @@
     <Content Include="Ad_Categories.aspx" />
     <Content Include="Ad_Dashboard.aspx" />
     <Content Include="Ad_Employer.aspx" />
-    <Content Include="admin.aspx" />
     <Content Include="Ad_Main_detail.aspx" />
     <Content Include="Ad_MotoModel.aspx" />
     <Content Include="Ad_Order.aspx" />
     <Content Include="Ad_Producer.aspx" />
     <Content Include="Ad_Product.aspx" />
     <Content Include="Ad_User.aspx" />
-    <Content Include="css\admin_login_form.css" />
     <Content Include="css\login_form.css" />
     <Content Include="BrandMoto.aspx" />
     <Content Include="Cart.aspx" />
@@ -129,7 +127,6 @@
     <Content Include="Detail.aspx" />
     <Content Include="js\search.js" />
     <Content Include="Login.aspx" />
-    <Content Include="Order.aspx" />
     <Content Include="Product.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Search.aspx" />
@@ -178,13 +175,6 @@
     </Compile>
     <Compile Include="Ad_Employer.aspx.designer.cs">
       <DependentUpon>Ad_Employer.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin.aspx.cs">
-      <DependentUpon>admin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin.aspx.designer.cs">
-      <DependentUpon>admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ad_Main_detail.aspx.cs">
       <DependentUpon>Ad_Main_detail.aspx</DependentUpon>
@@ -288,13 +278,6 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Order.aspx.cs">
-      <DependentUpon>Order.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Order.aspx.designer.cs">
-      <DependentUpon>Order.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Product.aspx.cs">
       <DependentUpon>Product.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -349,7 +332,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1457</DevelopmentServerPort>
+          <DevelopmentServerPort>1459</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

@@ -103,8 +103,9 @@ namespace WebBanXeMay
                 case "Delete":
                     //if (e.CommandName.ToString() == "yes")
                     //{
-                    DB.deleteOrder(Convert.ToInt32(e.CommandArgument.ToString()));
                     DB.deleteOrder_Detail(Convert.ToInt32(e.CommandArgument.ToString()));
+                    DB.deleteOrder(Convert.ToInt32(e.CommandArgument.ToString()));
+                    
                     Response.Redirect(Request.Url.ToString());
                     //}
                     //else if(e.CommandName.ToString() == "no") 
@@ -135,7 +136,11 @@ namespace WebBanXeMay
 
             if (!string.IsNullOrEmpty(txtOderIDEdit.Text.Trim()))
             {
-                DB.updateOrder(Convert.ToInt32(txtOderIDEdit.Text.Trim()), Convert.ToInt32(drlUserIDEdit.SelectedValue), Convert.ToInt32(drdlProductEdit.SelectedValue), Convert.ToInt32(txtTotalMoneyEdit.Text.Trim()), Convert.ToInt32(txtQuantityEdit.Text.Trim()), txtNgayDatEdit.Text.Trim(), txtNameEdit.Text.Trim(), Convert.ToInt32(txtSDTEdit.Text.Trim()), txtEmailEdit.Text.Trim(), txtAddressEdit.Text.Trim());
+                if (DB.updateOrder(Convert.ToInt32(txtOderIDEdit.Text.Trim()), Convert.ToInt32(drlUserIDEdit.SelectedValue), Convert.ToInt32(drdlProductEdit.SelectedValue), float.Parse(txtTotalMoneyEdit.Text.Trim()), Convert.ToInt32(txtQuantityEdit.Text.Trim()), txtNgayDatEdit.Text.Trim(), txtNameEdit.Text.Trim(),txtSDTEdit.Text.Trim(), txtEmailEdit.Text.Trim(), txtAddressEdit.Text.Trim()))
+                {
+                    DataTable dtIDOrder_detail = (DataTable) DB.getIDOrder_DetailByOrderID(Convert.ToInt32(txtOderIDEdit.Text.Trim()));
+                    DB.updateOrder_Detail(Convert.ToInt32(dtIDOrder_detail.Rows.Count - 1), Convert.ToInt32(drlUserIDEdit.SelectedValue), Convert.ToInt32(drdlProductEdit.SelectedValue));
+                }
                 Response.Redirect(Request.Url.ToString());
             }
         }
@@ -144,7 +149,11 @@ namespace WebBanXeMay
         {
             if (!string.IsNullOrEmpty(txtNgayDat.Text.Trim()))
             {
-                DB.themorder(Convert.ToInt32(drlUserID.SelectedValue), Convert.ToInt32(drdlProduct.SelectedValue), Convert.ToInt32(txtTotalMoney.Text.Trim()), Convert.ToInt32(txtQuantity.Text.Trim()), DateTime.Now, txtName.Text.Trim(), Convert.ToInt32(txtSDT.Text.Trim()), txtEmail.Text.Trim(), txtAddress.Text.Trim());
+                if (DB.themorder(Convert.ToInt32(drlUserID.SelectedValue), Convert.ToInt32(drdlProduct.SelectedValue), float.Parse(txtTotalMoneyEdit.Text.Trim()), Convert.ToInt32(txtQuantity.Text.Trim()), DateTime.Now.ToString(), txtName.Text.Trim(), txtSDT.Text.Trim(), txtEmail.Text.Trim(), txtAddress.Text.Trim()))
+                {
+                    DataTable dt = (DataTable) DB.getLidtOrder();
+                    DB.themOrder_Dettail(Convert.ToInt32(dt.Rows.Count - 1), Convert.ToInt32(drdlProduct.SelectedValue));
+                }
                 Response.Redirect(Request.Url.ToString());
             }
         }

@@ -22,6 +22,10 @@ E:\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.pdb
 E:\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.csprojResolveAssemblyReference.cache
 E:\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.dll
 E:\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.pdb
+C:\Users\IT\Desktop\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.dll
+C:\Users\IT\Desktop\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.pdb
+C:\Users\IT\Desktop\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.dll
+C:\Users\IT\Desktop\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.pdb
 F:\trunk\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.dll
 F:\trunk\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.pdb
 F:\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.dll
@@ -30,12 +34,7 @@ F:\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.dll
 F:\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.pdb
 F:\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.dll
 F:\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.pdb
-F:\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.csprojResolveAssemblyReference.cache
-<<<<<<< HEAD
-C:\Users\IT\Desktop\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.dll
-C:\Users\IT\Desktop\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.pdb
-C:\Users\IT\Desktop\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.dll
-C:\Users\IT\Desktop\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.pdb
-=======
-C:\Users\IT\Desktop\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.csprojResolveAssemblyReference.cache
->>>>>>> origin/master
+C:\Users\nvkho\Downloads\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.dll
+C:\Users\nvkho\Downloads\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.pdb
+C:\Users\nvkho\Downloads\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.dll
+C:\Users\nvkho\Downloads\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.pdb

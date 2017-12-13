@@ -41,7 +41,7 @@
 	   		    </div>
                      
                       <asp:LinkButton CssClass="btn bt1 btn-primary btn-normal btn-inline "  ID="lbtnAddToCart" runat="server" OnClick="lbtnAddToCart_Click">Thêm vào giỏ</asp:LinkButton>
-                      <asp:LinkButton ID="lbtnThanhToan" CssClass="btn bt1 btn-primary btn-normal btn-inline" runat="server" OnClick="lbtnThanhToan_Click">Thanh toán</asp:LinkButton>               
+                      <asp:LinkButton ID="lbtnThanhToan" CssClass="btn bt1 btn-primary btn-normal btn-inline" runat="server" OnLoad="msg_Buy" OnClick="lbtnThanhToan_Click">Thanh toán</asp:LinkButton>               
 			    </div>
          
 		    <div class="clearfix"> </div>

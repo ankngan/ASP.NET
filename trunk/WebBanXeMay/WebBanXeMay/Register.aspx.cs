@@ -20,64 +20,65 @@ namespace WebBanXeMay
         {
             DataTable dataTable = new DataTable();
             dataTable = DB.getLidtUser();
-            if (!string.IsNullOrEmpty(txtName.Text.Trim()))
+            if (!string.IsNullOrEmpty(txtNameRef.Text.Trim()))
             {
-                lblName.Visible = false;
-                if (!string.IsNullOrEmpty(txtUserName.Text.Trim()))
+                lblNameRef.Visible = false;
+                if (!string.IsNullOrEmpty(txtUserNameRef.Text.Trim()))
                 {
-                    lblUser.Visible = false;
-                    if (!string.IsNullOrEmpty(txtPass.Text.Trim()))
+                    lblUserRef.Visible = false;
+                    if (!string.IsNullOrEmpty(txtPassRef.Text.Trim()))
                     {
-                        lblPass.Visible = false;
+                        lblPassRef.Visible = false;
                         if (!string.IsNullOrEmpty(txtRePass.Text.Trim()))
                         {
                             lblRePass.Visible = false;
                             if (dataTable.Rows.Count > 0)
                             {
-                                for (int i = 0; i < dataTable.Rows.Count; i++)
+                                bool userExits = false;
+                                foreach (DataRow dr in dataTable.Rows)
                                 {
-                                    if (dataTable.Rows[i]["user_name"].ToString() != txtUserName.Text.Trim())
+                                    if (dr["user_name"].Equals(txtUserNameRef.Text))
                                     {
-                                        lblUser.Visible = false;
-                                        if (dataTable.Rows[i]["user_email"].ToString() != txtEmail.Text.Trim())
-                                        {
-                                            lblEmail.Visible = false;
-                                            if (txtPass.Text.Equals(txtRePass.Text.Trim()))
-                                            {
-                                                Session["user"] = txtUserName.Text;
-                                                lblRePass.Visible = false;
-                                                DB.themUser(txtName.Text.Trim(), txtUserName.Text.Trim(), txtAddress.Text.Trim(), Convert.ToInt32(txtPhone.Text.Trim()), txtEmail.Text.Trim(), txtPass.Text.Trim(), 0);
-                                                Response.Redirect("Login.aspx");
-                                                break;
-                                            }
-                                            else
-                                            {
-                                                lblRePass.Text = "Vui lòng nhập lại đúng mật khẩu đã nhập.";
-                                                lblRePass.Visible = true;
-                                            }
-                                        }
-                                        else
-                                        {
-                                            lblEmail.Text = "Email đã được đăng ký.";
-                                            lblEmail.Visible = true;
-                                        }
+                                        lblUserRef.Text = "Người dùng đã được đăng ký";
+                                        lblUserRef.Visible = true;
+                                        userExits = true;
+                                        break;
+                                    }
+                                    else if (dr["user_email"].Equals(txtEmailRef.Text))
+                                    {
+                                        userExits = true;
+                                        lblEmailRef.Text = "Email đã được đăng ký";
+                                        lblEmailRef.Visible = true;
+                                        break;
+                                    }
+                                    
+                                    
+                                }
+                                if (userExits == false)
+                                {
+                                    if (txtPassRef.Text.Equals(txtRePass.Text.Trim()))
+                                    {
+                                        Session["user"] = txtUserNameRef.Text;
+                                        lblRePass.Visible = false;
+                                        DB.themUser(txtNameRef.Text.Trim(), txtUserNameRef.Text.Trim(), txtAddressRef.Text.Trim(),txtPhoneRef.Text.Trim(), txtEmailRef.Text.Trim(), txtPassRef.Text.Trim(), 0);
+                                        Response.Redirect("Login.aspx");
+
                                     }
                                     else
                                     {
-                                        lblUser.Text = "Người dùng đã được đăng ký";
-                                        lblUser.Visible = true;
-                                    }
-
+                                        lblRePass.Text = "Vui lòng nhập lại đúng mật khẩu đã nhập.";
+                                        lblRePass.Visible = true;
+                                    }   
                                 }
                             }
                             else 
                             {
-                                if (txtPass.Text.Equals(txtRePass.Text))
+                                if (txtPassRef.Text.Equals(txtRePass.Text))
                                 {
                                     lblRePass.Visible = false;
-                                    Session["user"] = txtUserName.Text;
+                                    Session["user"] = txtUserNameRef.Text;
                                     lblRePass.Visible = false;
-                                    DB.themUser(txtName.Text.Trim(), txtUserName.Text.Trim(), txtAddress.Text.Trim(), Convert.ToInt32(txtPhone.Text.Trim()), txtEmail.Text.Trim(), txtPass.Text.Trim(), 0);
+                                    DB.themUser(txtNameRef.Text.Trim(), txtUserNameRef.Text.Trim(), txtAddressRef.Text.Trim(), txtPhoneRef.Text.Trim(), txtEmailRef.Text.Trim(), txtPassRef.Text.Trim(), 0);
                                     Response.Redirect("Login.aspx");
                                     
                                 }
@@ -96,20 +97,20 @@ namespace WebBanXeMay
                     }
                     else
                     {
-                        lblPass.Text = "Vui lòng không để trống mật khẩu.";
-                        lblPass.Visible = true;
+                        lblPassRef.Text = "Vui lòng không để trống mật khẩu.";
+                        lblPassRef.Visible = true;
                     }
                 }
                 else
                 {
-                    lblUser.Text = "Vui lòng không để trống Tên người dùng.";
-                    lblUser.Visible = true;
+                    lblUserRef.Text = "Vui lòng không để trống Tên người dùng.";
+                    lblUserRef.Visible = true;
                 }
             }
             else
             {
-                lblName.Text = "Vui lòng nhập đầy đủ tên.";
-                lblName.Visible = true;
+                lblNameRef.Text = "Vui lòng nhập đầy đủ tên.";
+                lblNameRef.Visible = true;
             }
             
             

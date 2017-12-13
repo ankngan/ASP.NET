@@ -17,13 +17,13 @@ namespace WebBanXeMay
             {
                 if (Session["user"] != null)
                 {
-                    
-                    txtUser.Text =Session["user"].ToString();
+
+                    txtUser.Text = Session["user"].ToString();
                     //txtPass.Text = Session["pass"].ToString();
                     string message = "<script language=javascript>alert('Đăng ký thành công');</script>";
                     Response.Write(message);
                 }
-                
+
             }
         }
 
@@ -44,34 +44,14 @@ namespace WebBanXeMay
                         {
                             if ((dataTable.Rows[i]["user_name"].ToString().Equals(txtUser.Text.Trim()) || dataTable.Rows[i]["user_email"].ToString().Equals(txtUser.Text.Trim())) && dataTable.Rows[i]["user_password"].ToString().Equals(txtPass.Text.Trim()))
                             {
-                                if (dataTable.Rows[i]["user_name"].Equals("admin"))
-                                {
-                                    txtPass.Visible = false;
-                                    Session["idNguoiDung"] = dataTable.Rows[i]["user_id"].ToString();
-                                    Session["hienThiTen"] = dataTable.Rows[i]["name"].ToString();
-                                    Session["EmailND"] = dataTable.Rows[i]["user_email"].ToString();
-                                    Session["PhoneND"] = dataTable.Rows[i]["user_phone"].ToString();
-                                    Session["AddressND"] = dataTable.Rows[i]["user_address"].ToString();
-                                    Response.Redirect("Ad_User.aspx");
-                                    break;
-                                    
-                                }
-                                else 
-                                {
-                                    txtPass.Visible = false;
-                                    Session["idNguoiDung"] = dataTable.Rows[i]["user_id"].ToString();
-                                    Session["hienThiTen"] = dataTable.Rows[i]["name"].ToString();
-                                    Session["EmailND"] = dataTable.Rows[i]["user_email"].ToString();
-                                    Session["PhoneND"] = dataTable.Rows[i]["user_phone"].ToString();
-                                    Session["AddressND"] = dataTable.Rows[i]["user_address"].ToString();
-                                    if(Session["cart"] != null)
-                                    {
-                                        Response.Redirect("Cart.aspx");
-                                    }
-                                    Response.Redirect("Home.aspx");
-
-                                    break;
-                                }
+                                txtPass.Visible = false;
+                                Session["userName"] = dataTable.Rows[i]["user_name"].ToString();
+                                Session["idNguoiDung"] = dataTable.Rows[i]["user_id"].ToString();
+                                Session["hienThiTen"] = dataTable.Rows[i]["name"].ToString();
+                                Session["EmailND"] = dataTable.Rows[i]["user_email"].ToString();
+                                Session["PhoneND"] = dataTable.Rows[i]["user_phone"].ToString();
+                                Session["AddressND"] = dataTable.Rows[i]["user_address"].ToString();
+                                
 
                             }
                             else
@@ -80,24 +60,33 @@ namespace WebBanXeMay
                                 lblPass.Visible = true;
                             }
                         }
+                        if (txtUser.Text.Equals("admin"))
+                        {
+                            Response.Redirect("Ad_User.aspx");
+                        }
+                        else
+                        {
+                             Response.Redirect("Home.aspx");                                
+                        }
                     }
-                    else 
+                    else
                     {
-                        lblPass.Text = "Mật khẩu hoặc tên đăng nhập không đúng!";
-                        lblPass.Visible = true;                
+                        lblPass.Text = " Sai Mật khẩu hoặc tên đăng nhập!";
+                        lblPass.Visible = true;
+                    }
+
+                    }
+                    else
+                    {
+                        lblPass.Text = "Mật khẩu không đúng!";
+                        lblPass.Visible = true;
                     }
                 }
                 else
                 {
-                    lblPass.Text = "Mật khẩu không đúng!";
-                    lblPass.Visible = true;
+                    lblUser.Text = "Bạn nhập sai tài khoản!";
+                    lblUser.Visible = true;
                 }
-            }
-            else
-            {
-                lblUser.Text = "Bạn nhập sai tài khoản!";
-                lblUser.Visible = true;
             }
         }
     }
-}

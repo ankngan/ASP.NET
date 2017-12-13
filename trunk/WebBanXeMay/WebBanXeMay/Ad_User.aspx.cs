@@ -81,7 +81,7 @@ namespace WebBanXeMay
         {
             if (!string.IsNullOrEmpty(txtName.Text.Trim()))
             {
-                DB.themUser(txtName.Text.Trim(),txtUserName.Text.Trim(), txtAddress.Text.Trim(), Convert.ToInt32(txtPhone.Text.Trim()), txtEmail.Text.Trim(), txtPass.Text.Trim(), Convert.ToInt32(txtPer.Text.Trim()));
+                DB.themUser(txtName.Text.Trim(),txtUserName.Text.Trim(), txtAddress.Text.Trim(), txtPhone.Text.Trim(), txtEmail.Text.Trim(), txtPass.Text.Trim(), Convert.ToInt32(txtPer.Text.Trim()));
                 Response.Redirect(Request.Url.ToString());
             }
         }
@@ -90,7 +90,7 @@ namespace WebBanXeMay
         {
             if (!string.IsNullOrEmpty(txtIDEdit.Text.Trim()))
             {
-                DB.updateUser(Convert.ToInt32(txtIDEdit.Text.Trim()), txtNameEdit.Text.Trim(), txtUserNameEdit.Text.Trim(), txtAddressEdit.Text.Trim(), Convert.ToInt32(txtPhoneEdit.Text.Trim()), txtEmailEdit.Text.Trim(), txtPassEdit.Text.Trim(), Convert.ToInt32(txtPerEdit.Text.Trim()));
+                DB.updateUser(Convert.ToInt32(txtIDEdit.Text.Trim()), txtNameEdit.Text.Trim(), txtUserNameEdit.Text.Trim(), txtAddressEdit.Text.Trim(), txtPhoneEdit.Text.Trim(), txtEmailEdit.Text.Trim(), txtPassEdit.Text.Trim(), Convert.ToInt32(txtPerEdit.Text.Trim()));
                 Response.Redirect(Request.Url.ToString());
             }
         }

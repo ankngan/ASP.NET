@@ -161,7 +161,7 @@ namespace WebBanXeMay
             {
                 if (!string.IsNullOrEmpty(drlCateID.Text.Trim()))
                 {
-                    DB.themProduct(Convert.ToInt32(drlCateID.Text.Trim()), Convert.ToInt32(drlIDProducer.Text.Trim()), Convert.ToInt32(drlMainDetail.Text.Trim()), Convert.ToInt32(drlMoToMoDel.Text.Trim()), txtProductName.Text.Trim(), file, Convert.ToInt32(txtPrice.Text.Trim()), Convert.ToInt32(txtQuantity.Text.Trim()), txtDescription.Text.Trim(), txtReview.Text.Trim());
+                    DB.themProduct(Convert.ToInt32(drlCateID.Text.Trim()), Convert.ToInt32(drlIDProducer.Text.Trim()), Convert.ToInt32(drlMainDetail.Text.Trim()), Convert.ToInt32(drlMoToMoDel.Text.Trim()), txtProductName.Text.Trim(), file, float.Parse(txtPrice.Text.Trim()), Convert.ToInt32(txtQuantity.Text.Trim()), txtDescription.Text.Trim(), txtReview.Text.Trim());
                     Response.Redirect(Request.Url.ToString());
                 }
             }
@@ -187,7 +187,7 @@ namespace WebBanXeMay
             
             if (!string.IsNullOrEmpty(txtProductIDEdit.Text.Trim()))
             {
-                DB.updateProduct(Convert.ToInt32(txtProductIDEdit.Text.Trim()), Convert.ToInt32(drlCateIDEdit.Text.Trim()), Convert.ToInt32(drlIDProducerEdit.Text.Trim()), Convert.ToInt32(drlMainDetailEdit.Text.Trim()), Convert.ToInt32(drlMoToMoDelEdit.Text.Trim()), txtProductNameEdit.Text.Trim(), file, Convert.ToInt32(txtPriceEdit.Text.Trim()), Convert.ToInt32(txtQuantityEdit.Text.Trim()), txtDescriptionEdit.Text.Trim(), txtReviewEdit.Text.Trim());
+                DB.updateProduct(Convert.ToInt32(txtProductIDEdit.Text.Trim()), Convert.ToInt32(drlCateIDEdit.Text.Trim()), Convert.ToInt32(drlIDProducerEdit.Text.Trim()), Convert.ToInt32(drlMainDetailEdit.Text.Trim()), Convert.ToInt32(drlMoToMoDelEdit.Text.Trim()), txtProductNameEdit.Text.Trim(), file, float.Parse(txtPriceEdit.Text.Trim()), Convert.ToInt32(txtQuantityEdit.Text.Trim()), txtDescriptionEdit.Text.Trim(), txtReviewEdit.Text.Trim());
                 Response.Redirect(Request.Url.ToString());
             }
         }

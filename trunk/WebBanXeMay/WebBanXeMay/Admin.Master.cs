@@ -13,7 +13,7 @@ namespace WebBanXeMay
         {
             if (!IsPostBack)
             {
-                if (Session["hienThiTen"] != null && Session["hienThiTen"].Equals("admin"))
+                if (Session["hienThiTen"] != null && Session["userName"].Equals("admin"))
                 {
 
                     lblHienThi.Text = Session["hienThiTen"].ToString();

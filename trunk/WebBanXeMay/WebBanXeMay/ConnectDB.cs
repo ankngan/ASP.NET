@@ -18,8 +18,8 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("select * from Users", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand("LoadUser", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 DataTable dataTable = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dataTable);
@@ -38,8 +38,8 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("select * from Users where user_id =@UserID ", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand("LoadUserByID", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 DataTable dataTable = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 cmd.Parameters.AddWithValue("@UserID", userId);
@@ -54,14 +54,14 @@ namespace WebBanXeMay
         }
 
         //Thêm user vào database
-        public bool themUser(string Name, string UserName, string UserAddress, int UserPhone, string UserEmail, string UserPass, int UserPer)
+        public bool themUser(string Name, string UserName, string UserAddress, string UserPhone, string UserEmail, string UserPass, int UserPer)
         {
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Insert into Users values (@name,@user_name, @user_address, @user_phone, @user_email, @user_password, @user_permission)", conn);
+                SqlCommand cmd = new SqlCommand("InsertUser", conn);
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@name", Name);
                 cmd.Parameters.AddWithValue("@user_name", UserName);
                 cmd.Parameters.AddWithValue("@user_address", UserAddress);
@@ -82,14 +82,14 @@ namespace WebBanXeMay
         }
 
         //Sua user vào database
-        public bool updateUser(int UserId, string name, string UserName, string UserAddress, int UserPhone, string UserEmail, string UserPass, int UserPer)
+        public bool updateUser(int UserId, string name, string UserName, string UserAddress, string UserPhone, string UserEmail, string UserPass, int UserPer)
         {
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Update Users set name = @Name, user_name = @User_name, user_address = @User_address, [user_phone] = @User_phone, user_email = @User_email, user_password = @User_pass, user_permission = @User_per where user_id = @User_id", conn);
+                SqlCommand cmd = new SqlCommand("UpdateUser", conn);
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@User_id", UserId);
                 cmd.Parameters.AddWithValue("@Name", name);
                 cmd.Parameters.AddWithValue("@User_name", UserName);
@@ -116,9 +116,9 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Delete from Users where user_id = @User_id", conn);
+                SqlCommand cmd = new SqlCommand("DeleteUser", conn);
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@User_id", UserId);
                 if (cmd.ExecuteNonQuery() > 0)
                     return true;
@@ -139,8 +139,8 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("select * from Product", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand("LoadProducts", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 DataTable dataTable = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dataTable);
@@ -159,7 +159,7 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("LoadDongXe", conn);
+                SqlCommand cmd = new SqlCommand("LoadProductByMoto_ModelID", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@motoId", id);
                 DataTable dataTable = new DataTable();
@@ -180,7 +180,7 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("LoadThuongHieu", conn);
+                SqlCommand cmd = new SqlCommand("LoadProductByProducerID", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@producer_Id", id);
                 DataTable dataTable = new DataTable();
@@ -221,8 +221,8 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("select * from Product where product_id =@ProductID ", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand("LoadProductByID", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 DataTable dataTable = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 cmd.Parameters.AddWithValue("@ProductID", productId);
@@ -241,8 +241,8 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("select * from Product p, Main_detail m where p.main_detail_id=m.main_detail_id and  product_id =@ProductID", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand("LoadDetailProductByID", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 DataTable dataTable = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 cmd.Parameters.AddWithValue("@ProductID", productId);
@@ -262,8 +262,8 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("select * from Product where product_name like '%' + @key_search + '%' ", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand("LoadProductByKeySearch", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 DataTable dataTable = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 cmd.Parameters.AddWithValue("@key_search", key_search);
@@ -278,14 +278,14 @@ namespace WebBanXeMay
         }
 
         //Thêm Product vào database
-        public bool themProduct(int categoryID, int producerID, int mainDetailID, int motoModelID, string productName, string productImage, int productPrice, int productQuantity, string productDes, string productReView)
+        public bool themProduct(int categoryID, int producerID, int mainDetailID, int motoModelID, string productName, string productImage, float productPrice, int productQuantity, string productDes, string productReView)
         {
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Insert into Product values (@categories_id, @producer_id, @main_detail_id, @moto_model_id, @product_name, @product_image, @product_price, @product_quantity, @product_description, @product_review)", conn);
+                SqlCommand cmd = new SqlCommand("InsertProduct", conn);
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@categories_id", categoryID);
                 cmd.Parameters.AddWithValue("@producer_id", producerID);
                 cmd.Parameters.AddWithValue("@main_detail_id", mainDetailID);
@@ -309,14 +309,14 @@ namespace WebBanXeMay
         }
 
         //Sua user vào database
-        public bool updateProduct(int productId, int categoryID, int producerID, int mainDetailID, int motoModelID, string productName, string productImage, int productPrice, int productQuantity, string productDes, string productReView)
+        public bool updateProduct(int productId, int categoryID, int producerID, int mainDetailID, int motoModelID, string productName, string productImage, float productPrice, int productQuantity, string productDes, string productReView)
         {
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Update Product set  categories_id = @CategoriesID, producer_id = @ProducerID, main_detail_id = @MainDetailID, moto_model_id = @MotoModelID, product_name = @ProductName, product_image = @ProductImage, product_price = @ProductPrice, product_quantity = @ProductQuantity, product_description = @ProductDescription, product_review = @ProductReview where product_id = @ProductId", conn);
+                SqlCommand cmd = new SqlCommand("UpdateProduct", conn);
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@ProductID", productId);
                 cmd.Parameters.AddWithValue("@CategoriesID", categoryID);
                 cmd.Parameters.AddWithValue("@ProducerID", producerID);
@@ -346,9 +346,9 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Delete from Product where product_id = @ProductId", conn);
+                SqlCommand cmd = new SqlCommand("DeleteProduct", conn);
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@ProductId", productId);
                 if (cmd.ExecuteNonQuery() > 0)
                     return true;
@@ -369,8 +369,8 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("select * from Producer", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand("LoadProducer", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 DataTable dataTable = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dataTable);
@@ -389,8 +389,8 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("select * from Producer where producer_id =@ProducerID ", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand("LoadProducerByID", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 DataTable dataTable = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 cmd.Parameters.AddWithValue("@ProducerID", producerId);
@@ -410,9 +410,9 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Insert into Producer values (@producer_name)", conn);
+                SqlCommand cmd = new SqlCommand("InsertProducer", conn);
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@producer_name", producerName);
                 if (cmd.ExecuteNonQuery() > 0)
                     return true;
@@ -432,9 +432,9 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Update Producer set producer_name = @ProducerName where producer_id = @ProducerId", conn);
+                SqlCommand cmd = new SqlCommand("UpdateProducer", conn);
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@ProducerId", producerId);
                 cmd.Parameters.AddWithValue("@ProducerName", producerName);
                 if (cmd.ExecuteNonQuery() > 0)
@@ -455,9 +455,9 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Delete from Producer where producer_id = @ProducerId", conn);
+                SqlCommand cmd = new SqlCommand("DeleteProducer", conn);
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@ProducerId", producerId);
                 if (cmd.ExecuteNonQuery() > 0)
                     return true;
@@ -479,8 +479,8 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("select * from Categories", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand("LoadCategories", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 DataTable dataTable = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dataTable);
@@ -499,8 +499,8 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("select * from Categories where categories_id =@CategoriesID ", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand("LoadCategoriesByID", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 DataTable dataTable = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 cmd.Parameters.AddWithValue("@CategoriesID", categoriesId);
@@ -520,9 +520,9 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Insert into Categories values ( @categories_name)", conn);
+                SqlCommand cmd = new SqlCommand("InsertCategories", conn);
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@categories_name", categoriesName);
                 if (cmd.ExecuteNonQuery() > 0)
                     return true;
@@ -542,9 +542,9 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Update Categories set categories_name = @CategoriesName where categories_id = @CategoriesId", conn);
+                SqlCommand cmd = new SqlCommand("UpdateCategories", conn);
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@CategoriesId", categoriesId);
                 cmd.Parameters.AddWithValue("@CategoriesName", categoriesName);
                 if (cmd.ExecuteNonQuery() > 0)
@@ -565,9 +565,9 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Delete from Categories where categories_id = @CategoriesId", conn);
+                SqlCommand cmd = new SqlCommand("DeleteCategories", conn);
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@CategoriesId", categoriesId);
                 if (cmd.ExecuteNonQuery() > 0)
                     return true;
@@ -588,8 +588,8 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("select * from Moto_model", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand("LoadMoto_Model", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 DataTable dataTable = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dataTable);
@@ -608,8 +608,8 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("select * from Moto_model where moto_model_id =@Moto_modelID ", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand("LoadMoto_ModelByID", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 DataTable dataTable = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 cmd.Parameters.AddWithValue("@Moto_modelID", Moto_modelId);
@@ -629,9 +629,9 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Insert into Moto_model values (@Moto_model_name)", conn);
+                SqlCommand cmd = new SqlCommand("InsertMoto_Model", conn);
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Moto_model_name", Moto_modelName);
                 if (cmd.ExecuteNonQuery() > 0)
                     return true;
@@ -651,9 +651,9 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Update Moto_model set moto_model_name = @Moto_modelName where moto_model_id = @Moto_modelId", conn);
+                SqlCommand cmd = new SqlCommand("UpdateMoto_Model", conn);
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Moto_modelId", Moto_modelId);
                 cmd.Parameters.AddWithValue("@Moto_modelName", Moto_modelName);
                 if (cmd.ExecuteNonQuery() > 0)
@@ -674,9 +674,9 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Delete from Moto_model where moto_model_id = @Moto_modelId", conn);
+                SqlCommand cmd = new SqlCommand("DeleteMoto_Model", conn);
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Moto_modelId", Moto_modelId);
                 if (cmd.ExecuteNonQuery() > 0)
                     return true;
@@ -697,8 +697,8 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("select * from Main_detail", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand("LoadMain_Detail", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 DataTable dataTable = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dataTable);
@@ -717,8 +717,8 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("select * from Main_detail where main_detail_id =@Main_detailID ", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand("LoadMain_DetailByID", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 DataTable dataTable = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 cmd.Parameters.AddWithValue("@Main_detailID", Main_detailId);
@@ -738,9 +738,9 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Insert into Main_detail values (@model, @weight, @size, @tank_capacity, @warranty_period)", conn);
+                SqlCommand cmd = new SqlCommand("InsertMain_Detail", conn);
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@model", model);
                 cmd.Parameters.AddWithValue("@weight", weight);
                 cmd.Parameters.AddWithValue("@size", size); cmd.Parameters.AddWithValue("@tank_capacity", tankCapacity);
@@ -763,8 +763,8 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Update Main_detail set model = @Model, weight = @weight, size = @size, tank_capacity = @tankCapacity, warranty_period = @warrantyPeriod where main_detail_id = @mainDetailId", conn);
-
+                SqlCommand cmd = new SqlCommand("UpdateMain_Detail", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@mainDetailId", main_detailId);
                 cmd.Parameters.AddWithValue("@Model", model);
                 cmd.Parameters.AddWithValue("@weight", weight);
@@ -788,9 +788,9 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Delete from Main_detail where main_detail_id = @Main_detailId", conn);
+                SqlCommand cmd = new SqlCommand("DeleteMain_Detail", conn);
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Main_detailId", Main_detailId);
                 if (cmd.ExecuteNonQuery() > 0)
                     return true;
@@ -813,8 +813,8 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("select * from Employer", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand("LoadEmployer", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 DataTable dataTable = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dataTable);
@@ -833,8 +833,8 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("select * from Employer where employer_id =@EmployerID ", conn);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand("LoadEmployerByID", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 DataTable dataTable = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 cmd.Parameters.AddWithValue("@EmployerID", EmployerId);
@@ -849,14 +849,14 @@ namespace WebBanXeMay
         }
 
         //Thêm Employer vào database
-        public bool themEmployer(string EmployerName, string EmployerEmail, int EmployerPhone, string Avatar)
+        public bool themEmployer(string EmployerName, string EmployerEmail, string EmployerPhone, string Avatar)
         {
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Insert into Employer values (@employer_name, @employer_email, @employer_phone, @avatar)", conn);
+                SqlCommand cmd = new SqlCommand("InsertEmployer", conn);
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@employer_name", EmployerName);
                 cmd.Parameters.AddWithValue("@employer_email", EmployerEmail);
                 cmd.Parameters.AddWithValue("@employer_phone", EmployerPhone);
@@ -875,14 +875,14 @@ namespace WebBanXeMay
         }
 
         //Sua Employer vào database
-        public bool updateEmployer(int EmployerId, string EmployerName, string EmployerEmail, int EmployerPhone, string Avatar)
+        public bool updateEmployer(int EmployerId, string EmployerName, string EmployerEmail, string EmployerPhone, string Avatar)
         {
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Update Employer set employer_name = @Employer_name, employer_email = @Employer_email, employer_phone = @Employer_phone, avatar = @Avatar where employer_id = @Employer_id", conn);
+                SqlCommand cmd = new SqlCommand("UpdateEmployer", conn);
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Employer_id", EmployerId);
                 cmd.Parameters.AddWithValue("@Employer_name", EmployerName);
                 cmd.Parameters.AddWithValue("@Employer_email", EmployerEmail);
@@ -906,9 +906,9 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Delete from Employer where employer_id = @Employer_id", conn);
+                SqlCommand cmd = new SqlCommand("DeleteEmployer", conn);
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Employer_id", EmployerId);
                 if (cmd.ExecuteNonQuery() > 0)
                     return true;
@@ -974,14 +974,14 @@ namespace WebBanXeMay
         }
 
         //thêm order vào database
-        public bool themorder(int userid, int productID , int totalmoney, int quantity, DateTime order_date, string ctmName, int ctmPhone,string ctmEmail, string ctmAddress)
+        public bool themorder(int userid, int productID , float totalmoney, int quantity, string order_date, string ctmName, string ctmPhone,string ctmEmail, string ctmAddress)
         {
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("insert into orders values (@user_id,@product_id, @total_money, @quantity, @orders_date, @customer_name, @customer_phone, @customer_email, @customer_address)", conn);
+                SqlCommand cmd = new SqlCommand("InsertOrder", conn);
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@user_id",userid);
                 cmd.Parameters.AddWithValue("@product_id", productID);
                 cmd.Parameters.AddWithValue("@total_money", totalmoney);
@@ -1004,14 +1004,14 @@ namespace WebBanXeMay
         }
 
         //Sua Order vào database
-        public bool updateOrder(int OrderID, int userid, int productID, int totalmoney, int quantity, string order_date, string ctmName, int ctmPhone, string ctmEmail, string ctmAddress)
+        public bool updateOrder(int OrderID, int userid, int productID, float totalmoney, int quantity, string order_date, string ctmName, string ctmPhone, string ctmEmail, string ctmAddress)
         {
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Update Orders set user_id = @user_id,product_id = @product_id, total_money = @total_money, quantity = @quantity, orders_date = @orders_date, customer_name = @customer_name, customer_phone = @customer_phone, customer_email = @customer_email, customer_address = @customer_address where orders_id = @orders_id", conn);
+                SqlCommand cmd = new SqlCommand("UpdateOrder", conn);
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@orders_id", OrderID);
                 cmd.Parameters.AddWithValue("@user_id", userid);
                 cmd.Parameters.AddWithValue("@product_id", productID);
@@ -1040,9 +1040,9 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Delete from Orders where orders_id = @OrderId", conn);
+                SqlCommand cmd = new SqlCommand("DeleteOrder", conn);
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@OrderId", OrderId);
                 if (cmd.ExecuteNonQuery() > 0)
                     return true;
@@ -1102,15 +1102,39 @@ namespace WebBanXeMay
             }
         }
 
+        //Lấy ra Order_detail_ID theo ID 
+        public DataTable getIDOrder_DetailByOrderID(int OrderID)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("LoadOrder_DetailByID", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                DataTable dataTable = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                cmd.Parameters.AddWithValue("@orderID", OrderID);
+                adapter.Fill(dataTable);
+                return dataTable;
+
+            }
+
+            finally
+            {
+
+                conn.Close();
+
+            }
+        }
+
         //thêm order vào database
         public bool themOrder_Dettail(int orderID, int productID)
         {
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("insert into Orders_detail values (@orders_id,@product_id)", conn);
+                SqlCommand cmd = new SqlCommand("InsertOrder_Detail", conn);
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@orders_id", orderID);
                 cmd.Parameters.AddWithValue("@product_id", productID);
                 
@@ -1132,9 +1156,9 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Update Orders_detail set orders_id = @orders_id,product_id = @product_id where orders_detail_id = @orders_detail_id", conn);
+                SqlCommand cmd = new SqlCommand("UpdateOrder_Detail", conn);
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@orders_detail_id", order_DetailID);
                 cmd.Parameters.AddWithValue("@orders_id", orderId);
                 cmd.Parameters.AddWithValue("@product_id", productID);
@@ -1157,9 +1181,9 @@ namespace WebBanXeMay
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Delete from Orders_detail where orders_id = @Order_detailId", conn);
+                SqlCommand cmd = new SqlCommand("DeleteOrder_Detail", conn);
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Order_detailId", Order_DetailId);
                 if (cmd.ExecuteNonQuery() > 0)
                     return true;

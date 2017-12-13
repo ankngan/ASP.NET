@@ -45,8 +45,7 @@ namespace WebBanXeMay
 
         protected void lbtnThanhToan_Click(object sender, EventArgs e)
         {
-            Response.Write(DateTime.Now);
-            //string date_order = DateTime.Now.ToString("MM-dd-yyyy");
+            
             DataTable dt = (DataTable)Session["cart"];
             if (Session["idNguoiDung"] != null)
             {
@@ -56,12 +55,30 @@ namespace WebBanXeMay
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
 
-                        if (DB.themorder(Convert.ToInt32(Session["idNguoiDung"].ToString()), Convert.ToInt32(dt.Rows[i]["PId"].ToString()), Convert.ToInt32(dt.Rows[i]["TotalMoney"].ToString()), Convert.ToInt32(dt.Rows[i]["Quantity"]), DateTime.Parse(DateTime.Now.ToString()), Session["hienThiTen"].ToString(), Convert.ToInt32(Session["PhoneND"].ToString()), Session["EmailND"].ToString(), Session["AddressND"].ToString()))
-                            kiemTra = true;
+                        if (DB.themorder(Convert.ToInt32(Session["idNguoiDung"].ToString()), Convert.ToInt32(dt.Rows[i]["PId"].ToString()), float.Parse(dt.Rows[i]["TotalMoney"].ToString()), Convert.ToInt32(dt.Rows[i]["Quantity"].ToString()), DateTime.Now.ToString(), Session["hienThiTen"].ToString(), Session["PhoneND"].ToString(), Session["EmailND"].ToString(), Session["AddressND"].ToString()))
+                        {
+                            
+                            DataTable dtOrder = (DataTable)DB.getLidtOrder();
+                            if (DB.themOrder_Dettail(Convert.ToInt32(dtOrder.Rows[(dtOrder.Rows.Count) - 1]["orders_id"].ToString()), Convert.ToInt32(dt.Rows[i]["PId"].ToString())))
+                            {
+                                //cart.ShoppingCart_Remove(Convert.ToInt32(dt.Rows[i]["PId"].ToString()));
+                                kiemTra = true;
+                            }
+                        }
+
                         else
-                        kiemTra = false;
+                        {
+                            kiemTra = false;
+                        }
                     }
-                    Response.Write((kiemTra == true) ? "<script language=javascript>alert('Bạn vừa đặt hàng thành công!');</script>" : "<script language=javascript>alert('Quá trình đặt hàng thất bại !');</script>");
+                    if (kiemTra == true)
+                    {
+                        
+                        //Response.Write("<script language=javascript>alert('Bạn vừa đặt hàng thành công!');</script>");
+                        Response.Redirect("Home.aspx");
+                    }
+                    else
+                        Response.Redirect("<script language=javascript>alert('Quá trình đặt hàng thất bại !');</script>");
 
                 }
                 else

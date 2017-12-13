@@ -13,58 +13,67 @@ namespace WebBanXeMay {
     public partial class Register {
         
         /// <summary>
-        /// txtName control.
+        /// GVuser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtName;
+        protected global::System.Web.UI.WebControls.GridView GVuser;
         
         /// <summary>
-        /// lblName control.
+        /// txtNameRef control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblName;
+        protected global::System.Web.UI.WebControls.TextBox txtNameRef;
         
         /// <summary>
-        /// txtUserName control.
+        /// lblNameRef control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUserName;
+        protected global::System.Web.UI.WebControls.Label lblNameRef;
         
         /// <summary>
-        /// lblUser control.
+        /// txtUserNameRef control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUser;
+        protected global::System.Web.UI.WebControls.TextBox txtUserNameRef;
         
         /// <summary>
-        /// txtAddress control.
+        /// lblUserRef control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddress;
+        protected global::System.Web.UI.WebControls.Label lblUserRef;
         
         /// <summary>
-        /// txtPhone control.
+        /// txtAddressRef control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPhone;
+        protected global::System.Web.UI.WebControls.TextBox txtAddressRef;
+        
+        /// <summary>
+        /// txtPhoneRef control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPhoneRef;
         
         /// <summary>
         /// RegularExpressionValidator3 control.
@@ -76,22 +85,22 @@ namespace WebBanXeMay {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
         
         /// <summary>
-        /// txtEmail control.
+        /// txtEmailRef control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtEmailRef;
         
         /// <summary>
-        /// lblEmail control.
+        /// lblEmailRef control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmail;
+        protected global::System.Web.UI.WebControls.Label lblEmailRef;
         
         /// <summary>
         /// RegularExpressionValidator2 control.
@@ -112,22 +121,22 @@ namespace WebBanXeMay {
         protected global::System.Web.UI.WebControls.CheckBox ckbNewLetter;
         
         /// <summary>
-        /// txtPass control.
+        /// txtPassRef control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPass;
+        protected global::System.Web.UI.WebControls.TextBox txtPassRef;
         
         /// <summary>
-        /// lblPass control.
+        /// lblPassRef control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPass;
+        protected global::System.Web.UI.WebControls.Label lblPassRef;
         
         /// <summary>
         /// txtRePass control.

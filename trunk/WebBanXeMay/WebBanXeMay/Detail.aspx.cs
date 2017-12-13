@@ -13,6 +13,10 @@ namespace WebBanXeMay
 {
     public partial class Order : System.Web.UI.Page
     {
+        protected void msg_Buy(object sender, System.EventArgs e)
+        {
+            ((LinkButton)sender).Attributes["onclick"] = "return confirm('Bạn muốn có mua sản phẩm này?')";
+        }
         ConnectDB DB = new ConnectDB();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -71,8 +75,7 @@ namespace WebBanXeMay
                 int converId = Int32.Parse(product_id);
                 AddProductCart cartProduct = new AddProductCart();
                 cartProduct.Shoppping_AddCart(converId, soLuong);
-                Response.Redirect("Cart.aspx");
-                
+                Response.Redirect(Request.Url.ToString());
             }
             
             
@@ -95,7 +98,7 @@ namespace WebBanXeMay
                     DataTable dt = new DataTable();
                     dt = DB.getDetailProductByID(converId);
                     //string date_order = DateTime.Now.ToString("MM-dd-yyyy") + " " + DateTime.Now.ToString("hh:mm:ss");
-                    if (DB.themorder(Convert.ToInt32(Session["idNguoiDung"].ToString()), converId, Convert.ToInt32(dt.Rows[0]["product_price"].ToString()), Convert.ToInt32(txtSoLuong.Text.Trim()), DateTime.Now, Session["hienThiTen"].ToString(), Convert.ToInt32(Session["PhoneND"].ToString()), Session["EmailND"].ToString(), Session["AddressND"].ToString()))
+                    if (DB.themorder(Convert.ToInt32(Session["idNguoiDung"].ToString()), converId, float.Parse(dt.Rows[0]["product_price"].ToString()), Convert.ToInt32(txtSoLuong.Text.Trim()), DateTime.Now.ToString(), Session["hienThiTen"].ToString(),Session["PhoneND"].ToString(), Session["EmailND"].ToString(), Session["AddressND"].ToString()))
                     {
                         DataTable dtOrder = (DataTable)DB.getLidtOrder();
                         if (DB.themOrder_Dettail(Convert.ToInt32(dtOrder.Rows[(dtOrder.Rows.Count)-1]["orders_id"].ToString()), converId))

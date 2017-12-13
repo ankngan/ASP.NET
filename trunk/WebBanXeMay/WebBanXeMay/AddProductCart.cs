@@ -15,7 +15,7 @@ namespace WebBanXeMay
             dt.Columns.Add("PId", typeof(int));
             dt.Columns.Add("Image", typeof(string));
             dt.Columns.Add("Name", typeof(string));
-            dt.Columns.Add("Price", typeof(int));
+            dt.Columns.Add("Price", typeof(float));
             dt.Columns.Add("Quantity", typeof(int));
             dt.Columns.Add("TotalMoney", typeof(float));
             System.Web.HttpContext.Current.Session["cart"] = dt;
@@ -35,7 +35,7 @@ namespace WebBanXeMay
                 {
                     string image = dt.Rows[0]["product_image"].ToString();
                     string name = dt.Rows[0]["product_name"].ToString();
-                    int price = Int32.Parse(dt.Rows[0]["product_price"].ToString());
+                    float price = float.Parse(dt.Rows[0]["product_price"].ToString());
                     float money = price * Quantity;
 
                     DataTable dtCart = new DataTable();
@@ -51,7 +51,7 @@ namespace WebBanXeMay
                             hdInsert = true;
                             Quantity = Quantity + Convert.ToInt32(dtCart.Rows[i]["Quantity"].ToString());
                             dtCart.Rows[i]["Quantity"] = Quantity;
-                            dtCart.Rows[i]["TotalMoney"] = Quantity * Int32.Parse(dtCart.Rows[i]["Price"].ToString());
+                            dtCart.Rows[i]["TotalMoney"] = Quantity * float.Parse(dtCart.Rows[i]["Price"].ToString());
                             System.Web.HttpContext.Current.Session["cart"] = dtCart;
                             break;
                         }

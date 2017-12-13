@@ -5,7 +5,6 @@
         <div class="about">
             <div class="container">
                 <div class="register">
-
                     <div class="loginmodal-container">
                         <h1>Đăng nhập </h1>
                         <br>
@@ -19,7 +18,7 @@
                                 <span>Mật khẩu<label>*</label></span>
                                 <asp:TextBox ID="txtPass" runat="server" TextMode="Password"></asp:TextBox>
                                 <asp:Label ID="lblPass" runat="server" Text="" ForeColor="Red" Visible="false"></asp:Label>
-                            </div>
+                                
                             <asp:LinkButton ID="lbtnDangNhap" Style="background: #df1f26; padding: 10px 20px; font-weight: bold; border: none; color: White" runat="server" OnClick="lbtnDangNhap_Click">Đăng Nhập</asp:LinkButton>
                         <%--</form>--%>
 
@@ -28,6 +27,7 @@
                         </div>
                     </div>
                     <div class="clearfix"></div>
+                        </div>
                     </div>
             </div>
         </div>
