@@ -41,7 +41,7 @@
                                                     <td><%# string.Format("{0:N0}",Eval("Price")) %></td>
                                                     <td><%# string.Format("{0:N0}",Eval("TotalMoney")) %></td>
                                                     <td class="cart_delete">
-                                                        <asp:LinkButton ID="lbtnXoa1SP" CssClass="cart_quantity_delete" ForeColor="Black"  runat="server" OnLoad="msg_Delete" CommandName="Xoa" CommandArgument=<%#Eval("PId") %> >Xóa</asp:LinkButton>
+                                                        <asp:LinkButton ID="lbtnXoa1SP" CssClass="cart_quantity_delete" ForeColor="Black"  runat="server" OnLoad="msg_Delete" CommandName="Xoa" CommandArgument=<%#Eval("PId") %> >Xóa 1SP</asp:LinkButton>
                                                     </td>
                                                     <td class ="cart_deleteAll">
                                                         <asp:LinkButton ID="lbtnDelAll" CssClass="cart_quantity_delete" ForeColor="Black"  runat="server" OnLoad="msg_Delete" CommandName="DelAll" CommandArgument=<%#Eval("PId") %> >Xóa Hết</asp:LinkButton>

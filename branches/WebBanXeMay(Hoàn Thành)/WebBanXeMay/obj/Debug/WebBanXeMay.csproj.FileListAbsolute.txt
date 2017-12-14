@@ -43,3 +43,7 @@ C:\Users\Win 8.1 VS8 X64\Desktop\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\bin\WebBa
 C:\Users\Win 8.1 VS8 X64\Desktop\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.pdb
 C:\Users\Win 8.1 VS8 X64\Desktop\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.dll
 C:\Users\Win 8.1 VS8 X64\Desktop\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.pdb
+F:\ASP.NET\branches\WebBanXeMay(Hoàn Thành)\WebBanXeMay\bin\WebBanXeMay.dll
+F:\ASP.NET\branches\WebBanXeMay(Hoàn Thành)\WebBanXeMay\bin\WebBanXeMay.pdb
+F:\ASP.NET\branches\WebBanXeMay(Hoàn Thành)\WebBanXeMay\obj\Debug\WebBanXeMay.dll
+F:\ASP.NET\branches\WebBanXeMay(Hoàn Thành)\WebBanXeMay\obj\Debug\WebBanXeMay.pdb
