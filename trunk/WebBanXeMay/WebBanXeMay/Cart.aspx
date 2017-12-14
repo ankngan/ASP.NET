@@ -1,12 +1,18 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout_master.Master" AutoEventWireup="true" CodeBehind="Cart.aspx.cs" Inherits="WebBanXeMay.Cart" %>
 
 <asp:Content ID="DetailContent" ContentPlaceHolderID="Content" runat="server">
-    <%--<form runat="server">--%>
+    
     <div class="col-md-9 content_right">
         <div class="top_grid2">
             <section id="cart_items" style="margin-top: 20px">
                 <div class="container">
-
+                    <asp:Panel ID="pnMsg" runat="server" Visible ="false">
+                        <div class="alert alert-success" id="myMsg">
+                            <strong>Thành Công!</strong>
+                            <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label>
+                            <asp:Button ID="btnTieptuc" Text="Tiếp tục" CssClass="btn btn-info" runat="server" OnClick="btnTieptuc_Click" />
+                        </div>
+                    </asp:Panel>
                     <div class="table-responsive cart_info">
 
 

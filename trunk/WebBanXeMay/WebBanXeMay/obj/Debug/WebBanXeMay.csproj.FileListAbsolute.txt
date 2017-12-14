@@ -38,3 +38,4 @@ C:\Users\nvkho\Downloads\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.dll
 C:\Users\nvkho\Downloads\WebBanXeMay\WebBanXeMay\bin\WebBanXeMay.pdb
 C:\Users\nvkho\Downloads\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.dll
 C:\Users\nvkho\Downloads\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.pdb
+F:\ASP.NET\trunk\WebBanXeMay\WebBanXeMay\obj\Debug\WebBanXeMay.csprojResolveAssemblyReference.cache
