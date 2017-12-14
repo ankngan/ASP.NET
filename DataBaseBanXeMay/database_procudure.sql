@@ -70,7 +70,6 @@ CREATE TABLE Users(
 CREATE TABLE Orders(
 	orders_id int IDENTITY(1,1) NOT NULL primary key,
 	user_id int NULL,
-	product_id int,
 	total_money float NULL,
 	quantity int NULL,
 	orders_date datetime,
@@ -79,18 +78,19 @@ CREATE TABLE Orders(
 	customer_email nvarchar(50) ,
 	customer_address nvarchar(200),
 	FOREIGN KEY (user_id) REFERENCES Users(user_id),
-	FOREIGN KEY (product_id) REFERENCES Product(product_id)
 )
-
 
 create table Orders_detail(
 	orders_detail_id int IDENTITY(1,1) not null primary key,
 	orders_id int,
-	product_id int,	
+	product_id int,
+	quantity int,
+	totalMoney float,	
 	FOREIGN KEY (product_id) REFERENCES Product(product_id),
 	FOREIGN KEY (orders_id) REFERENCES Orders(orders_id)	
 )
-go
+
+
 CREATE TABLE Contact(
 	id int IDENTITY(1,1) NOT NULL primary key,
 	name nvarchar(500),
@@ -99,6 +99,11 @@ CREATE TABLE Contact(
 )
 
 --procedure
+--Contact
+go
+create proc LoadContact
+as
+select * from Contact
 --product
 go
 create proc LoadProducts
@@ -328,7 +333,6 @@ select * from Orders where orders_id = @ID
 go
 CREATE PROCEDURE InsertOrder
 	@user_id int,
-	@product_id int,
 	@total_money float,
 	@quantity int,
 	@orders_date Datetime,
@@ -340,14 +344,13 @@ CREATE PROCEDURE InsertOrder
 AS 
 BEGIN 
 insert into orders 
-values (@user_id,@product_id, @total_money, @quantity, @orders_date, @customer_name, @customer_phone, @customer_email, @customer_address)
+values (@user_id, @total_money, @quantity, @orders_date, @customer_name, @customer_phone, @customer_email, @customer_address)
 END
 
 go
 CREATE PROCEDURE UpdateOrder
 	@orders_id int,
 	@user_id int,
-	@product_id int,
 	@total_money float,
 	@quantity int,
 	@orders_date Datetime,
@@ -359,7 +362,7 @@ CREATE PROCEDURE UpdateOrder
 AS 
 BEGIN 
 Update Orders 
-set user_id = @user_id,product_id = @product_id, total_money = @total_money, quantity = @quantity, orders_date = @orders_date, customer_name = @customer_name, customer_phone = @customer_phone, customer_email = @customer_email, customer_address = @customer_address 
+set user_id = @user_id, total_money = @total_money, quantity = @quantity, orders_date = @orders_date, customer_name = @customer_name, customer_phone = @customer_phone, customer_email = @customer_email, customer_address = @customer_address 
 where orders_id = @orders_id
 END
 
@@ -387,22 +390,26 @@ select * from Orders_detail where orders_detail_id = @ID
 go
 CREATE PROCEDURE InsertOrder_Detail
 	@orders_id int,
-	@product_id int
+	@product_id int,
+	@quantity int,
+	@totalMoney float
 	  
 AS 
 BEGIN 
 insert into Orders_detail 
-values (@orders_id,@product_id)
+values (@orders_id,@product_id,@quantity,@totalMoney)
 END
 
 go
 CREATE PROCEDURE UpdateOrder_Detail
 	@orders_detail_id int,
 	@orders_id int,
-	@product_id int
+	@product_id int,
+	@quantity int,
+	@totalMoney float
 AS 
 BEGIN 
-Update Orders_detail set orders_id = @orders_id,product_id = @product_id 
+Update Orders_detail set orders_id = @orders_id,product_id = @product_id, quantity = @quantity, totalMoney = @totalMoney 
 where orders_detail_id = @orders_detail_id
 END
 

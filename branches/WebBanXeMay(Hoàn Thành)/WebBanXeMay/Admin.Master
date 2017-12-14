@@ -63,6 +63,7 @@
                                 <li><a href="Ad_Main_detail.aspx"><i class="glyphicon glyphicon-cog"></i>Detail</a></li>
                                 <li><a href="Ad_Order.aspx"><i class="glyphicon glyphicon-cog"></i>Order</a></li>
                                 <li><a href="Ad_OrderDetail.aspx"><i class="glyphicon glyphicon-cog"></i>Order_Detail</a></li>
+                                <li><a href="Ad_Contact.aspx"><i class="glyphicon glyphicon-cog"></i>Liên hệ</a></li>
                                 <!--<li class="submenu">
                                     <a href="#">
                                         <i class="glyphicon glyphicon-list"></i>Pages

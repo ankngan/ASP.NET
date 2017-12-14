@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Ad_OrderDetail.aspx.cs" Inherits="WebBanXeMay.Ad_OrderDetail" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Ad_Contact.aspx.cs" Inherits="WebBanXeMay.Ad_Contact" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ctplAdmin" runat="server">
     <div class="col-md-10 ">
         <div class="row">
-            <h2 class="text-center">Order</h2>
+            <h2 class="text-center">Contact</h2>
         </div>
                 <div class="search">
                     <div class="col-md-12">
@@ -12,16 +12,15 @@
                         
                     </div>
                 </div>
-                <asp:Repeater ID="rptOrderDetail" runat="server">
+                <asp:Repeater ID="rptContact" runat="server">
                     <HeaderTemplate>
                         <table id="datatable" class="order-table table table-striped table-bordered" >
                             <thead>
                                 <tr>
-                                    <th>Mã đơn hàng chi tiết</th>
-                                    <th>Mã đơn hàng</th>
-                                    <th>Mã sản phẩm</th>
-                                    <th>Số lượng</th>
-                                    <th>Tổng tiền</th>
+                                    <th>Mã phản hồi</th>
+                                    <th>Tên người gửi</th>
+                                    <th>Email</th>
+                                    <th>Nội dung</th>
                                      
                                 </tr>
                             </thead>
@@ -29,11 +28,10 @@
                     <ItemTemplate>
                         <tbody>
                             <tr>
-                                <td><%#Eval("orders_detail_id")%></td>
-                                <td><%#Eval("orders_id")%></td>
-                                <td><%#Eval("product_id")%></td>
-                                <td><%#Eval("quantity")%></td>
-                                <td><%#Eval("totalMoney")%></td>
+                                <td><%#Eval("id")%></td>
+                                <td><%#Eval("name")%></td>
+                                <td><%#Eval("email")%></td>
+                                <td><%#Eval("noidung")%></td>
                             </tr>
                             <!-- xong 1 hang -->
                         </tbody>

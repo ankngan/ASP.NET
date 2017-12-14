@@ -25,7 +25,6 @@
                                 <tr>
                                     <th>Mã đơn hàng</th>
                                     <th>Mã người dùng</th>
-                                    <th>Mã sản phẩm</th>
                                      <th>Tổng tiền</th>
                                     <th>Số lượng</th>
                                     <th>Ngày đặt</th>
@@ -43,7 +42,6 @@
                             <tr>
                                 <td><%#Eval("orders_id")%></td>
                                 <td><%#Eval("user_id")%></td>
-                                <td><%#Eval("product_id")%></td>
                                  <td><%#Eval("total_money")%></td>
                                 <td><%#Eval("quantity")%></td>
                                 <td><%#Eval("orders_date")%></td>
@@ -82,19 +80,13 @@
                         <asp:TextBox CssClass="form-control" ID="txtOderIDEdit" runat="server" Enabled="false"></asp:TextBox>
                     </div>
                 </div>
-
                 <div class="form-group row">
                     <label for="inputName" class="col-sm-2 col-form-label">Mã người dùng</label>
                     <div class="col-sm-10">
-                        <asp:DropDownList CssClass="form-control" ID="drlUserIDEdit" runat="server"></asp:DropDownList>
+                        <asp:DropDownList CssClass="form-control" ID="drlUserEdit" runat="server"></asp:DropDownList>
                     </div>
                 </div>
-                 <div class="form-group row">
-                    <label for="inputName" class="col-sm-2 col-form-label">Mã sản phẩm</label>
-                    <div class="col-sm-10">
-                        <asp:DropDownList CssClass="form-control" ID="drdlProductEdit" runat="server"></asp:DropDownList>
-                    </div>
-                </div>
+                 
                <div class="form-group row">
                     <label for="inputEmail" class="col-sm-2 col-form-label">Tổng tiền</label>
                     <div class="col-sm-10">
@@ -163,12 +155,7 @@
                         <asp:DropDownList CssClass="form-control" ID="drlUserID" runat="server"></asp:DropDownList>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="inputName" class="col-sm-2 col-form-label">Mã sản phẩm</label>
-                    <div class="col-sm-10">
-                        <asp:DropDownList CssClass="form-control" ID="drdlProduct" runat="server"></asp:DropDownList>
-                    </div>
-                </div>
+               
                <div class="form-group row">
                     <label for="inputEmail" class="col-sm-2 col-form-label">Tổng tiền</label>
                     <div class="col-sm-10">

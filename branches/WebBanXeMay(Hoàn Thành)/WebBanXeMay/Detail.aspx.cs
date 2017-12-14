@@ -98,10 +98,10 @@ namespace WebBanXeMay
                     DataTable dt = new DataTable();
                     dt = DB.getDetailProductByID(converId);
                     //string date_order = DateTime.Now.ToString("MM-dd-yyyy") + " " + DateTime.Now.ToString("hh:mm:ss");
-                    if (DB.themorder(Convert.ToInt32(Session["idNguoiDung"].ToString()), converId, float.Parse(dt.Rows[0]["product_price"].ToString()), Convert.ToInt32(txtSoLuong.Text.Trim()), DateTime.Now.ToString(), Session["hienThiTen"].ToString(),Session["PhoneND"].ToString(), Session["EmailND"].ToString(), Session["AddressND"].ToString()))
+                    if (DB.themorder(Convert.ToInt32(Session["idNguoiDung"].ToString()), float.Parse(dt.Rows[0]["product_price"].ToString()), Convert.ToInt32(txtSoLuong.Text.Trim()), DateTime.Now.ToString(), Session["hienThiTen"].ToString(),Session["PhoneND"].ToString(), Session["EmailND"].ToString(), Session["AddressND"].ToString()))
                     {
                         DataTable dtOrder = (DataTable)DB.getLidtOrder();
-                        if (DB.themOrder_Dettail(Convert.ToInt32(dtOrder.Rows[(dtOrder.Rows.Count)-1]["orders_id"].ToString()), converId))
+                        if (DB.themOrder_Dettail(Convert.ToInt32(dtOrder.Rows[(dtOrder.Rows.Count) - 1]["orders_id"].ToString()), converId, Convert.ToInt32(txtSoLuong.Text.Trim()), float.Parse(dt.Rows[0]["product_price"].ToString())))
                         {
                             Response.Write("<script language=javascript>alert('Bạn vừa đặt hàng thành công!');</script>");
                             txtSoLuong.Text = "";    

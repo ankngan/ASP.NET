@@ -29,7 +29,7 @@ namespace WebBanXeMay
 
         protected void lbtnDangNhap_Click(object sender, EventArgs e)
         {
-
+            int chiSo = 0;
             DataTable dataTable = new DataTable();
             dataTable = DB.getLidtUser();
             if (!string.IsNullOrEmpty(txtUser.Text.Trim().Trim()))
@@ -41,6 +41,7 @@ namespace WebBanXeMay
                     if (dataTable.Rows.Count > 0)
                     {
                         bool kiemTra = false;
+                        
                         for (int i = 0; i < dataTable.Rows.Count; i++)
                         {
                             if ((dataTable.Rows[i]["user_name"].ToString().Equals(txtUser.Text.Trim()) || dataTable.Rows[i]["user_email"].ToString().Equals(txtUser.Text.Trim())) && dataTable.Rows[i]["user_password"].ToString().Equals(txtPass.Text.Trim()))
@@ -62,10 +63,11 @@ namespace WebBanXeMay
                                 lblPass.Visible = true;
                                 kiemTra = false;
                             }
+                            chiSo += 1; 
                         }
                         if (kiemTra == true)
                         {
-                            if (txtUser.Text.Equals("admin"))
+                            if (dataTable.Rows[chiSo]["user_name"].Equals("admin") && Convert.ToInt16( dataTable.Rows[chiSo]["user_permission"].ToString()) == 1 )
                             {
                                 Response.Redirect("Ad_User.aspx");
                             }

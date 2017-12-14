@@ -41,12 +41,7 @@ body a{
 	-moz-transition: 0.5s all;
 }
 
-a#Content_rptProductCart_lbtnDelAll_0 {
-    background: #d7252b;
-    color: #fff !important;
-    padding: 8px 8px;
-    font-size: 18px;
-}
+
 .header_top{
 	background:#f7f7f7;
 }

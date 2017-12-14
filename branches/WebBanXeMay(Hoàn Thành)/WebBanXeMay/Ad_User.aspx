@@ -52,6 +52,7 @@
                                         <asp:LinkButton CssClass="btn btn-primary btn-xs" ID="linkEdit" CommandName="Edit" CommandArgument='<%#Eval ("user_id") %>' runat="server" OnClick="linkEdit_Click"><span class="glyphicon glyphicon-pencil"></span></asp:LinkButton>
                                     </p>
                                 </td>
+                                
                                 <td class="text-center">
                                     <p data-placement="top" data-toggle="tooltip" title="Delete">
                                         <asp:LinkButton CssClass="btn btn-danger btn-xs" ID="linkDelete" CommandName="Delete" CommandArgument='<%#Eval ("user_id") %>' runat="server" OnLoad="msg_Delete"><span class="glyphicon glyphicon-trash"></span></asp:LinkButton>
@@ -66,6 +67,8 @@
                 <!-- het table -->
                     </FooterTemplate>
                 </asp:Repeater>
+                
+                
             </asp:View>
             <asp:View ID="v2" runat="server">
                 <h2 class="modal-title custom_align text-center" id="H2">Edit Detail</h2>
@@ -86,7 +89,7 @@
                     <label for="inputName" class="col-sm-2 col-form-label">Tên người dùng</label>
                     <div class="col-sm-10">
                         <asp:TextBox CssClass="form-control" ID="txtUserNameEdit" runat="server" MaxLength="100"></asp:TextBox>
-                        <asp:Label ID="lblUser" runat="server" Text="" Visible ="false"></asp:Label>
+                        <asp:Label ID="lblUserEdit" runat="server" Text="" ForeColor="Red" Visible ="false"></asp:Label>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -108,7 +111,7 @@
                     <div class="col-sm-10">
                         <asp:TextBox CssClass="form-control" ID="txtEmailEdit" runat="server" MaxLength="100"></asp:TextBox>
                         <asp:RegularExpressionValidator id="RegularExpressionValidator2" ControlToValidate="txtEmailEdit" Text='"Nhập đúng định dạng email"' ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Runat="server" /> 
-                        <asp:Label ID="lblEmail" runat="server" Text="" Visible ="false"></asp:Label>
+                        <asp:Label ID="lblEmailEdit" runat="server" Text="" ForeColor="Red" Visible ="false"></asp:Label>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -146,6 +149,7 @@
                     <label for="inputPassword" class="col-sm-2 col-form-label">Tên người dùng</label>
                     <div class="col-sm-10">
                         <asp:TextBox CssClass="form-control" ID="txtUserName" runat="server" MaxLength="100"></asp:TextBox>
+                        <asp:Label ID="lblUser" runat="server" Text="" ForeColor="Red" Visible ="false"></asp:Label>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -166,6 +170,7 @@
                     <div class="col-sm-10">
                         <asp:TextBox CssClass="form-control" ID="txtEmail" runat="server"></asp:TextBox>
                         <asp:RegularExpressionValidator id="regEmail" ControlToValidate="txtEmail" Text='"Nhập đúng định dạng email"' ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Runat="server" /> 
+                        <asp:Label ID="lblEmail" runat="server" Text="" ForeColor="Red" Visible ="false"></asp:Label>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -183,8 +188,10 @@
                 </div>
                 <asp:LinkButton ID="addNewUser" CssClass="btn btn-warning btn-lg" runat="server" OnClick="addNewUser_Click"><span class="glyphicon glyphicon-ok-sign"></span>Add</asp:LinkButton>
             </asp:View>
-
+            
         </asp:MultiView>
+        <asp:HiddenField ID="hdUser" runat="server" />
+        <asp:HiddenField ID="hdEmail" runat="server" />
     </div>
     <!-- het col-sm 10 -->
     <!-- hết nội dung-->

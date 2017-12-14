@@ -64,6 +64,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Ad_Categories.aspx" />
+    <Content Include="Ad_Contact.aspx" />
     <Content Include="Ad_Dashboard.aspx" />
     <Content Include="Ad_Employer.aspx" />
     <Content Include="Ad_Main_detail.aspx" />
@@ -162,6 +163,13 @@
     </Compile>
     <Compile Include="Ad_Categories.aspx.designer.cs">
       <DependentUpon>Ad_Categories.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ad_Contact.aspx.cs">
+      <DependentUpon>Ad_Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ad_Contact.aspx.designer.cs">
+      <DependentUpon>Ad_Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ad_Dashboard.aspx.cs">
       <DependentUpon>Ad_Dashboard.aspx</DependentUpon>

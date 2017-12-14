@@ -63,36 +63,39 @@ namespace WebBanXeMay
                     bool kiemTra = false;
                     if (dt.Rows.Count > 0)
                     {
+                        float tongTien = 0 ;
+                        int soLuong = 0;
                         for (int i = 0; i < dt.Rows.Count; i++)
+			            {
+                            tongTien +=float.Parse(dt.Rows[0]["TotalMoney"].ToString());
+			                soLuong += Convert.ToInt32(dt.Rows[i]["Quantity"].ToString());
+			            }
+                        if (DB.themorder(Convert.ToInt32(Session["idNguoiDung"].ToString()), tongTien,soLuong, DateTime.Now.ToString(), Session["hienThiTen"].ToString(), Session["PhoneND"].ToString(), Session["EmailND"].ToString(), Session["AddressND"].ToString()))
                         {
-
-                            if (DB.themorder(Convert.ToInt32(Session["idNguoiDung"].ToString()), Convert.ToInt32(dt.Rows[i]["PId"].ToString()), float.Parse(dt.Rows[i]["TotalMoney"].ToString()), Convert.ToInt32(dt.Rows[i]["Quantity"].ToString()), DateTime.Now.ToString(), Session["hienThiTen"].ToString(), Session["PhoneND"].ToString(), Session["EmailND"].ToString(), Session["AddressND"].ToString()))
+                            for (int i = 0; i < dt.Rows.Count; i++)
                             {
-
                                 DataTable dtOrder = (DataTable)DB.getLidtOrder();
-                                if (DB.themOrder_Dettail(Convert.ToInt32(dtOrder.Rows[(dtOrder.Rows.Count) - 1]["orders_id"].ToString()), Convert.ToInt32(dt.Rows[i]["PId"].ToString())))
+                                if (DB.themOrder_Dettail(Convert.ToInt32(dtOrder.Rows[(dtOrder.Rows.Count) - 1]["orders_id"].ToString()), Convert.ToInt32(dt.Rows[i]["PId"].ToString()),Convert.ToInt32(dt.Rows[i]["Quantity"].ToString()),float.Parse(dt.Rows[0]["TotalMoney"].ToString())))
                                 {
-
                                     kiemTra = true;
                                 }
-                            }
-
-                            else
-                            {
-                                kiemTra = false;
-                            }
+                             }
                         }
+                        else
+                        {
+                             kiemTra = false;
+                        }
+                        
                         if (kiemTra == true)
                         {
                             dt.Clear();
                             System.Web.HttpContext.Current.Session["cart"] = dt;
                             pnMsg.Visible = true;
-                            lblMsg.Text = "Bạn đã đặt hàng thành công!Nhấn tiếp tục để mua tiếp.";
+                            lblMsg.Text = "Bạn đã đặt hàng thành công! Nhấn tiếp tục để mua tiếp.";
 
                         }
                         else
                             Response.Write("<script language=javascript>alert('Quá trình đặt hàng thất bại !');</script>");
-
                     }
                     else
                     {

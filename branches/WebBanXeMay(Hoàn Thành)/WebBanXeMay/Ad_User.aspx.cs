@@ -53,6 +53,8 @@ namespace WebBanXeMay
                     dt = DB.getUserByID(Convert.ToInt32(e.CommandArgument.ToString()));
                     if (dt.Rows.Count>0)
                     {
+                        hdEmail.Value = dt.Rows[0]["user_email"].ToString();
+                        hdUser.Value = dt.Rows[0]["user_name"].ToString();
                         txtIDEdit.Text = dt.Rows[0]["user_id"].ToString();
                         txtNameEdit.Text = dt.Rows[0]["name"].ToString();
                         txtUserNameEdit.Text = dt.Rows[0]["user_name"].ToString();
@@ -132,16 +134,62 @@ namespace WebBanXeMay
 
         protected void updateUser_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtIDEdit.Text.Trim()) && !string.IsNullOrEmpty(txtNameEdit.Text.Trim()) && !string.IsNullOrEmpty(txtPassEdit.Text.Trim()) && !string.IsNullOrEmpty(txtUserNameEdit.Text.Trim()) && !string.IsNullOrEmpty(txtPerEdit.Text.Trim()) && !string.IsNullOrEmpty(txtAddressEdit.Text.Trim())  && !string.IsNullOrEmpty(txtEmailEdit.Text.Trim()))
+            bool userExits = false;
+            DataTable dataTable = new DataTable();
+            dataTable = DB.getLidtUser();
+
+            if (!txtUserNameEdit.Text.Equals(hdUser.Value.ToString()))
             {
-                DB.updateUser(Convert.ToInt32(txtIDEdit.Text.Trim()), txtNameEdit.Text.Trim(), txtUserNameEdit.Text.Trim(), txtAddressEdit.Text.Trim(), txtPhoneEdit.Text.Trim(), txtEmailEdit.Text.Trim(), txtPassEdit.Text.Trim(), Convert.ToInt32(txtPerEdit.Text.Trim()));
-                Response.Redirect(Request.Url.ToString());
+                foreach (DataRow dr in dataTable.Rows)
+                {
+                    if (dr["user_name"].Equals(txtUserNameEdit.Text))
+                    {
+                        lblUserEdit.Text = "Người dùng đã được đăng ký";
+                        lblUserEdit.Visible = true;
+                        userExits = true;
+                        break;
+                    }
+                }
             }
-            else
+            else if(!txtEmailEdit.Text.Equals(hdEmail.Value.ToString()))
             {
-                Response.Write("<script language=javascript>alert('Bạn phải nhập đầy đủ các trường !');</script>");
+                foreach (DataRow dr in dataTable.Rows)
+                {
+                    if (dr["user_email"].Equals(txtEmailEdit.Text))
+                    {
+                        userExits = true;
+                        lblEmailEdit.Text = "Email đã được đăng ký";
+                        lblEmailEdit.Visible = true;
+                        break;
+                    }
+                }
             }
-        }
+                
+                if (userExits == false)
+                {
+                    if (!string.IsNullOrEmpty(txtIDEdit.Text.Trim()) && !string.IsNullOrEmpty(txtNameEdit.Text.Trim()) && !string.IsNullOrEmpty(txtPassEdit.Text.Trim()) && !string.IsNullOrEmpty(txtUserNameEdit.Text.Trim()) && !string.IsNullOrEmpty(txtPerEdit.Text.Trim()) && !string.IsNullOrEmpty(txtAddressEdit.Text.Trim()) && !string.IsNullOrEmpty(txtEmailEdit.Text.Trim()))
+                    {
+                        DB.updateUser(Convert.ToInt32(txtIDEdit.Text.Trim()), txtNameEdit.Text.Trim(), txtUserNameEdit.Text.Trim(), txtAddressEdit.Text.Trim(), txtPhoneEdit.Text.Trim(), txtEmailEdit.Text.Trim(), txtPassEdit.Text.Trim(), Convert.ToInt32(txtPerEdit.Text.Trim()));
+                        Response.Redirect(Request.Url.ToString());
+                    }
+                    else
+                    {
+                        Response.Write("<script language=javascript>alert('Bạn phải nhập đầy đủ các trường !');</script>");
+                    }
+                }
+            }
+            //else 
+            //{
+            //    if (!string.IsNullOrEmpty(txtIDEdit.Text.Trim()) && !string.IsNullOrEmpty(txtNameEdit.Text.Trim()) && !string.IsNullOrEmpty(txtPassEdit.Text.Trim()) && !string.IsNullOrEmpty(txtUserNameEdit.Text.Trim()) && !string.IsNullOrEmpty(txtPerEdit.Text.Trim()) && !string.IsNullOrEmpty(txtAddressEdit.Text.Trim()) && !string.IsNullOrEmpty(txtEmailEdit.Text.Trim()))
+            //    {
+            //        DB.updateUser(Convert.ToInt32(txtIDEdit.Text.Trim()), txtNameEdit.Text.Trim(), txtUserNameEdit.Text.Trim(), txtAddressEdit.Text.Trim(), txtPhoneEdit.Text.Trim(), txtEmailEdit.Text.Trim(), txtPassEdit.Text.Trim(), Convert.ToInt32(txtPerEdit.Text.Trim()));
+            //        Response.Redirect(Request.Url.ToString());
+            //    }
+            //    else
+            //    {
+            //        Response.Write("<script language=javascript>alert('Bạn phải nhập đầy đủ các trường !');</script>");
+            //    }
+            //}
 
         
 

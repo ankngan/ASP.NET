@@ -85,13 +85,13 @@ namespace WebBanXeMay {
         protected global::System.Web.UI.WebControls.TextBox txtUserNameEdit;
         
         /// <summary>
-        /// lblUser control.
+        /// lblUserEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUser;
+        protected global::System.Web.UI.WebControls.Label lblUserEdit;
         
         /// <summary>
         /// txtAddressEdit control.
@@ -139,13 +139,13 @@ namespace WebBanXeMay {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
         
         /// <summary>
-        /// lblEmail control.
+        /// lblEmailEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmail;
+        protected global::System.Web.UI.WebControls.Label lblEmailEdit;
         
         /// <summary>
         /// txtPassEdit control.
@@ -238,6 +238,15 @@ namespace WebBanXeMay {
         protected global::System.Web.UI.WebControls.TextBox txtUserName;
         
         /// <summary>
+        /// lblUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUser;
+        
+        /// <summary>
         /// txtAddress control.
         /// </summary>
         /// <remarks>
@@ -283,6 +292,15 @@ namespace WebBanXeMay {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator regEmail;
         
         /// <summary>
+        /// lblEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEmail;
+        
+        /// <summary>
         /// txtPass control.
         /// </summary>
         /// <remarks>
@@ -317,5 +335,23 @@ namespace WebBanXeMay {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton addNewUser;
+        
+        /// <summary>
+        /// hdUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdUser;
+        
+        /// <summary>
+        /// hdEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdEmail;
     }
 }

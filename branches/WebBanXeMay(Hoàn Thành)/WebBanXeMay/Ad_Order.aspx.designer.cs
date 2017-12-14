@@ -76,22 +76,13 @@ namespace WebBanXeMay {
         protected global::System.Web.UI.WebControls.TextBox txtOderIDEdit;
         
         /// <summary>
-        /// drlUserIDEdit control.
+        /// drlUserEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drlUserIDEdit;
-        
-        /// <summary>
-        /// drdlProductEdit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drdlProductEdit;
+        protected global::System.Web.UI.WebControls.DropDownList drlUserEdit;
         
         /// <summary>
         /// txtTotalMoneyEdit control.
@@ -254,15 +245,6 @@ namespace WebBanXeMay {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drlUserID;
-        
-        /// <summary>
-        /// drdlProduct control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drdlProduct;
         
         /// <summary>
         /// txtTotalMoney control.

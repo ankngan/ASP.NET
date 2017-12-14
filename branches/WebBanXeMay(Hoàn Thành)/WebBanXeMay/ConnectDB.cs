@@ -999,7 +999,7 @@ namespace WebBanXeMay
         }
 
         //thêm order vào database
-        public bool themorder(int userid, int productID , float totalmoney, int quantity, string order_date, string ctmName, string ctmPhone,string ctmEmail, string ctmAddress)
+        public bool themorder(int userid, float totalmoney, int quantity, string order_date, string ctmName, string ctmPhone,string ctmEmail, string ctmAddress)
         {
             try
             {
@@ -1008,7 +1008,6 @@ namespace WebBanXeMay
 
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@user_id",userid);
-                cmd.Parameters.AddWithValue("@product_id", productID);
                 cmd.Parameters.AddWithValue("@total_money", totalmoney);
                 cmd.Parameters.AddWithValue("@quantity", quantity);
                 cmd.Parameters.AddWithValue("@orders_date", order_date);
@@ -1029,7 +1028,7 @@ namespace WebBanXeMay
         }
 
         //Sua Order vào database
-        public bool updateOrder(int OrderID, int userid, int productID, float totalmoney, int quantity, string order_date, string ctmName, string ctmPhone, string ctmEmail, string ctmAddress)
+        public bool updateOrder(int OrderID, int userid, float totalmoney, int quantity, string order_date, string ctmName, string ctmPhone, string ctmEmail, string ctmAddress)
         {
             try
             {
@@ -1039,7 +1038,6 @@ namespace WebBanXeMay
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@orders_id", OrderID);
                 cmd.Parameters.AddWithValue("@user_id", userid);
-                cmd.Parameters.AddWithValue("@product_id", productID);
                 cmd.Parameters.AddWithValue("@total_money", totalmoney);
                 cmd.Parameters.AddWithValue("@quantity", quantity);
                 cmd.Parameters.AddWithValue("@orders_date", order_date);
@@ -1081,6 +1079,25 @@ namespace WebBanXeMay
             }
         }
 
+        //Contact
+        public DataTable getLidtContact()
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("LoadContact", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                DataTable dataTable = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dataTable);
+                return dataTable;
+            }
+
+            finally
+            {
+                conn.Close();
+            }
+        }
 
         //Order_Detail 
         //Lấy ra danh sách Oder_Detail
@@ -1151,8 +1168,8 @@ namespace WebBanXeMay
             }
         }
 
-        //thêm order vào database
-        public bool themOrder_Dettail(int orderID, int productID)
+        //thêm order detail vào database
+        public bool themOrder_Dettail(int orderID, int productID, int quantity,float totalMoney)
         {
             try
             {
@@ -1162,7 +1179,8 @@ namespace WebBanXeMay
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@orders_id", orderID);
                 cmd.Parameters.AddWithValue("@product_id", productID);
-                
+                cmd.Parameters.AddWithValue("@quantity", quantity);
+                cmd.Parameters.AddWithValue("@totalMoney", totalMoney);
                 if (cmd.ExecuteNonQuery() > 0)
                     return true;
                 else
@@ -1176,7 +1194,7 @@ namespace WebBanXeMay
         }
 
         //Sua Order vào database
-        public bool updateOrder_Detail(int order_DetailID, int orderId, int productID)
+        public bool updateOrder_Detail(int order_DetailID, int orderId, int productID, int quantity)
         {
             try
             {
@@ -1187,7 +1205,7 @@ namespace WebBanXeMay
                 cmd.Parameters.AddWithValue("@orders_detail_id", order_DetailID);
                 cmd.Parameters.AddWithValue("@orders_id", orderId);
                 cmd.Parameters.AddWithValue("@product_id", productID);
-                
+                cmd.Parameters.AddWithValue("@quantity", quantity);
                 if (cmd.ExecuteNonQuery() > 0)
                     return true;
                 else
