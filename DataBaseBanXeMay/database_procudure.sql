@@ -90,6 +90,13 @@ create table Orders_detail(
 	FOREIGN KEY (product_id) REFERENCES Product(product_id),
 	FOREIGN KEY (orders_id) REFERENCES Orders(orders_id)	
 )
+go
+CREATE TABLE Contact(
+	id int IDENTITY(1,1) NOT NULL primary key,
+	name nvarchar(500),
+	email nvarchar(500),
+	noidung nvarchar(1000)
+)
 
 --procedure
 --product
@@ -124,7 +131,7 @@ as
 select * from Product p, Main_detail m where p.main_detail_id=m.main_detail_id and  product_id =@ProductID
 go
 create proc LoadProductByKeySearch
-@key_search int
+@key_search nvarchar(200)
 as
 select * from Product where product_name like '%' + @key_search + '%' 
 
@@ -561,6 +568,18 @@ BEGIN
 Delete from Main_detail where main_detail_id = @Main_detailId
 END
 
+-- INSERT CONTACT
+go
+CREATE PROCEDURE InsertContact
+	@name nvarchar(500),
+	@email nvarchar(500),
+	@noidung nvarchar(1000)	 
+AS 
+BEGIN 
+Insert into Contact 
+VALUES (@name, @email, @noidung) 
+END
+
 --drop table Orders_detail
 --drop table Orders 
 --drop table Product
@@ -578,7 +597,7 @@ END
 
 -- Phân Trang
 go
-Create PROCEDURE [dbo].[spPhanTrangSQL]
+Alter PROCEDURE [dbo].[spPhanTrangSQL]
 @Total int,
 @currPage int ,
 @PageSize int,
@@ -608,7 +627,7 @@ BEGIN
  END
  ELSE
  BEGIN
-  SET @SQL=@SQL+ N' <a href="?page=1">Trang d?u</a>'
+  SET @SQL=@SQL+ N' <a href="?page=1">Trang ??u</a>'
   SET @SQL=@SQL+ ' <a href="?page='+ 
    Cast((@currPage-1) AS nvarchar(4))+N'"> << </a>'
   -- X? lý tru?ng h?p (@TotalPage-@currPage)<@PageSize/2
