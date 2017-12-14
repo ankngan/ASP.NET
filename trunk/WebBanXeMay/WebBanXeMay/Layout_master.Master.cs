@@ -22,15 +22,11 @@ namespace WebBanXeMay
                 lblSL.Text = "0";
                 if (Session["cart"] !=null)
                 {
-                    int slSanPham = 0;
+                    
                     DataTable dt = (DataTable)Session["cart"];
-                    for (int i = 0; i < dt.Rows.Count; i++)
-			        {
-                        slSanPham += int.Parse(dt.Rows[i]["Quantity"].ToString());
-			        }
-                    lblSL.Text = slSanPham.ToString();
-                    lblSoLuong.Text = slSanPham.ToString();
-                }
+                    lblSoLuong.Text = dt.Rows.Count.ToString();
+                    lblSL.Text = dt.Rows.Count.ToString();
+               }
                 
                 if (Session["hienThiTen"] != null)
                 {

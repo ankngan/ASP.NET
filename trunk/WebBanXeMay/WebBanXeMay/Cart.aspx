@@ -27,7 +27,7 @@
                                             <th class="price">Giá</th>
                                             <th class="total">Tổng tiền</th>
                                             <th class="total">Xóa</th>
-                                            
+                                            <th class="total">Xóa hết</th>
                                         </tr>
                                     </thead>
                                     
@@ -41,7 +41,10 @@
                                                     <td><%# string.Format("{0:N0}",Eval("Price")) %></td>
                                                     <td><%# string.Format("{0:N0}",Eval("TotalMoney")) %></td>
                                                     <td class="cart_delete">
-                                                        <asp:LinkButton ID="lbtnXoa" CssClass="cart_quantity_delete" ForeColor="Black"  runat="server" OnLoad="msg_Delete" CommandName="Xoa" CommandArgument=<%#Eval("PId") %> >Xóa</asp:LinkButton>
+                                                        <asp:LinkButton ID="lbtnXoa1SP" CssClass="cart_quantity_delete" ForeColor="Black"  runat="server" OnLoad="msg_Delete" CommandName="Xoa" CommandArgument=<%#Eval("PId") %> >Xóa</asp:LinkButton>
+                                                    </td>
+                                                    <td class ="cart_deleteAll">
+                                                        <asp:LinkButton ID="lbtnDelAll" CssClass="cart_quantity_delete" ForeColor="Black"  runat="server" OnLoad="msg_Delete" CommandName="DelAll" CommandArgument=<%#Eval("PId") %> >Xóa Hết</asp:LinkButton>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -52,7 +55,7 @@
 
                     </div>
                     <div style="color:red; font-weight:bold; text-align:left ">
-                        <span>Tổng tiền: </span><asp:Literal ID="ltTotal" Text="" runat="server" /></div>
+                        <span>Tổng tiền: </span><asp:Literal ID="ltTotal" Text="0" runat="server" /></div>
                     <asp:LinkButton ID="lbtnThanhToan" CssClass="button_thanhtoan" runat="server" OnLoad="msg_Order" OnClick="lbtnThanhToan_Click">Thanh toán</asp:LinkButton>
                 </div>
 

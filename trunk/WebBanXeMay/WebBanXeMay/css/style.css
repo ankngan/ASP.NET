@@ -25,6 +25,7 @@ html, body{
    background:#fff; 
 }
 
+
 .image_product img.img-responsive {
     width: -webkit-fill-available;
     margin: 0px 50px;
@@ -38,6 +39,13 @@ body a{
 	-o-transition: 0.5s all;
 	-ms-transition: 0.5s all;
 	-moz-transition: 0.5s all;
+}
+
+a#Content_rptProductCart_lbtnDelAll_0 {
+    background: #d7252b;
+    color: #fff !important;
+    padding: 8px 8px;
+    font-size: 18px;
 }
 .header_top{
 	background:#f7f7f7;

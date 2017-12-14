@@ -90,5 +90,28 @@ namespace WebBanXeMay
             }
             System.Web.HttpContext.Current.Session["cart"] = dtCart;
         }
+
+        public void ShoppingCart_RemoveOne(int PId)
+        {
+            DataTable dtCart = new DataTable();
+            dtCart = (DataTable)System.Web.HttpContext.Current.Session["cart"];
+            for (int i = 0; i < dtCart.Rows.Count; i++)
+            {
+                if (dtCart.Rows[i]["PId"].ToString() == PId.ToString())
+                {
+                    if (Convert.ToInt32(dtCart.Rows[i]["Quantity"].ToString()) > 1)
+                    {
+                        dtCart.Rows[i]["Quantity"] = Convert.ToInt32(dtCart.Rows[i]["Quantity"].ToString()) - 1;
+                        break;
+                    }
+                    else 
+                    {
+                        dtCart.Rows.RemoveAt(i);
+                        break;
+                    }
+                }
+            }
+            System.Web.HttpContext.Current.Session["cart"] = dtCart;
+        }
     }
 }

@@ -39,62 +39,78 @@ namespace WebBanXeMay
         }
         protected void rptProductCart_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            cart.ShoppingCart_Remove(int.Parse(e.CommandArgument.ToString()));
-            Response.Redirect(Request.Url.ToString());
-        }
+            switch (e.CommandName)
+            {
+                case "Xoa":
+                    cart.ShoppingCart_RemoveOne(int.Parse(e.CommandArgument.ToString()));
+                    Response.Redirect(Request.Url.ToString());
+                    break;
+                case "DelAll":
+                    cart.ShoppingCart_Remove(int.Parse(e.CommandArgument.ToString()));
+                    Response.Redirect(Request.Url.ToString());
+                    break;
+                    
 
+            }
+        }
         protected void lbtnThanhToan_Click(object sender, EventArgs e)
         {
-            
-            DataTable dt = (DataTable)Session["cart"];
-            if (Session["idNguoiDung"] != null)
+            if (float.Parse(ltTotal.Text) > 0)
             {
-                bool kiemTra = false;
-                if (dt.Rows.Count > 0)
+                DataTable dt = (DataTable)Session["cart"];
+                if (Session["idNguoiDung"] != null)
                 {
-                    for (int i = 0; i < dt.Rows.Count; i++)
+                    bool kiemTra = false;
+                    if (dt.Rows.Count > 0)
                     {
-
-                        if (DB.themorder(Convert.ToInt32(Session["idNguoiDung"].ToString()), Convert.ToInt32(dt.Rows[i]["PId"].ToString()), float.Parse(dt.Rows[i]["TotalMoney"].ToString()), Convert.ToInt32(dt.Rows[i]["Quantity"].ToString()), DateTime.Now.ToString(), Session["hienThiTen"].ToString(), Session["PhoneND"].ToString(), Session["EmailND"].ToString(), Session["AddressND"].ToString()))
+                        for (int i = 0; i < dt.Rows.Count; i++)
                         {
-                            
-                            DataTable dtOrder = (DataTable)DB.getLidtOrder();
-                            if (DB.themOrder_Dettail(Convert.ToInt32(dtOrder.Rows[(dtOrder.Rows.Count) - 1]["orders_id"].ToString()), Convert.ToInt32(dt.Rows[i]["PId"].ToString())))
+
+                            if (DB.themorder(Convert.ToInt32(Session["idNguoiDung"].ToString()), Convert.ToInt32(dt.Rows[i]["PId"].ToString()), float.Parse(dt.Rows[i]["TotalMoney"].ToString()), Convert.ToInt32(dt.Rows[i]["Quantity"].ToString()), DateTime.Now.ToString(), Session["hienThiTen"].ToString(), Session["PhoneND"].ToString(), Session["EmailND"].ToString(), Session["AddressND"].ToString()))
                             {
-                                
-                                kiemTra = true;
+
+                                DataTable dtOrder = (DataTable)DB.getLidtOrder();
+                                if (DB.themOrder_Dettail(Convert.ToInt32(dtOrder.Rows[(dtOrder.Rows.Count) - 1]["orders_id"].ToString()), Convert.ToInt32(dt.Rows[i]["PId"].ToString())))
+                                {
+
+                                    kiemTra = true;
+                                }
+                            }
+
+                            else
+                            {
+                                kiemTra = false;
                             }
                         }
-
-                        else
+                        if (kiemTra == true)
                         {
-                            kiemTra = false;
+                            dt.Clear();
+                            System.Web.HttpContext.Current.Session["cart"] = dt;
+                            pnMsg.Visible = true;
+                            lblMsg.Text = "Bạn đã đặt hàng thành công!Nhấn tiếp tục để mua tiếp.";
+
                         }
-                    }
-                    if (kiemTra == true)
-                    {
-                        dt.Clear();
-                        System.Web.HttpContext.Current.Session["cart"] = dt;
-                        pnMsg.Visible = true;
-                        lblMsg.Text = "Bạn đã đặt hàng thành công!Nhấn tiếp tục để mua tiếp.";
+                        else
+                            Response.Write("<script language=javascript>alert('Quá trình đặt hàng thất bại !');</script>");
 
                     }
                     else
-                        Response.Write("<script language=javascript>alert('Quá trình đặt hàng thất bại !');</script>");
-
+                    {
+                        string message = "<script language=javascript>alert('Bạn chưa có sản phẩm nào để thanh toán!');</script>";
+                        Response.Write(message);
+                    }
                 }
                 else
                 {
-                    string message = "<script language=javascript>alert('Bạn chưa có sản phẩm nào để thanh toán!');</script>";
-                    Response.Write(message);
+                    Response.Redirect("Login.aspx");
                 }
+
             }
             else
             {
-                Response.Redirect("Login.aspx");
+                string message = "<script language=javascript>alert('Bạn chưa có sản phẩm nào để thanh toán!');</script>";
+                Response.Write(message);
             }
-            
-            
             
         }
 
